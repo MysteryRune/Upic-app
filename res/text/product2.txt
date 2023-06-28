@@ -1,0 +1,26 @@
+ASUS TUF Gaming F15 (2022)
+25,990,000
+32,490,000
+ASUS
+24
+TUF Gaming
+Xám
+Gaming
+Bộ vi xử lý Intel® Core™ i5-12450H thế hệ 12
+Bộ vi xử lý Intel® Core™ i7-12700H thế hệ 12 xung nhịp 2.3 GHz (24M Cache, xung nhịp lên đến 4.7 GHz, 14 nhân: 6 P-cores và 8 E-cores)
+NVIDIA® GeForce RTX™ 3050 Laptop GPU, 1790MHz* tại 95W (Tăng tốc xung nhịp 1740MHz +50MHz OC, 80W+15W Dynamic Boost), 4GB GDDR6
+8GB DDR5-4800 SO-DIMM, Công suất tối đa :32GB, Hỗ trợ bộ nhớ RAM kênh đôi
+15,6 inch, FHD (1920 x 1080) 16:9, Giá trị cấp IPS, màn hình chống chói, sRGB:62.50%, Adobe:47.34%, Tần số làm tươi:144Hz, Adaptive-Sync, MUX Switch + Optimus
+512GB M.2 NVMe™ PCIe® 3.0 SSD
+
+M.2 NVMe
+1 x HDMI, DisplayPort / power delivery / G-SYNC, 1 x Thunderbolt™ 4 hỗ trợ DisplayPort™
+1 x HDMI, 1 giắc cắm âm thanh combo 3,5mm, 2 x USB 3.2 Thế hệ 1 Loại A, 1x USB 3.2 Thế hệ 2 Loại C hỗ trợ, DisplayPort / power delivery / G-SYNC, 1 x cổng RJ45 LAN, 1 x Thunderbolt™ 4 hỗ trợ DisplayPort™
+Wi-Fi 6(802.11ax)+Bluetooth 5.1 (Hai băng tần) 2*2;(*Phiên bản BT có thể thay đổi theo bản nâng cấp hệ điều hành.)
+Bàn phím Chiclet Có đèn nền
+Windows 11 Home Windows 11
+35.4 x 25.1 x 2.24 ~ 2.49 cm (13.94" x 9.88" x 0.88" ~ 0.98")
+56WHrs, 4S1P, 4-cell Li-ion
+2.20 Kg (4.85 lbs)
+Tính năng bảo vệ mật khẩu admin BIOS và mật khẩu người dùng, Khóa Kensington Security Slot™, Trusted Platform Module (Firmware TPM)
+AURA sync (RGB LED)

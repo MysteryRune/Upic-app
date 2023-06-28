@@ -1,0 +1,26 @@
+ExpertBook B5 (B5302, 12th Gen Intel)
+27,070,000
+28,490,000
+ASUS
+24
+ExpertBook
+Đen
+Văn phòng, Học sinh - Sinh viên
+Core i5 , Intel Core thế hệ thứ 12
+Intel Core i5-1235U ( 1.3 GHz - 4.4GHz / 12MB / 10 nhân, 12 luồng ) i5-1235U
+Onboard Intel Iris Xe Graphics
+16GB (8GB + 8GB Onboard) DDR5 ( 1 Khe cắm
+13.3" ( 1920 x 1080 ) Full HD không cảm ứng , Màn hình chống lóa , FHD webcam
+512GB SSD M.2 NVMe /
+2 x M.2 NVMe
+M.2 NVMe
+1 x HDMI
+, 1 x USB 3.2 , 2 x Thunderbolt 4 , 1 x micro SD card slot , Audio combo
+WiFi 802.11ax (Wifi 6) , Bluetooth 5.2
+thường , không phím số , LED
+Windows 11 Home Windows 11
+30.90 x 21.06 x 1.69 cm
+4 cell 66 Wh , Pin liền
+1.2 kg
+Vân tay
+không đèn
