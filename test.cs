@@ -1,11 +1,11 @@
 namespace Upic
 {
-    public partial class testFireCloud : Form
+    public partial class test : Form
     {
 
-        public static testFireCloud? testFireCloudInstance;
+        public static test? testFireCloudInstance;
 
-        public testFireCloud()
+        public test()
         {
             testFireCloudInstance = this;
 

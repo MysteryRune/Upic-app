@@ -1,6 +1,6 @@
 ﻿namespace Upic
 {
-    partial class testFireCloud
+    partial class test
     {
         /// <summary>
         ///  Required designer variable.
