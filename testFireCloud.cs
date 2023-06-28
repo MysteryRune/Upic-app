@@ -1,8 +1,8 @@
 namespace Upic
 {
-    public partial class Form1 : Form
+    public partial class testFireCloud : Form
     {
-        public Form1()
+        public testFireCloud()
         {
             InitializeComponent();
         }
