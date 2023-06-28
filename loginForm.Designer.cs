@@ -106,7 +106,7 @@ namespace Upic
             loginAnnouncement.Controls.Add(brandStore);
             loginAnnouncement.Controls.Add(forgotPassSupport);
             loginAnnouncement.Font = new Font("UVN Bai Sau", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            loginAnnouncement.Location = new Point(500, 30);
+            loginAnnouncement.Location = new Point(550, 50);
             loginAnnouncement.Name = "loginAnnouncement";
             loginAnnouncement.Size = new Size(500, 800);
             loginAnnouncement.TabIndex = 1;
@@ -137,7 +137,7 @@ namespace Upic
             // 
             // lapWorldLogoBrand
             // 
-            lapWorldLogoBrand.Image = Upic.Properties.Resources.lapWorldIcon;
+            lapWorldLogoBrand.Image = Properties.Resources.lapWorldIcon;
             lapWorldLogoBrand.Location = new Point(146, 3);
             lapWorldLogoBrand.Name = "lapWorldLogoBrand";
             lapWorldLogoBrand.Size = new Size(60, 60);
@@ -313,7 +313,7 @@ namespace Upic
             // googleIcon
             // 
             googleIcon.BackColor = Color.White;
-            googleIcon.Image = Upic.Properties.Resources.gmailIcon;
+            googleIcon.Image = Properties.Resources.gmailIcon;
             googleIcon.Location = new Point(135, 260);
             googleIcon.Name = "googleIcon";
             googleIcon.Size = new Size(20, 20);
@@ -340,7 +340,7 @@ namespace Upic
             // facebookIcon
             // 
             facebookIcon.BackColor = Color.FromArgb(17, 120, 242);
-            facebookIcon.Image = Upic.Properties.Resources.facebookIcon;
+            facebookIcon.Image = Properties.Resources.facebookIcon;
             facebookIcon.Location = new Point(125, 198);
             facebookIcon.Name = "facebookIcon";
             facebookIcon.Size = new Size(20, 20);
@@ -393,10 +393,10 @@ namespace Upic
             // intro
             // 
             intro.Dock = DockStyle.Fill;
-            intro.Image = Upic.Properties.Resources.Intro;
+            intro.Image = Properties.Resources.Intro_2;
             intro.Location = new Point(0, 0);
             intro.Name = "intro";
-            intro.Size = new Size(1482, 853);
+            intro.Size = new Size(1600, 900);
             intro.SizeMode = PictureBoxSizeMode.Zoom;
             intro.TabIndex = 2;
             intro.TabStop = false;
@@ -410,7 +410,7 @@ namespace Upic
             signInBtt.FlatStyle = FlatStyle.Flat;
             signInBtt.Font = new Font("UVN Bai Sau", 9F, FontStyle.Bold, GraphicsUnit.Point);
             signInBtt.ForeColor = Color.White;
-            signInBtt.Location = new Point(1155, 26);
+            signInBtt.Location = new Point(1273, 26);
             signInBtt.Name = "signInBtt";
             signInBtt.Size = new Size(100, 35);
             signInBtt.TabIndex = 25;
@@ -429,7 +429,7 @@ namespace Upic
             signUpBtt2.FlatStyle = FlatStyle.Flat;
             signUpBtt2.Font = new Font("UVN Bai Sau", 9F, FontStyle.Bold, GraphicsUnit.Point);
             signUpBtt2.ForeColor = Color.White;
-            signUpBtt2.Location = new Point(1282, 26);
+            signUpBtt2.Location = new Point(1400, 26);
             signUpBtt2.Name = "signUpBtt2";
             signUpBtt2.Size = new Size(100, 35);
             signUpBtt2.TabIndex = 26;
@@ -445,7 +445,7 @@ namespace Upic
             AutoScroll = true;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1482, 853);
+            ClientSize = new Size(1600, 900);
             Controls.Add(signUpBtt2);
             Controls.Add(signInBtt);
             Controls.Add(loginAnnouncement);
