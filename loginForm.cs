@@ -78,9 +78,9 @@ namespace Upic
         {
             close_by_X_btt = false;
             Close();
-            testFireCloud.testFireCloudInstance.ShowInTaskbar = true;
-            testFireCloud.testFireCloudInstance.Visible = true;
-            testFireCloud.testFireCloudInstance.AutoScroll = true;
+            test.testFireCloudInstance.ShowInTaskbar = true;
+            test.testFireCloudInstance.Visible = true;
+            test.testFireCloudInstance.AutoScroll = true;
         }
 
         private void loginForm_FormClosedByXBtt(object sender, FormClosedEventArgs e)
@@ -88,7 +88,7 @@ namespace Upic
             if (e.CloseReason == CloseReason.UserClosing && close_by_X_btt == true)
             {
                 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                testFireCloud.testFireCloudInstance.Close();
+                test.testFireCloudInstance.Close();
                 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
