@@ -18,7 +18,10 @@ namespace Upic
         {
             close_by_X_btt = true;
             InitializeComponent();
-            /*FormClosed += new FormClosedEventHandler(loginForm_FormClosedByXBtt);*/
+
+            #pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
+            FormClosed += new FormClosedEventHandler(loginForm_FormClosedByXBtt);
+            #pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
         }
 
         private void facebookLogin_Click(object sender, EventArgs e)
@@ -73,19 +76,21 @@ namespace Upic
 
         private void loginBtt_Click(object sender, EventArgs e)
         {
-            /*close_by_X_btt = false;
+            close_by_X_btt = false;
             Close();
-            homePage.homePageInstance.ShowInTaskbar = true;
-            homePage.homePageInstance.Visible = true;
-            homePage.homePageInstance.AutoScroll = true;*/
+            testFireCloud.testFireCloudInstance.ShowInTaskbar = true;
+            testFireCloud.testFireCloudInstance.Visible = true;
+            testFireCloud.testFireCloudInstance.AutoScroll = true;
         }
 
         private void loginForm_FormClosedByXBtt(object sender, FormClosedEventArgs e)
         {
-            /*if (e.CloseReason == CloseReason.UserClosing && close_by_X_btt == true)
+            if (e.CloseReason == CloseReason.UserClosing && close_by_X_btt == true)
             {
-                homePage.homePageInstance.Close();
-            }*/
+                #pragma warning disable CS8602 // Dereference of a possibly null reference.
+                testFireCloud.testFireCloudInstance.Close();
+                #pragma warning restore CS8602 // Dereference of a possibly null reference.
+            }
         }
 
         private void loginForm_Load(object sender, EventArgs e)
