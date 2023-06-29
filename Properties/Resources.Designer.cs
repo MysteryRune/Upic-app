@@ -213,6 +213,16 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap emailIcon {
+            get {
+                object obj = ResourceManager.GetObject("emailIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ExpertBook_B5__B5302_12th_Gen_Intel_ {
             get {
                 object obj = ResourceManager.GetObject("ExpertBook_B5_(B5302_12th Gen Intel)", resourceCulture);
@@ -367,6 +377,16 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap Legion_5__15inch_Gen_7_ {
             get {
                 object obj = ResourceManager.GetObject("Legion_5_(15inch_Gen_7)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo___Brand {
+            get {
+                object obj = ResourceManager.GetObject("Logo - Brand", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
