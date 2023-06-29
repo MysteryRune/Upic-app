@@ -72,6 +72,8 @@ namespace Upic
 
         private void signUpBtt_Click(object sender, EventArgs e)
         {
+            loginBtt.Visible = false;
+            signUpBtt.Visible = false;
             loginAnnouncement.Visible = false;
             signUpPanel1.Visible = true;
         }
@@ -109,12 +111,6 @@ namespace Upic
             loginBtt.Visible = false;
             signUpBtt.Visible = false;
             loginAnnouncement.Visible = true;
-        }
-
-        private void signUpBtt2_Click(object sender, EventArgs e)
-        {
-            loginAnnouncement.Visible = false;
-            signUpPanel1.Visible = true;
         }
 
         private void nextBtt_Click(object sender, EventArgs e)

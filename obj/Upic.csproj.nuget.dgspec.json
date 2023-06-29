@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\Final\\Upic.csproj": {}
+    "D:\\Project\\C#\\Upic\\Upic.csproj": {}
   },
   "projects": {
-    "D:\\C#\\Final\\Upic.csproj": {
+    "D:\\Project\\C#\\Upic\\Upic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\Final\\Upic.csproj",
+        "projectUniqueName": "D:\\Project\\C#\\Upic\\Upic.csproj",
         "projectName": "Upic",
-        "projectPath": "D:\\C#\\Final\\Upic.csproj",
-        "packagesPath": "C:\\Users\\Acer Nitro\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\Final\\obj\\",
+        "projectPath": "D:\\Project\\C#\\Upic\\Upic.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\C#\\Upic\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Acer Nitro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     }
