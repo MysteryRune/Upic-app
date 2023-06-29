@@ -17,6 +17,31 @@ D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.pdb
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.genruntimeconfig.cache
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\ref\Upic.dll
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.testForm.resources
+<<<<<<< HEAD
+D:\C#\Final\bin\Debug\net7.0-windows\Upic.exe
+D:\C#\Final\bin\Debug\net7.0-windows\Upic.deps.json
+D:\C#\Final\bin\Debug\net7.0-windows\Upic.runtimeconfig.json
+D:\C#\Final\bin\Debug\net7.0-windows\Upic.dll
+D:\C#\Final\bin\Debug\net7.0-windows\Upic.pdb
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.csproj.AssemblyReference.cache
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.loginForm.resources
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.Properties.Resources.resources
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.Register_panel_state_1.resources
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.Register_panel_state_2.resources
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.testForm.resources
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.csproj.GenerateResource.cache
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.AssemblyInfoInputs.cache
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.AssemblyInfo.cs
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.csproj.CoreCompileInputs.cache
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.dll
+D:\C#\Final\obj\Debug\net7.0-windows\refint\Upic.dll
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.pdb
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.genruntimeconfig.cache
+D:\C#\Final\obj\Debug\net7.0-windows\ref\Upic.dll
+D:\C#\Final\obj\Debug\net7.0-windows\Upic.homepageForm.resources
+D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.homepageForm.resources
+=======
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.UPIC.resources
 D:\Project\C#\Upic\bin\Debug\net7.0-windows\Google.Api.CommonProtos.dll
 D:\Project\C#\Upic\bin\Debug\net7.0-windows\Google.Api.Gax.dll
@@ -40,3 +65,4 @@ D:\Project\C#\Upic\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.Abstrac
 D:\Project\C#\Upic\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 D:\Project\C#\Upic\bin\Debug\net7.0-windows\System.Linq.Async.dll
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.csproj.CopyComplete
+>>>>>>> main
