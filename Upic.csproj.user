@@ -7,12 +7,6 @@
     <Compile Update="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Register panel state 1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Register panel state 2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="testForm.cs">
       <SubType>Form</SubType>
     </Compile>

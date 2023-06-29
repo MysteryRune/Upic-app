@@ -467,7 +467,7 @@ namespace Upic
             signUpBtt.Text = "Đăng ký";
             signUpBtt.UseVisualStyleBackColor = false;
             signUpBtt.Visible = false;
-            signUpBtt.Click += signUpBtt2_Click;
+            signUpBtt.Click += signUpBtt_Click;
             // 
             // signUpPanel1
             // 
