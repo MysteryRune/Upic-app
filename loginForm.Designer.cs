@@ -1015,9 +1015,9 @@ namespace Upic
             communeLabel.Font = new Font("Be Vietnam Pro", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             communeLabel.Location = new Point(80, 492);
             communeLabel.Name = "communeLabel";
-            communeLabel.Size = new Size(55, 23);
+            communeLabel.Size = new Size(96, 23);
             communeLabel.TabIndex = 30;
-            communeLabel.Text = "Thị xã";
+            communeLabel.Text = "Phường/Xã";
             // 
             // finishBtt
             // 
@@ -1050,9 +1050,9 @@ namespace Upic
             provinceLabel.Font = new Font("Be Vietnam Pro", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             provinceLabel.Location = new Point(80, 370);
             provinceLabel.Name = "provinceLabel";
-            provinceLabel.Size = new Size(43, 23);
+            provinceLabel.Size = new Size(131, 23);
             provinceLabel.TabIndex = 27;
-            provinceLabel.Text = "Tỉnh";
+            provinceLabel.Text = "Thành phố/Tỉnh";
             // 
             // dateOfBirth
             // 
