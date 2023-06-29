@@ -5,5 +5,11 @@
     <Compile Update="homepageForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="testForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
