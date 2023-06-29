@@ -145,6 +145,9 @@
   <data name="googleBrandIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\googleBrandIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="searchIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\searchIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="phoneIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\phoneIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,9 +169,6 @@
   <data name="notificationIcon1White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\notificationIcon1White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Intro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\other\Intro.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="UPTO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\other\UPTO1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -183,6 +183,9 @@
   </data>
   <data name="eyeHiddenIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\eyeHiddenIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo - Brand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\Logo - Brand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Zenbook 14X OLED (UM5401, AMD Ryzen 5000 Series)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\product\Zenbook 14X OLED (UM5401, AMD Ryzen 5000 Series).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,8 +223,8 @@
   <data name="black_friday_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\other\black_friday_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="searchIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\logoImg\searchIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Intro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\other\Intro.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sale_off_banner_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\other\sale_off_banner_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -237,6 +240,9 @@
   </data>
   <data name="ASUS_Zenbook_14_OLED_UX3402" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\product\ASUS_Zenbook_14_OLED_UX3402.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Intro 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\other\Intro 2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cartIcon1White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\cartIcon1White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,7 +268,7 @@
   <data name="Laptop_Dell_Vostro_3420_i5_1235U_8GB_SSD512_(71003348)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\product\Laptop_Dell_Vostro_3420_i5_1235U_8GB_SSD512_(71003348).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Intro 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\other\Intro 2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="emailIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\emailIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

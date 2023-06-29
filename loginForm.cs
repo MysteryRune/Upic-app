@@ -16,20 +16,24 @@ namespace Upic
         private bool close_by_X_btt;
         public loginForm()
         {
-            close_by_X_btt = true;
             InitializeComponent();
 
-            #pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
+            close_by_X_btt = true;
+
+#pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
             FormClosed += new FormClosedEventHandler(loginForm_FormClosedByXBtt);
-            #pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
+#pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
         }
 
-        private void facebookLogin_Click(object sender, EventArgs e)
+        private void loginForm_Load(object sender, EventArgs e)
         {
-            /*close_by_X_btt = false;
-            Close();
-            facebookLogin form = new();
-            form.Show();*/
+            loginAnnouncement.AutoScroll = false;
+            loginAnnouncement.VerticalScroll.Maximum = 0;
+            loginAnnouncement.HorizontalScroll.Maximum = 0;
+            loginAnnouncement.AutoScroll = true;
+            loginAnnouncement.Visible = false;
+            loginBtt.Visible = true;
+            signUpBtt.Visible = true;
         }
 
         private void googleLogin_Click(object sender, EventArgs e)
@@ -68,56 +72,87 @@ namespace Upic
 
         private void signUpBtt_Click(object sender, EventArgs e)
         {
-            close_by_X_btt = false;
-            Close();
-            signupForm form = new();
-            form.Show();
+            loginAnnouncement.Visible = false;
+            signUpPanel1.Visible = true;
         }
 
         private void loginBtt_Click(object sender, EventArgs e)
         {
             close_by_X_btt = false;
             Close();
-            test.testFireCloudInstance.ShowInTaskbar = true;
-            test.testFireCloudInstance.Visible = true;
-            test.testFireCloudInstance.AutoScroll = true;
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            testForm.testFireCloudInstance.ShowInTaskbar = true;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            testForm.testFireCloudInstance.Visible = true;
+            testForm.testFireCloudInstance.AutoScroll = true;
         }
 
         private void loginForm_FormClosedByXBtt(object sender, FormClosedEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing && close_by_X_btt == true)
             {
-                #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                test.testFireCloudInstance.Close();
-                #pragma warning restore CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                testForm.testFireCloudInstance.Close();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
-        }
-
-        private void loginForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void minimizeBtt_Click(object sender, EventArgs e)
         {
             loginAnnouncement.Visible = false;
-            signInBtt.Visible = true;
-            signUpBtt2.Visible = true;
+            loginBtt.Visible = true;
+            signUpBtt.Visible = true;
         }
 
         private void signInBtt_Click(object sender, EventArgs e)
         {
-            signInBtt.Visible = false;
-            signUpBtt2.Visible = false;
+            loginBtt.Visible = false;
+            signUpBtt.Visible = false;
             loginAnnouncement.Visible = true;
         }
 
         private void signUpBtt2_Click(object sender, EventArgs e)
         {
-            close_by_X_btt = false;
-            Close();
-            signupForm form = new();
-            form.Show();
+            loginAnnouncement.Visible = false;
+            signUpPanel1.Visible = true;
+        }
+
+        private void nextBtt_Click(object sender, EventArgs e)
+        {
+            signUpPanel1.Visible = false;
+            signUpPanel2.Visible = true;
+        }
+
+        private void minimizeBtt2_Click(object sender, EventArgs e)
+        {
+            signUpPanel1.Visible = false;
+            loginBtt.Visible = true;
+            signUpBtt.Visible = true;
+        }
+
+        private void loginPanelBtt1_Click(object sender, EventArgs e)
+        {
+            signUpPanel1.Visible = false;
+            loginAnnouncement.Visible = true;
+        }
+
+        private void minimizeBtt3_Click(object sender, EventArgs e)
+        {
+            signUpPanel2.Visible = false;
+            loginBtt.Visible = true;
+            signUpBtt.Visible = true;
+        }
+
+        private void backBtt_Click(object sender, EventArgs e)
+        {
+            signUpPanel2.Visible = false;
+            signUpPanel1.Visible = true;
+        }
+
+        private void loginPanelBtt2_Click(object sender, EventArgs e)
+        {
+            signUpPanel2.Visible = false;
+            loginAnnouncement.Visible = true;
         }
     }
 }
