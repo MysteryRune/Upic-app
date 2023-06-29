@@ -97,10 +97,10 @@ namespace Upic
             close_by_X_btt = false;
             Close();
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            testForm.testFireCloudInstance.ShowInTaskbar = true;
+            homepageForm.homePageInstance.ShowInTaskbar = true;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-            testForm.testFireCloudInstance.Visible = true;
-            testForm.testFireCloudInstance.AutoScroll = true;
+            homepageForm.homePageInstance.Visible = true;
+            homepageForm.homePageInstance.AutoScroll = true;
         }
 
         private void loginForm_FormClosedByXBtt(object sender, FormClosedEventArgs e)
@@ -108,7 +108,7 @@ namespace Upic
             if (e.CloseReason == CloseReason.UserClosing && close_by_X_btt == true)
             {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                testForm.testFireCloudInstance.Close();
+                homepageForm.homePageInstance.Close();
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
