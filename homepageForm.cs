@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Upic
 {
-    public partial class homepageForm : Form
+    public partial class UPIC : Form
     {
-        public homepageForm()
+        public UPIC()
         {
             InitializeComponent();
         }
