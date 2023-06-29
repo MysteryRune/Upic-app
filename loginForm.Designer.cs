@@ -65,21 +65,21 @@ namespace Upic
             pictureBox2 = new PictureBox();
             haveAccAnnouncement = new Label();
             label2 = new Label();
-            passwordConfirmBox = new TextBox();
+            passwordConfirmBoxRegister = new TextBox();
             passwordConfirmLabel = new Label();
             nextBtt = new Button();
             phoneNumberLabel = new Label();
-            phoneNumberBox = new TextBox();
+            phoneNumberBoxRegister = new TextBox();
             userNameLabel = new Label();
-            userNameBox = new TextBox();
+            userNameBoxRegister = new TextBox();
             emailConfirmLabel = new Label();
-            emailConfirmBox = new TextBox();
+            emailConfirmBoxRegister = new TextBox();
             label3 = new Label();
-            button2 = new Button();
+            hidePasswordBtt2 = new Button();
             label4 = new Label();
-            textBox1 = new TextBox();
+            passwordBoxRegister = new TextBox();
             emailAddressLabel1 = new Label();
-            emailAddressBox = new TextBox();
+            emailAddressBoxRegister = new TextBox();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
@@ -110,7 +110,7 @@ namespace Upic
             townLabel = new Label();
             townBox = new TextBox();
             profileName = new Label();
-            textBox6 = new TextBox();
+            profileNameBox = new TextBox();
             signUpAnnoucementPanel2 = new Label();
             loginPanelBtt2 = new Button();
             genderChosenGroupBox = new GroupBox();
@@ -467,7 +467,7 @@ namespace Upic
             signUpBtt.Text = "Đăng ký";
             signUpBtt.UseVisualStyleBackColor = false;
             signUpBtt.Visible = false;
-            signUpBtt.Click += signUpBtt2_Click;
+            signUpBtt.Click += signUpBtt_Click;
             // 
             // signUpPanel1
             // 
@@ -481,21 +481,21 @@ namespace Upic
             signUpPanel1.Controls.Add(pictureBox2);
             signUpPanel1.Controls.Add(haveAccAnnouncement);
             signUpPanel1.Controls.Add(label2);
-            signUpPanel1.Controls.Add(passwordConfirmBox);
+            signUpPanel1.Controls.Add(passwordConfirmBoxRegister);
             signUpPanel1.Controls.Add(passwordConfirmLabel);
             signUpPanel1.Controls.Add(nextBtt);
             signUpPanel1.Controls.Add(phoneNumberLabel);
-            signUpPanel1.Controls.Add(phoneNumberBox);
+            signUpPanel1.Controls.Add(phoneNumberBoxRegister);
             signUpPanel1.Controls.Add(userNameLabel);
-            signUpPanel1.Controls.Add(userNameBox);
+            signUpPanel1.Controls.Add(userNameBoxRegister);
             signUpPanel1.Controls.Add(emailConfirmLabel);
-            signUpPanel1.Controls.Add(emailConfirmBox);
+            signUpPanel1.Controls.Add(emailConfirmBoxRegister);
             signUpPanel1.Controls.Add(label3);
-            signUpPanel1.Controls.Add(button2);
+            signUpPanel1.Controls.Add(hidePasswordBtt2);
             signUpPanel1.Controls.Add(label4);
-            signUpPanel1.Controls.Add(textBox1);
+            signUpPanel1.Controls.Add(passwordBoxRegister);
             signUpPanel1.Controls.Add(emailAddressLabel1);
-            signUpPanel1.Controls.Add(emailAddressBox);
+            signUpPanel1.Controls.Add(emailAddressBoxRegister);
             signUpPanel1.Controls.Add(label5);
             signUpPanel1.Controls.Add(label6);
             signUpPanel1.Controls.Add(label7);
@@ -606,14 +606,14 @@ namespace Upic
             label2.Text = "Tiếp tục với Email";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // passwordConfirmBox
+            // passwordConfirmBoxRegister
             // 
-            passwordConfirmBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            passwordConfirmBox.Location = new Point(80, 615);
-            passwordConfirmBox.Name = "passwordConfirmBox";
-            passwordConfirmBox.PasswordChar = '*';
-            passwordConfirmBox.Size = new Size(340, 33);
-            passwordConfirmBox.TabIndex = 31;
+            passwordConfirmBoxRegister.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            passwordConfirmBoxRegister.Location = new Point(80, 615);
+            passwordConfirmBoxRegister.Name = "passwordConfirmBoxRegister";
+            passwordConfirmBoxRegister.PasswordChar = '*';
+            passwordConfirmBoxRegister.Size = new Size(340, 33);
+            passwordConfirmBoxRegister.TabIndex = 1;
             // 
             // passwordConfirmLabel
             // 
@@ -621,9 +621,9 @@ namespace Upic
             passwordConfirmLabel.Font = new Font("Be Vietnam Pro SemiBold", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             passwordConfirmLabel.Location = new Point(80, 590);
             passwordConfirmLabel.Name = "passwordConfirmLabel";
-            passwordConfirmLabel.Size = new Size(152, 23);
+            passwordConfirmLabel.Size = new Size(163, 23);
             passwordConfirmLabel.TabIndex = 30;
-            passwordConfirmLabel.Text = "Xác nhận mật khẩu";
+            passwordConfirmLabel.Text = "Xác nhận mật khẩu *";
             // 
             // nextBtt
             // 
@@ -647,17 +647,17 @@ namespace Upic
             phoneNumberLabel.Font = new Font("Be Vietnam Pro SemiBold", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             phoneNumberLabel.Location = new Point(80, 410);
             phoneNumberLabel.Name = "phoneNumberLabel";
-            phoneNumberLabel.Size = new Size(108, 23);
+            phoneNumberLabel.Size = new Size(119, 23);
             phoneNumberLabel.TabIndex = 29;
-            phoneNumberLabel.Text = "Số điện thoại";
+            phoneNumberLabel.Text = "Số điện thoại *";
             // 
-            // phoneNumberBox
+            // phoneNumberBoxRegister
             // 
-            phoneNumberBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            phoneNumberBox.Location = new Point(80, 435);
-            phoneNumberBox.Name = "phoneNumberBox";
-            phoneNumberBox.Size = new Size(340, 33);
-            phoneNumberBox.TabIndex = 28;
+            phoneNumberBoxRegister.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            phoneNumberBoxRegister.Location = new Point(80, 435);
+            phoneNumberBoxRegister.Name = "phoneNumberBoxRegister";
+            phoneNumberBoxRegister.Size = new Size(340, 33);
+            phoneNumberBoxRegister.TabIndex = 2;
             // 
             // userNameLabel
             // 
@@ -665,17 +665,17 @@ namespace Upic
             userNameLabel.Font = new Font("Be Vietnam Pro SemiBold", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             userNameLabel.Location = new Point(80, 470);
             userNameLabel.Name = "userNameLabel";
-            userNameLabel.Size = new Size(120, 23);
+            userNameLabel.Size = new Size(131, 23);
             userNameLabel.TabIndex = 27;
-            userNameLabel.Text = "Tên đăng nhập";
+            userNameLabel.Text = "Tên đăng nhập *";
             // 
-            // userNameBox
+            // userNameBoxRegister
             // 
-            userNameBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            userNameBox.Location = new Point(80, 495);
-            userNameBox.Name = "userNameBox";
-            userNameBox.Size = new Size(340, 33);
-            userNameBox.TabIndex = 26;
+            userNameBoxRegister.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            userNameBoxRegister.Location = new Point(80, 495);
+            userNameBoxRegister.Name = "userNameBoxRegister";
+            userNameBoxRegister.Size = new Size(340, 33);
+            userNameBoxRegister.TabIndex = 2;
             // 
             // emailConfirmLabel
             // 
@@ -683,17 +683,17 @@ namespace Upic
             emailConfirmLabel.Font = new Font("Be Vietnam Pro SemiBold", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             emailConfirmLabel.Location = new Point(80, 350);
             emailConfirmLabel.Name = "emailConfirmLabel";
-            emailConfirmLabel.Size = new Size(175, 23);
+            emailConfirmLabel.Size = new Size(186, 23);
             emailConfirmLabel.TabIndex = 25;
-            emailConfirmLabel.Text = "Xác nhận địa chỉ Email";
+            emailConfirmLabel.Text = "Xác nhận địa chỉ Email *";
             // 
-            // emailConfirmBox
+            // emailConfirmBoxRegister
             // 
-            emailConfirmBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            emailConfirmBox.Location = new Point(80, 375);
-            emailConfirmBox.Name = "emailConfirmBox";
-            emailConfirmBox.Size = new Size(340, 33);
-            emailConfirmBox.TabIndex = 24;
+            emailConfirmBoxRegister.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            emailConfirmBoxRegister.Location = new Point(80, 375);
+            emailConfirmBoxRegister.Name = "emailConfirmBoxRegister";
+            emailConfirmBoxRegister.Size = new Size(340, 33);
+            emailConfirmBoxRegister.TabIndex = 2;
             // 
             // label3
             // 
@@ -704,19 +704,21 @@ namespace Upic
             label3.Size = new Size(400, 2);
             label3.TabIndex = 23;
             // 
-            // button2
+            // hidePasswordBtt2
             // 
-            button2.BackColor = Color.White;
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(386, 558);
-            button2.Name = "button2";
-            button2.Size = new Size(29, 27);
-            button2.TabIndex = 14;
-            button2.UseVisualStyleBackColor = false;
+            hidePasswordBtt2.BackColor = Color.White;
+            hidePasswordBtt2.BackgroundImage = Properties.Resources.eyeHiddenIcon;
+            hidePasswordBtt2.BackgroundImageLayout = ImageLayout.Zoom;
+            hidePasswordBtt2.Cursor = Cursors.Hand;
+            hidePasswordBtt2.FlatAppearance.BorderSize = 0;
+            hidePasswordBtt2.FlatStyle = FlatStyle.Flat;
+            hidePasswordBtt2.ForeColor = Color.Transparent;
+            hidePasswordBtt2.Location = new Point(386, 558);
+            hidePasswordBtt2.Name = "hidePasswordBtt2";
+            hidePasswordBtt2.Size = new Size(29, 27);
+            hidePasswordBtt2.TabIndex = 14;
+            hidePasswordBtt2.UseVisualStyleBackColor = false;
+            hidePasswordBtt2.Click += hidePasswordBtt2_Click;
             // 
             // label4
             // 
@@ -724,18 +726,18 @@ namespace Upic
             label4.Font = new Font("Be Vietnam Pro SemiBold", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(80, 530);
             label4.Name = "label4";
-            label4.Size = new Size(80, 23);
+            label4.Size = new Size(91, 23);
             label4.TabIndex = 13;
-            label4.Text = "Mật khẩu";
+            label4.Text = "Mật khẩu *";
             // 
-            // textBox1
+            // passwordBoxRegister
             // 
-            textBox1.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(80, 555);
-            textBox1.Name = "textBox1";
-            textBox1.PasswordChar = '*';
-            textBox1.Size = new Size(340, 33);
-            textBox1.TabIndex = 12;
+            passwordBoxRegister.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            passwordBoxRegister.Location = new Point(80, 555);
+            passwordBoxRegister.Name = "passwordBoxRegister";
+            passwordBoxRegister.PasswordChar = '*';
+            passwordBoxRegister.Size = new Size(340, 33);
+            passwordBoxRegister.TabIndex = 2;
             // 
             // emailAddressLabel1
             // 
@@ -743,17 +745,17 @@ namespace Upic
             emailAddressLabel1.Font = new Font("Be Vietnam Pro SemiBold", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             emailAddressLabel1.Location = new Point(80, 290);
             emailAddressLabel1.Name = "emailAddressLabel1";
-            emailAddressLabel1.Size = new Size(105, 23);
+            emailAddressLabel1.Size = new Size(116, 23);
             emailAddressLabel1.TabIndex = 11;
-            emailAddressLabel1.Text = "Địa chỉ Email";
+            emailAddressLabel1.Text = "Địa chỉ Email *";
             // 
-            // emailAddressBox
+            // emailAddressBoxRegister
             // 
-            emailAddressBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            emailAddressBox.Location = new Point(80, 315);
-            emailAddressBox.Name = "emailAddressBox";
-            emailAddressBox.Size = new Size(340, 33);
-            emailAddressBox.TabIndex = 10;
+            emailAddressBoxRegister.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            emailAddressBoxRegister.Location = new Point(80, 315);
+            emailAddressBoxRegister.Name = "emailAddressBoxRegister";
+            emailAddressBoxRegister.Size = new Size(340, 33);
+            emailAddressBoxRegister.TabIndex = 1;
             // 
             // label5
             // 
@@ -834,7 +836,7 @@ namespace Upic
             signUpPanel2.Controls.Add(townLabel);
             signUpPanel2.Controls.Add(townBox);
             signUpPanel2.Controls.Add(profileName);
-            signUpPanel2.Controls.Add(textBox6);
+            signUpPanel2.Controls.Add(profileNameBox);
             signUpPanel2.Controls.Add(signUpAnnoucementPanel2);
             signUpPanel2.Controls.Add(loginPanelBtt2);
             signUpPanel2.Controls.Add(genderChosenGroupBox);
@@ -1005,7 +1007,6 @@ namespace Upic
             communeBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Bold, GraphicsUnit.Point);
             communeBox.Location = new Point(80, 517);
             communeBox.Name = "communeBox";
-            communeBox.PasswordChar = '*';
             communeBox.Size = new Size(340, 33);
             communeBox.TabIndex = 31;
             // 
@@ -1015,9 +1016,9 @@ namespace Upic
             communeLabel.Font = new Font("Be Vietnam Pro", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             communeLabel.Location = new Point(80, 492);
             communeLabel.Name = "communeLabel";
-            communeLabel.Size = new Size(55, 23);
+            communeLabel.Size = new Size(96, 23);
             communeLabel.TabIndex = 30;
-            communeLabel.Text = "Thị xã";
+            communeLabel.Text = "Phường/Xã";
             // 
             // finishBtt
             // 
@@ -1033,6 +1034,7 @@ namespace Upic
             finishBtt.TabIndex = 15;
             finishBtt.Text = "HOÀN THÀNH";
             finishBtt.UseVisualStyleBackColor = false;
+            finishBtt.Click += finishBtt_Click;
             // 
             // genderLabel
             // 
@@ -1040,9 +1042,9 @@ namespace Upic
             genderLabel.Font = new Font("UVN Bai Sau", 9F, FontStyle.Bold, GraphicsUnit.Point);
             genderLabel.Location = new Point(80, 300);
             genderLabel.Name = "genderLabel";
-            genderLabel.Size = new Size(67, 21);
+            genderLabel.Size = new Size(78, 21);
             genderLabel.TabIndex = 29;
-            genderLabel.Text = "Giới tính";
+            genderLabel.Text = "Giới tính *";
             // 
             // provinceLabel
             // 
@@ -1050,9 +1052,9 @@ namespace Upic
             provinceLabel.Font = new Font("Be Vietnam Pro", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             provinceLabel.Location = new Point(80, 370);
             provinceLabel.Name = "provinceLabel";
-            provinceLabel.Size = new Size(43, 23);
+            provinceLabel.Size = new Size(131, 23);
             provinceLabel.TabIndex = 27;
-            provinceLabel.Text = "Tỉnh";
+            provinceLabel.Text = "Thành phố/Tỉnh";
             // 
             // dateOfBirth
             // 
@@ -1060,9 +1062,9 @@ namespace Upic
             dateOfBirth.Font = new Font("Be Vietnam Pro", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             dateOfBirth.Location = new Point(80, 210);
             dateOfBirth.Name = "dateOfBirth";
-            dateOfBirth.Size = new Size(155, 23);
+            dateOfBirth.Size = new Size(166, 23);
             dateOfBirth.TabIndex = 25;
-            dateOfBirth.Text = "Ngày sinh của bạn?";
+            dateOfBirth.Text = "Ngày sinh của bạn? *";
             // 
             // line4Panel2
             // 
@@ -1088,7 +1090,6 @@ namespace Upic
             townBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Bold, GraphicsUnit.Point);
             townBox.Location = new Point(80, 455);
             townBox.Name = "townBox";
-            townBox.PasswordChar = '*';
             townBox.Size = new Size(340, 33);
             townBox.TabIndex = 12;
             // 
@@ -1098,17 +1099,17 @@ namespace Upic
             profileName.Font = new Font("Be Vietnam Pro", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             profileName.Location = new Point(80, 150);
             profileName.Name = "profileName";
-            profileName.Size = new Size(237, 23);
+            profileName.Size = new Size(248, 23);
             profileName.TabIndex = 11;
-            profileName.Text = "Tên hồ sơ người dùng của bạn?";
+            profileName.Text = "Tên hồ sơ người dùng của bạn? *";
             // 
-            // textBox6
+            // profileNameBox
             // 
-            textBox6.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox6.Location = new Point(80, 175);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(340, 33);
-            textBox6.TabIndex = 10;
+            profileNameBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            profileNameBox.Location = new Point(80, 175);
+            profileNameBox.Name = "profileNameBox";
+            profileNameBox.Size = new Size(340, 33);
+            profileNameBox.TabIndex = 10;
             // 
             // signUpAnnoucementPanel2
             // 
@@ -1193,9 +1194,9 @@ namespace Upic
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1600, 900);
+            Controls.Add(loginAnnouncement);
             Controls.Add(signUpPanel2);
             Controls.Add(signUpPanel1);
-            Controls.Add(loginAnnouncement);
             Controls.Add(signUpBtt);
             Controls.Add(loginBtt);
             Controls.Add(intro);
@@ -1261,21 +1262,21 @@ namespace Upic
         private PictureBox pictureBox2;
         private Label haveAccAnnouncement;
         private Label label2;
-        private TextBox passwordConfirmBox;
+        private TextBox passwordConfirmBoxRegister;
         private Label passwordConfirmLabel;
         private Button nextBtt;
         private Label phoneNumberLabel;
-        private TextBox phoneNumberBox;
+        private TextBox phoneNumberBoxRegister;
         private Label userNameLabel;
-        private TextBox userNameBox;
+        private TextBox userNameBoxRegister;
         private Label emailConfirmLabel;
-        private TextBox emailConfirmBox;
+        private TextBox emailConfirmBoxRegister;
         private Label label3;
-        private Button button2;
+        private Button hidePasswordBtt2;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox passwordBoxRegister;
         private Label emailAddressLabel1;
-        private TextBox emailAddressBox;
+        private TextBox emailAddressBoxRegister;
         private Label label5;
         private Label label6;
         private Label label7;
@@ -1306,7 +1307,7 @@ namespace Upic
         private Label townLabel;
         private TextBox townBox;
         private Label profileName;
-        private TextBox textBox6;
+        private TextBox profileNameBox;
         private Label signUpAnnoucementPanel2;
         private Button loginPanelBtt2;
         private GroupBox genderChosenGroupBox;

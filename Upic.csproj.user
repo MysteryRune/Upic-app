@@ -2,16 +2,16 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Compile Update="homepageForm.cs">
+<<<<<<< HEAD
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="loginForm.cs">
+=======
+>>>>>>> main
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="loginForm.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Register panel state 1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Register panel state 2.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="testForm.cs">
       <SubType>Form</SubType>

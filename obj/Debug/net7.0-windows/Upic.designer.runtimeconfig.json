@@ -13,6 +13,7 @@
     ],
     "additionalProbingPaths": [
 <<<<<<< HEAD
+<<<<<<< HEAD
       "C:\\Users\\ASUS\\.dotnet\\store\\|arch|\\|tfm|",
 =======
       "C:\\Users\\Acer Nitro\\.dotnet\\store\\|arch|\\|tfm|",
@@ -20,6 +21,11 @@
 >>>>>>> d27f8ebf8cfeecfd579bd797d432a812abfd9290
       "C:\\Users\\Acer Nitro\\.nuget\\packages"
 =======
+      "C:\\Users\\ASUS\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+>>>>>>> main
+=======
+      "C:\\Users\\ASUS\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\ASUS\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
 >>>>>>> main
