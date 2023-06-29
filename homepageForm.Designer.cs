@@ -386,6 +386,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "homepageForm";
             Text = "Upic";
+            Load += homepageForm_Load;
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).EndInit();
             panelHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pb_friends).EndInit();
