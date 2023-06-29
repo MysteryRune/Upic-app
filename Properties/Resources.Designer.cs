@@ -83,6 +83,16 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap accountIcon1 {
+            get {
+                object obj = ResourceManager.GetObject("accountIcon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap accountIconWhite {
             get {
                 object obj = ResourceManager.GetObject("accountIconWhite", resourceCulture);
@@ -136,6 +146,16 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap ASUS_Zenbook_14_OLED_UX3402 {
             get {
                 object obj = ResourceManager.GetObject("ASUS_Zenbook_14_OLED_UX3402", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap back {
+            get {
+                object obj = ResourceManager.GetObject("back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,6 +243,26 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exit {
+            get {
+                object obj = ResourceManager.GetObject("exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exit_fill {
+            get {
+                object obj = ResourceManager.GetObject("exit_fill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ExpertBook_B5__B5302_12th_Gen_Intel_ {
             get {
                 object obj = ResourceManager.GetObject("ExpertBook_B5_(B5302_12th Gen Intel)", resourceCulture);
@@ -263,6 +303,26 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap friends_fill {
+            get {
+                object obj = ResourceManager.GetObject("friends_fill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap friends_shape_line {
+            get {
+                object obj = ResourceManager.GetObject("friends_shape_line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gmailIcon {
             get {
                 object obj = ResourceManager.GetObject("gmailIcon", resourceCulture);
@@ -286,6 +346,26 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap historyIcon {
             get {
                 object obj = ResourceManager.GetObject("historyIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_shape_line {
+            get {
+                object obj = ResourceManager.GetObject("home_shape_line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image {
+            get {
+                object obj = ResourceManager.GetObject("image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -394,9 +474,39 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo___Brand1 {
+            get {
+                object obj = ResourceManager.GetObject("Logo - Brand1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoutIcon1 {
             get {
                 object obj = ResourceManager.GetObject("logoutIcon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mess_fill {
+            get {
+                object obj = ResourceManager.GetObject("mess_fill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mess_shape_line {
+            get {
+                object obj = ResourceManager.GetObject("mess_shape_line", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -434,6 +544,26 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap noti_fill {
+            get {
+                object obj = ResourceManager.GetObject("noti_fill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap notificationIcon1 {
+            get {
+                object obj = ResourceManager.GetObject("notificationIcon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap notificationIcon1White {
             get {
                 object obj = ResourceManager.GetObject("notificationIcon1White", resourceCulture);
@@ -447,6 +577,16 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap phoneIcon {
             get {
                 object obj = ResourceManager.GetObject("phoneIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap post_bg {
+            get {
+                object obj = ResourceManager.GetObject("post_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -494,6 +634,16 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search_bg {
+            get {
+                object obj = ResourceManager.GetObject("search_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap searchIcon1 {
             get {
                 object obj = ResourceManager.GetObject("searchIcon1", resourceCulture);
@@ -507,6 +657,26 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap supportIcon1White {
             get {
                 object obj = ResourceManager.GetObject("supportIcon1White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upic_logo {
+            get {
+                object obj = ResourceManager.GetObject("upic_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload {
+            get {
+                object obj = ResourceManager.GetObject("upload", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
