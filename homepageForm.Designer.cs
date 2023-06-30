@@ -368,11 +368,13 @@
             // 
             // flp_newfeeds
             // 
+            flp_newfeeds.AutoScroll = true;
             flp_newfeeds.BackColor = Color.White;
             flp_newfeeds.Controls.Add(panel_before_post);
+            flp_newfeeds.FlowDirection = FlowDirection.TopDown;
             flp_newfeeds.Location = new Point(199, 87);
             flp_newfeeds.Name = "flp_newfeeds";
-            flp_newfeeds.Size = new Size(1077, 813);
+            flp_newfeeds.Size = new Size(1080, 813);
             flp_newfeeds.TabIndex = 1;
             // 
             // homepageForm
