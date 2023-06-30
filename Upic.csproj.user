@@ -2,16 +2,10 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="friendsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="homepageForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="loginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="profileForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="testForm.cs">
