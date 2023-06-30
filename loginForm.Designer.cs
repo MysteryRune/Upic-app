@@ -1194,8 +1194,8 @@ namespace Upic
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1600, 900);
-            Controls.Add(signUpPanel2);
             Controls.Add(loginAnnouncement);
+            Controls.Add(signUpPanel2);
             Controls.Add(signUpPanel1);
             Controls.Add(signUpBtt);
             Controls.Add(loginBtt);
