@@ -98,7 +98,7 @@ namespace Upic
             signUpPanel1.Visible = true;
         }
 
-        private void loginBtt_Click(object sender, EventArgs e)
+        private void navigateToHomePage()
         {
             close_by_X_btt = false;
             Close();
@@ -107,6 +107,84 @@ namespace Upic
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             homepageForm.homePageInstance.Visible = true;
             homepageForm.homePageInstance.AutoScroll = true;
+        }
+
+        private bool checkDataFieldValidLoginPanel()
+        {
+            if (emailOrUserNameBox.Text.Length < 1 || passwordBox.Text.Length < 1)
+            {
+                string message = "Vui lòng nhập đầy đủ các trường thông tin!";
+                MessageBox.Show(message, "Dữ liệu không hợp lệ");
+                return false;
+            }
+            return true;
+        }
+
+        private async void loginBtt_Click(object sender, EventArgs e)
+        {
+            // ERROR CODE
+            // "UPerror_1": User not exist
+            // "UPerror_2": Wrong password
+            // ------
+
+            String userName = emailOrUserNameBox.Text;
+            String password = passwordBox.Text;
+            database = FirestoreDb.Create("social-app-c-sharp-programming");
+            CollectionReference collRef = database.Collection("Users");
+            var email = new EmailAddressAttribute();
+            //DocumentReference docRef = collRef.Document(userName);
+            //DocumentSnapshot snap = await docRef.GetSnapshotAsync();
+
+            if (!checkDataFieldValidLoginPanel())
+            {
+                return;
+            }
+
+            if (email.IsValid(userName))
+            {
+                Query queryRef = collRef.WhereEqualTo("Email", userName);
+                QuerySnapshot querySnap = await queryRef.GetSnapshotAsync();
+                if (querySnap.Count != 0)
+                {
+                    DocumentSnapshot docSnap = querySnap[0];
+                    Dictionary<String, Object> userInfo = docSnap.ToDictionary();
+                    if (password == userInfo["Password"].ToString())
+                    {
+                        MessageBox.Show("Đăng nhập thành công", "Thông báo");
+                        navigateToHomePage();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sai mật khẩu, vui lòng nhập lại", "Thông báo");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Người dùng không tồn tại", "Thông báo");
+                }
+            }
+            else
+            {
+                DocumentReference docRef = collRef.Document(userName);
+                DocumentSnapshot docSnap = await docRef.GetSnapshotAsync();
+                if (docSnap.Exists)
+                {
+                    Dictionary<String, Object> userInfo = docSnap.ToDictionary();
+                    if (password == userInfo["Password"].ToString())
+                    {
+                        MessageBox.Show("Đăng nhập thành công", "Thông báo");
+                        navigateToHomePage();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sai mật khẩu, vui lòng nhập lại", "Thông báo");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Người dùng không tồn tại", "Thông báo");
+                }
+            }
         }
 
         private void loginForm_FormClosedByXBtt(object sender, FormClosedEventArgs e)
