@@ -357,6 +357,7 @@
             // panel_bg
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
+            panel_bg.Controls.Add(panelHeader);
             panel_bg.Controls.Add(flp_newfeeds);
             panel_bg.Controls.Add(panel_create_post);
             panel_bg.Dock = DockStyle.Fill;
@@ -383,7 +384,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 244, 244);
             ClientSize = new Size(1600, 900);
-            Controls.Add(panelHeader);
             Controls.Add(panel_bg);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "homepageForm";
