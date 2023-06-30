@@ -93,6 +93,16 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap accountIcon2 {
+            get {
+                object obj = ResourceManager.GetObject("accountIcon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap accountIconWhite {
             get {
                 object obj = ResourceManager.GetObject("accountIconWhite", resourceCulture);
@@ -216,6 +226,16 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap cartIcon1White {
             get {
                 object obj = ResourceManager.GetObject("cartIcon1White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_bg {
+            get {
+                object obj = ResourceManager.GetObject("edit_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

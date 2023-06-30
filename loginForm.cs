@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -10,8 +11,10 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 using Google.Cloud.Firestore;
+using Google.Cloud.Firestore.V1;
 using static Google.Api.ResourceDescriptor.Types;
 
 namespace Upic
@@ -19,6 +22,7 @@ namespace Upic
     public partial class loginForm : Form
     {
         private bool close_by_X_btt;
+        //private String errorCode = "Lỗi bất đồng bộ kìa!!!";
         FirestoreDb database;
 
         public loginForm()
@@ -48,6 +52,8 @@ namespace Upic
             loginAnnouncement.Visible = false;
             loginBtt.Visible = true;
             signUpBtt.Visible = true;
+
+            connectFirestoreDatabase();
         }
 
         private void googleLogin_Click(object sender, EventArgs e)
@@ -92,15 +98,93 @@ namespace Upic
             signUpPanel1.Visible = true;
         }
 
-        private void loginBtt_Click(object sender, EventArgs e)
+        private void navigateToHomePage()
         {
             close_by_X_btt = false;
             Close();
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            testForm.testFireCloudInstance.ShowInTaskbar = true;
+            homepageForm.homePageInstance.ShowInTaskbar = true;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-            testForm.testFireCloudInstance.Visible = true;
-            testForm.testFireCloudInstance.AutoScroll = true;
+            homepageForm.homePageInstance.Visible = true;
+            homepageForm.homePageInstance.AutoScroll = true;
+        }
+
+        private bool checkDataFieldValidLoginPanel()
+        {
+            if (emailOrUserNameBox.Text.Length < 1 || passwordBox.Text.Length < 1)
+            {
+                string message = "Vui lòng nhập đầy đủ các trường thông tin!";
+                MessageBox.Show(message, "Dữ liệu không hợp lệ");
+                return false;
+            }
+            return true;
+        }
+
+        private async void loginBtt_Click(object sender, EventArgs e)
+        {
+            // ERROR CODE
+            // "UPerror_1": User not exist
+            // "UPerror_2": Wrong password
+            // ------
+
+            String userName = emailOrUserNameBox.Text;
+            String password = passwordBox.Text;
+            database = FirestoreDb.Create("social-app-c-sharp-programming");
+            CollectionReference collRef = database.Collection("Users");
+            var email = new EmailAddressAttribute();
+            //DocumentReference docRef = collRef.Document(userName);
+            //DocumentSnapshot snap = await docRef.GetSnapshotAsync();
+
+            if (!checkDataFieldValidLoginPanel())
+            {
+                return;
+            }
+
+            if (email.IsValid(userName))
+            {
+                Query queryRef = collRef.WhereEqualTo("Email", userName);
+                QuerySnapshot querySnap = await queryRef.GetSnapshotAsync();
+                if (querySnap.Count != 0)
+                {
+                    DocumentSnapshot docSnap = querySnap[0];
+                    Dictionary<String, Object> userInfo = docSnap.ToDictionary();
+                    if (password == userInfo["Password"].ToString())
+                    {
+                        MessageBox.Show("Đăng nhập thành công", "Thông báo");
+                        navigateToHomePage();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sai mật khẩu, vui lòng nhập lại", "Thông báo");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Người dùng không tồn tại", "Thông báo");
+                }
+            }
+            else
+            {
+                DocumentReference docRef = collRef.Document(userName);
+                DocumentSnapshot docSnap = await docRef.GetSnapshotAsync();
+                if (docSnap.Exists)
+                {
+                    Dictionary<String, Object> userInfo = docSnap.ToDictionary();
+                    if (password == userInfo["Password"].ToString())
+                    {
+                        MessageBox.Show("Đăng nhập thành công", "Thông báo");
+                        navigateToHomePage();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sai mật khẩu, vui lòng nhập lại", "Thông báo");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Người dùng không tồn tại", "Thông báo");
+                }
+            }
         }
 
         private void loginForm_FormClosedByXBtt(object sender, FormClosedEventArgs e)
@@ -108,7 +192,7 @@ namespace Upic
             if (e.CloseReason == CloseReason.UserClosing && close_by_X_btt == true)
             {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                testForm.testFireCloudInstance.Close();
+                homepageForm.homePageInstance.Close();
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
@@ -244,11 +328,104 @@ namespace Upic
             return true;
         }
 
-        private void createUserOnDatabase(String username, String password, String phonenum, String email, String profileName, String sex, String dateOfBirth, String address, String avatar = "default", String story = "", String hobby = "")
+        private async Task<String> checkValidDataInDatabase(String[] Data)
         {
+            // ERROR CODE:
+            // DBreader_0: Nothing's happening
+            // DBreader_1: User name existed
+            // DBreader_3: Phone number existed
+            // DBreader_4: Email existed
+            // ------
+
+            database = FirestoreDb.Create("social-app-c-sharp-programming");
+            CollectionReference usersColl = database.Collection("Users");
+            DocumentReference docRef = usersColl.Document(Data[0]);
+            DocumentSnapshot snap = await docRef.GetSnapshotAsync();
+
+            if (snap.Exists)
+            {
+                return "DBreader_1";
+                //errorCode = "DBreader_1";
+            }
+            else
+            {
+                Query Qref = usersColl.WhereEqualTo("Phone number", Data[1]);
+                QuerySnapshot snap2 = await Qref.GetSnapshotAsync();
+
+                if (snap2.Count > 0)
+                {
+                    return "DBreader_3";
+                    //errorCode = "DBreader_3";
+                }
+
+                Qref = usersColl.WhereEqualTo("Email", Data[2]);
+                snap2 = await Qref.GetSnapshotAsync();
+                if (snap2.Count > 0)
+                {
+                    return "DBreader_4";
+                    //errorCode = "DBreader_4";
+                }
+            }
+            return "DBreader_0";
         }
 
-        private void finishBtt_Click(object sender, EventArgs e)
+        private async Task<String> createUserOnDatabase(String username, String password, String phonenum, String email, String profileName, String sex, String dateOfBirth, String address, String avatar = "default", String story = "", String hobby = "")
+        {
+            // ERROR CODE:
+            // DBadd_0: Add item to Database successful
+            // DBadd_1: Add item to Database fail
+            // ------
+
+            database = FirestoreDb.Create("social-app-c-sharp-programming");
+            CollectionReference usersColl = database.Collection("Users");
+            String[] Data = { username, phonenum, email };
+
+            //String errorCode = checkValidDataInDatabase(Data).Result;
+            Task<String> task = checkValidDataInDatabase(Data);
+            String errorCode = await task;
+            if (errorCode != "DBreader_0")
+            {
+                switch (errorCode)
+                {
+                    case "DBreader_1":
+                        {
+                            MessageBox.Show(errorCode + ": " + "Tên đăng nhập (Username) bạn nhập đã được sữ dụng");
+                            break;
+                        }
+                    case "DBreader_3":
+                        {
+                            MessageBox.Show(errorCode + ": " + "Số điện thoại bạn nhập đã được sử dụng");
+                            break;
+                        }
+                    case "DBreader_4":
+                        {
+                            MessageBox.Show(errorCode + ": " + "Email bạn nhập đã được sử dụng");
+                            break;
+                        }
+                }
+                return "DBadd_1";
+            }
+            else
+            {
+                Dictionary<String, Object> userInfo = new Dictionary<String, Object>();
+                userInfo.Add("Username", username);
+                userInfo.Add("Password", password);
+                userInfo.Add("Phone number", phonenum);
+                userInfo.Add("Email", email);
+                userInfo.Add("Profile name", profileName);
+                userInfo.Add("Sex", sex);
+                userInfo.Add("Date of Birth", dateOfBirth);
+                userInfo.Add("Address", address);
+                userInfo.Add("Avatar profile", avatar);
+                userInfo.Add("Story", story);
+                userInfo.Add("Hobby", hobby);
+                await usersColl.Document(username).SetAsync(userInfo);
+                MessageBox.Show("Tạo tài khoản thành công");
+            }
+            return "DBadd_0";
+        }
+
+        private async void finishBtt_Click(object sender, EventArgs e)
         {
             if (checkDataFieldValidSignUpPanel2())
             {
@@ -277,11 +454,15 @@ namespace Upic
                     sex_tmp = "Không tiết lộ";
                 }
 
-                createUserOnDatabase(username_tmp, password_tmp, phonenum_tmp, email_tmp, profileName_tmp, sex_tmp, dateOfBirth_tmp, address_tmp, avatar_tmp, story_tmp, hobby_tmp);
-                signUpPanel2.Visible = false;
-                emailOrUserNameBox.Text = username_tmp;
-                passwordBox.Text = password_tmp;
-                loginAnnouncement.Visible = true;
+                Task<String> task = createUserOnDatabase(username_tmp, password_tmp, phonenum_tmp, email_tmp, profileName_tmp, sex_tmp, dateOfBirth_tmp, address_tmp, avatar_tmp, story_tmp, hobby_tmp);
+                String errorCode = await task;
+                if (errorCode == "DBadd_0")
+                {
+                    signUpPanel2.Visible = false;
+                    emailOrUserNameBox.Text = username_tmp;
+                    passwordBox.Text = password_tmp;
+                    loginAnnouncement.Visible = true;
+                }
             }
         }
 
