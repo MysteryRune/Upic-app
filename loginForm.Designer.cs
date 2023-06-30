@@ -1004,7 +1004,7 @@ namespace Upic
             // 
             // communeBox
             // 
-            communeBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            communeBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
             communeBox.Location = new Point(80, 517);
             communeBox.Name = "communeBox";
             communeBox.Size = new Size(340, 33);
@@ -1087,7 +1087,7 @@ namespace Upic
             // 
             // townBox
             // 
-            townBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            townBox.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
             townBox.Location = new Point(80, 455);
             townBox.Name = "townBox";
             townBox.Size = new Size(340, 33);
@@ -1194,8 +1194,8 @@ namespace Upic
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1600, 900);
-            Controls.Add(loginAnnouncement);
             Controls.Add(signUpPanel2);
+            Controls.Add(loginAnnouncement);
             Controls.Add(signUpPanel1);
             Controls.Add(signUpBtt);
             Controls.Add(loginBtt);
