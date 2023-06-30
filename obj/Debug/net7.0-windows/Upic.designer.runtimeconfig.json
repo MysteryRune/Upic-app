@@ -13,7 +13,12 @@
     ],
     "additionalProbingPaths": [
       "C:\\Users\\Acer Nitro\\.dotnet\\store\\|arch|\\|tfm|",
+<<<<<<< HEAD
       "C:\\Users\\Acer Nitro\\.nuget\\packages"
+=======
+      "C:\\Users\\ASUS\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+>>>>>>> main
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
