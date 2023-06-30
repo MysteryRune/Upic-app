@@ -385,6 +385,7 @@
             Controls.Add(panel_bg);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "homepageForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Upic";
             Load += homepageForm_Load;
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).EndInit();
