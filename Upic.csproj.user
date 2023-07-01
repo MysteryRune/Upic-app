@@ -11,6 +11,9 @@
     <Compile Update="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="notificationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="testForm.cs">
       <SubType>Form</SubType>
     </Compile>
