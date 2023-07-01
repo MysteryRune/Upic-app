@@ -273,6 +273,8 @@ namespace Upic
             DateTime dateNow = DateTime.Now;
             String dateUpload = dateNow.ToString("dd'-'MM'-'yyyy'_'HH':'mm':'ss");
             String postID = dateUpload + "_" + username;
+
+
             MessageBox.Show(postID, "Post ID");
         }
 
