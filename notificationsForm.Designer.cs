@@ -39,8 +39,12 @@
             pb_logo_UPIC = new PictureBox();
             panel_bg = new Panel();
             panel2 = new Panel();
+            lbl_noti = new Label();
             panel_today_noti = new Panel();
+            button1 = new Button();
+            btn_friendrequests = new Button();
             lbl_noti_today = new Label();
+            panel_all_noti = new Panel();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_friends).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_mess).BeginInit();
@@ -51,6 +55,7 @@
             panel_bg.SuspendLayout();
             panel2.SuspendLayout();
             panel_today_noti.SuspendLayout();
+            panel_all_noti.SuspendLayout();
             SuspendLayout();
             // 
             // panelHeader
@@ -158,29 +163,76 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(lbl_noti);
             panel2.Controls.Add(panel_today_noti);
             panel2.Location = new Point(271, 107);
             panel2.Name = "panel2";
             panel2.Size = new Size(1070, 820);
             panel2.TabIndex = 0;
             // 
+            // lbl_noti
+            // 
+            lbl_noti.AutoSize = true;
+            lbl_noti.Font = new Font("Be Vietnam Pro ExtraBold", 22.1999989F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_noti.Location = new Point(46, 15);
+            lbl_noti.Name = "lbl_noti";
+            lbl_noti.Size = new Size(229, 57);
+            lbl_noti.TabIndex = 1;
+            lbl_noti.Text = "Thông báo";
+            // 
             // panel_today_noti
             // 
-            panel_today_noti.Controls.Add(lbl_noti_today);
-            panel_today_noti.Location = new Point(3, 19);
+            panel_today_noti.Controls.Add(panel_all_noti);
+            panel_today_noti.Controls.Add(button1);
+            panel_today_noti.Controls.Add(btn_friendrequests);
+            panel_today_noti.Location = new Point(46, 75);
             panel_today_noti.Name = "panel_today_noti";
-            panel_today_noti.Size = new Size(900, 185);
+            panel_today_noti.Size = new Size(980, 718);
             panel_today_noti.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(213, 216, 220);
+            button1.FlatAppearance.BorderColor = Color.White;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(178, 14);
+            button1.Name = "button1";
+            button1.Size = new Size(159, 44);
+            button1.TabIndex = 2;
+            button1.Text = "Chưa đọc";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // btn_friendrequests
+            // 
+            btn_friendrequests.BackColor = Color.FromArgb(213, 216, 220);
+            btn_friendrequests.FlatAppearance.BorderColor = Color.White;
+            btn_friendrequests.FlatStyle = FlatStyle.Flat;
+            btn_friendrequests.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_friendrequests.Location = new Point(13, 14);
+            btn_friendrequests.Name = "btn_friendrequests";
+            btn_friendrequests.Size = new Size(159, 44);
+            btn_friendrequests.TabIndex = 1;
+            btn_friendrequests.Text = "Tất cả ";
+            btn_friendrequests.UseVisualStyleBackColor = false;
             // 
             // lbl_noti_today
             // 
             lbl_noti_today.AutoSize = true;
             lbl_noti_today.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_noti_today.Location = new Point(15, 10);
+            lbl_noti_today.Location = new Point(3, 11);
             lbl_noti_today.Name = "lbl_noti_today";
             lbl_noti_today.Size = new Size(116, 35);
             lbl_noti_today.TabIndex = 0;
             lbl_noti_today.Text = "Hôm nay";
+            // 
+            // panel_all_noti
+            // 
+            panel_all_noti.Controls.Add(lbl_noti_today);
+            panel_all_noti.Location = new Point(13, 64);
+            panel_all_noti.Name = "panel_all_noti";
+            panel_all_noti.Size = new Size(952, 193);
+            panel_all_noti.TabIndex = 3;
             // 
             // notificationsForm
             // 
@@ -202,8 +254,10 @@
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).EndInit();
             panel_bg.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel_today_noti.ResumeLayout(false);
-            panel_today_noti.PerformLayout();
+            panel_all_noti.ResumeLayout(false);
+            panel_all_noti.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -221,5 +275,9 @@
         private Panel panel2;
         private Panel panel_today_noti;
         private Label lbl_noti_today;
+        private Label lbl_noti;
+        private Button button1;
+        private Button btn_friendrequests;
+        private Panel panel_all_noti;
     }
 }
