@@ -42,35 +42,35 @@
             lbl_noti = new Label();
             panel_today_noti = new Panel();
             panel_unread_noti = new Panel();
-            label1 = new Label();
-            panel4 = new Panel();
-            label2 = new Label();
-            label3 = new Label();
-            pictureBox1 = new PictureBox();
-            panel5 = new Panel();
-            label4 = new Label();
-            label5 = new Label();
-            pictureBox2 = new PictureBox();
-            panel6 = new Panel();
-            label6 = new Label();
-            label7 = new Label();
-            pictureBox3 = new PictureBox();
-            label8 = new Label();
+            lbl_unread_date = new Label();
+            panel_unread_likecmt = new Panel();
+            lbl_unread_likedcmt = new Label();
+            lbl_likecmt_name = new Label();
+            pb_unread_likecmt_user_avatar = new PictureBox();
+            panel_unread_comment = new Panel();
+            lbl_unread_commentedyourpost = new Label();
+            lbl_unread_name = new Label();
+            pb_unread_comment_user_avatar = new PictureBox();
+            panel_unread_like = new Panel();
+            lbl_unread_likedyourpost = new Label();
+            lbl_unread_like_name = new Label();
+            pb_unread_like_user_avatar = new PictureBox();
+            lbl_unread_today = new Label();
             panel_all_noti = new Panel();
-            lbl_noti_date = new Label();
-            panel_noti_today_likecmt = new Panel();
-            lbl_likedyourcmt = new Label();
-            lbl_noti_likecmt_name = new Label();
-            pb_noti_likecmt_user_avatar = new PictureBox();
-            panel_noti_today_comment = new Panel();
-            lbl_commented_your_post = new Label();
-            lbl_noti_comment_name = new Label();
-            pb_noti_comment_user_avatar = new PictureBox();
-            panel_noti_like = new Panel();
-            label_liked_your_post = new Label();
-            lbl_noti_like_name = new Label();
-            pb_noti_like_user_avatar = new PictureBox();
-            lbl_noti_today = new Label();
+            lbl_all_noti_date = new Label();
+            panel_all_noti_likecmt = new Panel();
+            lbl_all_noti_likedyourcmt = new Label();
+            lbl_all_noti_likecmt_name = new Label();
+            pb_all_noti_likecmt_user_avatar = new PictureBox();
+            panel_all_noti_comment = new Panel();
+            lbl_all_noti_commented_your_post = new Label();
+            lbl_all_noti_comment_name = new Label();
+            pb_all_noti_comment_user_avatar = new PictureBox();
+            panel_all_noti_like = new Panel();
+            label_all_noti_liked_your_post = new Label();
+            lbl_all_noti_like_name = new Label();
+            pb_all_noti_like_user_avatar = new PictureBox();
+            lbl_all_noti_today = new Label();
             btn_unread_noti = new Button();
             btn_all_noti = new Button();
             flp_notifications = new FlowLayoutPanel();
@@ -85,19 +85,19 @@
             panel2.SuspendLayout();
             panel_today_noti.SuspendLayout();
             panel_unread_noti.SuspendLayout();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel_unread_likecmt.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_unread_likecmt_user_avatar).BeginInit();
+            panel_unread_comment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_unread_comment_user_avatar).BeginInit();
+            panel_unread_like.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_unread_like_user_avatar).BeginInit();
             panel_all_noti.SuspendLayout();
-            panel_noti_today_likecmt.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pb_noti_likecmt_user_avatar).BeginInit();
-            panel_noti_today_comment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pb_noti_comment_user_avatar).BeginInit();
-            panel_noti_like.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pb_noti_like_user_avatar).BeginInit();
+            panel_all_noti_likecmt.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_all_noti_likecmt_user_avatar).BeginInit();
+            panel_all_noti_comment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_all_noti_comment_user_avatar).BeginInit();
+            panel_all_noti_like.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_all_noti_like_user_avatar).BeginInit();
             SuspendLayout();
             // 
             // panelHeader
@@ -236,308 +236,308 @@
             // 
             // panel_unread_noti
             // 
-            panel_unread_noti.Controls.Add(label1);
-            panel_unread_noti.Controls.Add(panel4);
-            panel_unread_noti.Controls.Add(panel5);
-            panel_unread_noti.Controls.Add(panel6);
-            panel_unread_noti.Controls.Add(label8);
+            panel_unread_noti.Controls.Add(lbl_unread_date);
+            panel_unread_noti.Controls.Add(panel_unread_likecmt);
+            panel_unread_noti.Controls.Add(panel_unread_comment);
+            panel_unread_noti.Controls.Add(panel_unread_like);
+            panel_unread_noti.Controls.Add(lbl_unread_today);
             panel_unread_noti.Location = new Point(13, 64);
             panel_unread_noti.Name = "panel_unread_noti";
             panel_unread_noti.Size = new Size(952, 652);
             panel_unread_noti.TabIndex = 4;
             panel_unread_noti.Visible = false;
             // 
-            // label1
+            // lbl_unread_date
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(3, 449);
-            label1.Name = "label1";
-            label1.Size = new Size(233, 35);
-            label1.TabIndex = 4;
-            label1.Text = "Ngày dd/mm/yyyy";
+            lbl_unread_date.AutoSize = true;
+            lbl_unread_date.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_unread_date.Location = new Point(3, 449);
+            lbl_unread_date.Name = "lbl_unread_date";
+            lbl_unread_date.Size = new Size(233, 35);
+            lbl_unread_date.TabIndex = 4;
+            lbl_unread_date.Text = "Ngày dd/mm/yyyy";
             // 
-            // panel4
+            // panel_unread_likecmt
             // 
-            panel4.Controls.Add(label2);
-            panel4.Controls.Add(label3);
-            panel4.Controls.Add(pictureBox1);
-            panel4.Location = new Point(3, 311);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(946, 125);
-            panel4.TabIndex = 3;
+            panel_unread_likecmt.Controls.Add(lbl_unread_likedcmt);
+            panel_unread_likecmt.Controls.Add(lbl_likecmt_name);
+            panel_unread_likecmt.Controls.Add(pb_unread_likecmt_user_avatar);
+            panel_unread_likecmt.Location = new Point(3, 311);
+            panel_unread_likecmt.Name = "panel_unread_likecmt";
+            panel_unread_likecmt.Size = new Size(946, 125);
+            panel_unread_likecmt.TabIndex = 3;
             // 
-            // label2
+            // lbl_unread_likedcmt
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(373, 35);
-            label2.Name = "label2";
-            label2.Size = new Size(271, 30);
-            label2.TabIndex = 2;
-            label2.Text = "đã thích bình luận của bạn";
+            lbl_unread_likedcmt.AutoSize = true;
+            lbl_unread_likedcmt.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_unread_likedcmt.Location = new Point(373, 35);
+            lbl_unread_likedcmt.Name = "lbl_unread_likedcmt";
+            lbl_unread_likedcmt.Size = new Size(271, 30);
+            lbl_unread_likedcmt.TabIndex = 2;
+            lbl_unread_likedcmt.Text = "đã thích bình luận của bạn";
             // 
-            // label3
+            // lbl_likecmt_name
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(144, 35);
-            label3.Name = "label3";
-            label3.Size = new Size(223, 30);
-            label3.TabIndex = 1;
-            label3.Text = "Tên hồ sơ người dùng";
+            lbl_likecmt_name.AutoSize = true;
+            lbl_likecmt_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_likecmt_name.Location = new Point(144, 35);
+            lbl_likecmt_name.Name = "lbl_likecmt_name";
+            lbl_likecmt_name.Size = new Size(223, 30);
+            lbl_likecmt_name.TabIndex = 1;
+            lbl_likecmt_name.Text = "Tên hồ sơ người dùng";
             // 
-            // pictureBox1
+            // pb_unread_likecmt_user_avatar
             // 
-            pictureBox1.Image = Properties.Resources.accountIcon;
-            pictureBox1.Location = new Point(45, 22);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 80);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pb_unread_likecmt_user_avatar.Image = Properties.Resources.accountIcon;
+            pb_unread_likecmt_user_avatar.Location = new Point(45, 22);
+            pb_unread_likecmt_user_avatar.Name = "pb_unread_likecmt_user_avatar";
+            pb_unread_likecmt_user_avatar.Size = new Size(80, 80);
+            pb_unread_likecmt_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
+            pb_unread_likecmt_user_avatar.TabIndex = 0;
+            pb_unread_likecmt_user_avatar.TabStop = false;
             // 
-            // panel5
+            // panel_unread_comment
             // 
-            panel5.Controls.Add(label4);
-            panel5.Controls.Add(label5);
-            panel5.Controls.Add(pictureBox2);
-            panel5.Location = new Point(3, 180);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(946, 125);
-            panel5.TabIndex = 2;
+            panel_unread_comment.Controls.Add(lbl_unread_commentedyourpost);
+            panel_unread_comment.Controls.Add(lbl_unread_name);
+            panel_unread_comment.Controls.Add(pb_unread_comment_user_avatar);
+            panel_unread_comment.Location = new Point(3, 180);
+            panel_unread_comment.Name = "panel_unread_comment";
+            panel_unread_comment.Size = new Size(946, 125);
+            panel_unread_comment.TabIndex = 2;
             // 
-            // label4
+            // lbl_unread_commentedyourpost
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(373, 35);
-            label4.Name = "label4";
-            label4.Size = new Size(294, 30);
-            label4.TabIndex = 2;
-            label4.Text = "đã bình luận bài viết của bạn";
+            lbl_unread_commentedyourpost.AutoSize = true;
+            lbl_unread_commentedyourpost.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_unread_commentedyourpost.Location = new Point(373, 35);
+            lbl_unread_commentedyourpost.Name = "lbl_unread_commentedyourpost";
+            lbl_unread_commentedyourpost.Size = new Size(294, 30);
+            lbl_unread_commentedyourpost.TabIndex = 2;
+            lbl_unread_commentedyourpost.Text = "đã bình luận bài viết của bạn";
             // 
-            // label5
+            // lbl_unread_name
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(144, 35);
-            label5.Name = "label5";
-            label5.Size = new Size(223, 30);
-            label5.TabIndex = 1;
-            label5.Text = "Tên hồ sơ người dùng";
+            lbl_unread_name.AutoSize = true;
+            lbl_unread_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_unread_name.Location = new Point(144, 35);
+            lbl_unread_name.Name = "lbl_unread_name";
+            lbl_unread_name.Size = new Size(223, 30);
+            lbl_unread_name.TabIndex = 1;
+            lbl_unread_name.Text = "Tên hồ sơ người dùng";
             // 
-            // pictureBox2
+            // pb_unread_comment_user_avatar
             // 
-            pictureBox2.Image = Properties.Resources.accountIcon;
-            pictureBox2.Location = new Point(45, 22);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(80, 80);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
+            pb_unread_comment_user_avatar.Image = Properties.Resources.accountIcon;
+            pb_unread_comment_user_avatar.Location = new Point(45, 22);
+            pb_unread_comment_user_avatar.Name = "pb_unread_comment_user_avatar";
+            pb_unread_comment_user_avatar.Size = new Size(80, 80);
+            pb_unread_comment_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
+            pb_unread_comment_user_avatar.TabIndex = 0;
+            pb_unread_comment_user_avatar.TabStop = false;
             // 
-            // panel6
+            // panel_unread_like
             // 
-            panel6.Controls.Add(label6);
-            panel6.Controls.Add(label7);
-            panel6.Controls.Add(pictureBox3);
-            panel6.Location = new Point(3, 49);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(946, 125);
-            panel6.TabIndex = 1;
+            panel_unread_like.Controls.Add(lbl_unread_likedyourpost);
+            panel_unread_like.Controls.Add(lbl_unread_like_name);
+            panel_unread_like.Controls.Add(pb_unread_like_user_avatar);
+            panel_unread_like.Location = new Point(3, 49);
+            panel_unread_like.Name = "panel_unread_like";
+            panel_unread_like.Size = new Size(946, 125);
+            panel_unread_like.TabIndex = 1;
             // 
-            // label6
+            // lbl_unread_likedyourpost
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(373, 35);
-            label6.Name = "label6";
-            label6.Size = new Size(258, 30);
-            label6.TabIndex = 2;
-            label6.Text = "đã thích bài viết của bạn";
+            lbl_unread_likedyourpost.AutoSize = true;
+            lbl_unread_likedyourpost.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_unread_likedyourpost.Location = new Point(373, 35);
+            lbl_unread_likedyourpost.Name = "lbl_unread_likedyourpost";
+            lbl_unread_likedyourpost.Size = new Size(258, 30);
+            lbl_unread_likedyourpost.TabIndex = 2;
+            lbl_unread_likedyourpost.Text = "đã thích bài viết của bạn";
             // 
-            // label7
+            // lbl_unread_like_name
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(144, 35);
-            label7.Name = "label7";
-            label7.Size = new Size(223, 30);
-            label7.TabIndex = 1;
-            label7.Text = "Tên hồ sơ người dùng";
+            lbl_unread_like_name.AutoSize = true;
+            lbl_unread_like_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_unread_like_name.Location = new Point(144, 35);
+            lbl_unread_like_name.Name = "lbl_unread_like_name";
+            lbl_unread_like_name.Size = new Size(223, 30);
+            lbl_unread_like_name.TabIndex = 1;
+            lbl_unread_like_name.Text = "Tên hồ sơ người dùng";
             // 
-            // pictureBox3
+            // pb_unread_like_user_avatar
             // 
-            pictureBox3.Image = Properties.Resources.accountIcon;
-            pictureBox3.Location = new Point(45, 22);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(80, 80);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 0;
-            pictureBox3.TabStop = false;
+            pb_unread_like_user_avatar.Image = Properties.Resources.accountIcon;
+            pb_unread_like_user_avatar.Location = new Point(45, 22);
+            pb_unread_like_user_avatar.Name = "pb_unread_like_user_avatar";
+            pb_unread_like_user_avatar.Size = new Size(80, 80);
+            pb_unread_like_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
+            pb_unread_like_user_avatar.TabIndex = 0;
+            pb_unread_like_user_avatar.TabStop = false;
             // 
-            // label8
+            // lbl_unread_today
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(3, 11);
-            label8.Name = "label8";
-            label8.Size = new Size(116, 35);
-            label8.TabIndex = 0;
-            label8.Text = "Hôm nay";
+            lbl_unread_today.AutoSize = true;
+            lbl_unread_today.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_unread_today.Location = new Point(3, 11);
+            lbl_unread_today.Name = "lbl_unread_today";
+            lbl_unread_today.Size = new Size(116, 35);
+            lbl_unread_today.TabIndex = 0;
+            lbl_unread_today.Text = "Hôm nay";
             // 
             // panel_all_noti
             // 
-            panel_all_noti.Controls.Add(lbl_noti_date);
-            panel_all_noti.Controls.Add(panel_noti_today_likecmt);
-            panel_all_noti.Controls.Add(panel_noti_today_comment);
-            panel_all_noti.Controls.Add(panel_noti_like);
-            panel_all_noti.Controls.Add(lbl_noti_today);
+            panel_all_noti.Controls.Add(lbl_all_noti_date);
+            panel_all_noti.Controls.Add(panel_all_noti_likecmt);
+            panel_all_noti.Controls.Add(panel_all_noti_comment);
+            panel_all_noti.Controls.Add(panel_all_noti_like);
+            panel_all_noti.Controls.Add(lbl_all_noti_today);
             panel_all_noti.Location = new Point(13, 64);
             panel_all_noti.Name = "panel_all_noti";
             panel_all_noti.Size = new Size(952, 652);
             panel_all_noti.TabIndex = 3;
             // 
-            // lbl_noti_date
+            // lbl_all_noti_date
             // 
-            lbl_noti_date.AutoSize = true;
-            lbl_noti_date.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_noti_date.Location = new Point(3, 449);
-            lbl_noti_date.Name = "lbl_noti_date";
-            lbl_noti_date.Size = new Size(233, 35);
-            lbl_noti_date.TabIndex = 4;
-            lbl_noti_date.Text = "Ngày dd/mm/yyyy";
+            lbl_all_noti_date.AutoSize = true;
+            lbl_all_noti_date.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_all_noti_date.Location = new Point(3, 449);
+            lbl_all_noti_date.Name = "lbl_all_noti_date";
+            lbl_all_noti_date.Size = new Size(233, 35);
+            lbl_all_noti_date.TabIndex = 4;
+            lbl_all_noti_date.Text = "Ngày dd/mm/yyyy";
             // 
-            // panel_noti_today_likecmt
+            // panel_all_noti_likecmt
             // 
-            panel_noti_today_likecmt.Controls.Add(lbl_likedyourcmt);
-            panel_noti_today_likecmt.Controls.Add(lbl_noti_likecmt_name);
-            panel_noti_today_likecmt.Controls.Add(pb_noti_likecmt_user_avatar);
-            panel_noti_today_likecmt.Location = new Point(3, 311);
-            panel_noti_today_likecmt.Name = "panel_noti_today_likecmt";
-            panel_noti_today_likecmt.Size = new Size(946, 125);
-            panel_noti_today_likecmt.TabIndex = 3;
+            panel_all_noti_likecmt.Controls.Add(lbl_all_noti_likedyourcmt);
+            panel_all_noti_likecmt.Controls.Add(lbl_all_noti_likecmt_name);
+            panel_all_noti_likecmt.Controls.Add(pb_all_noti_likecmt_user_avatar);
+            panel_all_noti_likecmt.Location = new Point(3, 311);
+            panel_all_noti_likecmt.Name = "panel_all_noti_likecmt";
+            panel_all_noti_likecmt.Size = new Size(946, 125);
+            panel_all_noti_likecmt.TabIndex = 3;
             // 
-            // lbl_likedyourcmt
+            // lbl_all_noti_likedyourcmt
             // 
-            lbl_likedyourcmt.AutoSize = true;
-            lbl_likedyourcmt.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_likedyourcmt.Location = new Point(373, 35);
-            lbl_likedyourcmt.Name = "lbl_likedyourcmt";
-            lbl_likedyourcmt.Size = new Size(271, 30);
-            lbl_likedyourcmt.TabIndex = 2;
-            lbl_likedyourcmt.Text = "đã thích bình luận của bạn";
+            lbl_all_noti_likedyourcmt.AutoSize = true;
+            lbl_all_noti_likedyourcmt.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_all_noti_likedyourcmt.Location = new Point(373, 35);
+            lbl_all_noti_likedyourcmt.Name = "lbl_all_noti_likedyourcmt";
+            lbl_all_noti_likedyourcmt.Size = new Size(271, 30);
+            lbl_all_noti_likedyourcmt.TabIndex = 2;
+            lbl_all_noti_likedyourcmt.Text = "đã thích bình luận của bạn";
             // 
-            // lbl_noti_likecmt_name
+            // lbl_all_noti_likecmt_name
             // 
-            lbl_noti_likecmt_name.AutoSize = true;
-            lbl_noti_likecmt_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_noti_likecmt_name.Location = new Point(144, 35);
-            lbl_noti_likecmt_name.Name = "lbl_noti_likecmt_name";
-            lbl_noti_likecmt_name.Size = new Size(223, 30);
-            lbl_noti_likecmt_name.TabIndex = 1;
-            lbl_noti_likecmt_name.Text = "Tên hồ sơ người dùng";
+            lbl_all_noti_likecmt_name.AutoSize = true;
+            lbl_all_noti_likecmt_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_all_noti_likecmt_name.Location = new Point(144, 35);
+            lbl_all_noti_likecmt_name.Name = "lbl_all_noti_likecmt_name";
+            lbl_all_noti_likecmt_name.Size = new Size(223, 30);
+            lbl_all_noti_likecmt_name.TabIndex = 1;
+            lbl_all_noti_likecmt_name.Text = "Tên hồ sơ người dùng";
             // 
-            // pb_noti_likecmt_user_avatar
+            // pb_all_noti_likecmt_user_avatar
             // 
-            pb_noti_likecmt_user_avatar.Image = Properties.Resources.accountIcon;
-            pb_noti_likecmt_user_avatar.Location = new Point(45, 22);
-            pb_noti_likecmt_user_avatar.Name = "pb_noti_likecmt_user_avatar";
-            pb_noti_likecmt_user_avatar.Size = new Size(80, 80);
-            pb_noti_likecmt_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
-            pb_noti_likecmt_user_avatar.TabIndex = 0;
-            pb_noti_likecmt_user_avatar.TabStop = false;
+            pb_all_noti_likecmt_user_avatar.Image = Properties.Resources.accountIcon;
+            pb_all_noti_likecmt_user_avatar.Location = new Point(45, 22);
+            pb_all_noti_likecmt_user_avatar.Name = "pb_all_noti_likecmt_user_avatar";
+            pb_all_noti_likecmt_user_avatar.Size = new Size(80, 80);
+            pb_all_noti_likecmt_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
+            pb_all_noti_likecmt_user_avatar.TabIndex = 0;
+            pb_all_noti_likecmt_user_avatar.TabStop = false;
             // 
-            // panel_noti_today_comment
+            // panel_all_noti_comment
             // 
-            panel_noti_today_comment.Controls.Add(lbl_commented_your_post);
-            panel_noti_today_comment.Controls.Add(lbl_noti_comment_name);
-            panel_noti_today_comment.Controls.Add(pb_noti_comment_user_avatar);
-            panel_noti_today_comment.Location = new Point(3, 180);
-            panel_noti_today_comment.Name = "panel_noti_today_comment";
-            panel_noti_today_comment.Size = new Size(946, 125);
-            panel_noti_today_comment.TabIndex = 2;
+            panel_all_noti_comment.Controls.Add(lbl_all_noti_commented_your_post);
+            panel_all_noti_comment.Controls.Add(lbl_all_noti_comment_name);
+            panel_all_noti_comment.Controls.Add(pb_all_noti_comment_user_avatar);
+            panel_all_noti_comment.Location = new Point(3, 180);
+            panel_all_noti_comment.Name = "panel_all_noti_comment";
+            panel_all_noti_comment.Size = new Size(946, 125);
+            panel_all_noti_comment.TabIndex = 2;
             // 
-            // lbl_commented_your_post
+            // lbl_all_noti_commented_your_post
             // 
-            lbl_commented_your_post.AutoSize = true;
-            lbl_commented_your_post.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_commented_your_post.Location = new Point(373, 35);
-            lbl_commented_your_post.Name = "lbl_commented_your_post";
-            lbl_commented_your_post.Size = new Size(294, 30);
-            lbl_commented_your_post.TabIndex = 2;
-            lbl_commented_your_post.Text = "đã bình luận bài viết của bạn";
+            lbl_all_noti_commented_your_post.AutoSize = true;
+            lbl_all_noti_commented_your_post.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_all_noti_commented_your_post.Location = new Point(373, 35);
+            lbl_all_noti_commented_your_post.Name = "lbl_all_noti_commented_your_post";
+            lbl_all_noti_commented_your_post.Size = new Size(294, 30);
+            lbl_all_noti_commented_your_post.TabIndex = 2;
+            lbl_all_noti_commented_your_post.Text = "đã bình luận bài viết của bạn";
             // 
-            // lbl_noti_comment_name
+            // lbl_all_noti_comment_name
             // 
-            lbl_noti_comment_name.AutoSize = true;
-            lbl_noti_comment_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_noti_comment_name.Location = new Point(144, 35);
-            lbl_noti_comment_name.Name = "lbl_noti_comment_name";
-            lbl_noti_comment_name.Size = new Size(223, 30);
-            lbl_noti_comment_name.TabIndex = 1;
-            lbl_noti_comment_name.Text = "Tên hồ sơ người dùng";
+            lbl_all_noti_comment_name.AutoSize = true;
+            lbl_all_noti_comment_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_all_noti_comment_name.Location = new Point(144, 35);
+            lbl_all_noti_comment_name.Name = "lbl_all_noti_comment_name";
+            lbl_all_noti_comment_name.Size = new Size(223, 30);
+            lbl_all_noti_comment_name.TabIndex = 1;
+            lbl_all_noti_comment_name.Text = "Tên hồ sơ người dùng";
             // 
-            // pb_noti_comment_user_avatar
+            // pb_all_noti_comment_user_avatar
             // 
-            pb_noti_comment_user_avatar.Image = Properties.Resources.accountIcon;
-            pb_noti_comment_user_avatar.Location = new Point(45, 22);
-            pb_noti_comment_user_avatar.Name = "pb_noti_comment_user_avatar";
-            pb_noti_comment_user_avatar.Size = new Size(80, 80);
-            pb_noti_comment_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
-            pb_noti_comment_user_avatar.TabIndex = 0;
-            pb_noti_comment_user_avatar.TabStop = false;
+            pb_all_noti_comment_user_avatar.Image = Properties.Resources.accountIcon;
+            pb_all_noti_comment_user_avatar.Location = new Point(45, 22);
+            pb_all_noti_comment_user_avatar.Name = "pb_all_noti_comment_user_avatar";
+            pb_all_noti_comment_user_avatar.Size = new Size(80, 80);
+            pb_all_noti_comment_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
+            pb_all_noti_comment_user_avatar.TabIndex = 0;
+            pb_all_noti_comment_user_avatar.TabStop = false;
             // 
-            // panel_noti_like
+            // panel_all_noti_like
             // 
-            panel_noti_like.Controls.Add(label_liked_your_post);
-            panel_noti_like.Controls.Add(lbl_noti_like_name);
-            panel_noti_like.Controls.Add(pb_noti_like_user_avatar);
-            panel_noti_like.Location = new Point(3, 49);
-            panel_noti_like.Name = "panel_noti_like";
-            panel_noti_like.Size = new Size(946, 125);
-            panel_noti_like.TabIndex = 1;
+            panel_all_noti_like.Controls.Add(label_all_noti_liked_your_post);
+            panel_all_noti_like.Controls.Add(lbl_all_noti_like_name);
+            panel_all_noti_like.Controls.Add(pb_all_noti_like_user_avatar);
+            panel_all_noti_like.Location = new Point(3, 49);
+            panel_all_noti_like.Name = "panel_all_noti_like";
+            panel_all_noti_like.Size = new Size(946, 125);
+            panel_all_noti_like.TabIndex = 1;
             // 
-            // label_liked_your_post
+            // label_all_noti_liked_your_post
             // 
-            label_liked_your_post.AutoSize = true;
-            label_liked_your_post.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label_liked_your_post.Location = new Point(373, 35);
-            label_liked_your_post.Name = "label_liked_your_post";
-            label_liked_your_post.Size = new Size(258, 30);
-            label_liked_your_post.TabIndex = 2;
-            label_liked_your_post.Text = "đã thích bài viết của bạn";
+            label_all_noti_liked_your_post.AutoSize = true;
+            label_all_noti_liked_your_post.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label_all_noti_liked_your_post.Location = new Point(373, 35);
+            label_all_noti_liked_your_post.Name = "label_all_noti_liked_your_post";
+            label_all_noti_liked_your_post.Size = new Size(258, 30);
+            label_all_noti_liked_your_post.TabIndex = 2;
+            label_all_noti_liked_your_post.Text = "đã thích bài viết của bạn";
             // 
-            // lbl_noti_like_name
+            // lbl_all_noti_like_name
             // 
-            lbl_noti_like_name.AutoSize = true;
-            lbl_noti_like_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_noti_like_name.Location = new Point(144, 35);
-            lbl_noti_like_name.Name = "lbl_noti_like_name";
-            lbl_noti_like_name.Size = new Size(223, 30);
-            lbl_noti_like_name.TabIndex = 1;
-            lbl_noti_like_name.Text = "Tên hồ sơ người dùng";
+            lbl_all_noti_like_name.AutoSize = true;
+            lbl_all_noti_like_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_all_noti_like_name.Location = new Point(144, 35);
+            lbl_all_noti_like_name.Name = "lbl_all_noti_like_name";
+            lbl_all_noti_like_name.Size = new Size(223, 30);
+            lbl_all_noti_like_name.TabIndex = 1;
+            lbl_all_noti_like_name.Text = "Tên hồ sơ người dùng";
             // 
-            // pb_noti_like_user_avatar
+            // pb_all_noti_like_user_avatar
             // 
-            pb_noti_like_user_avatar.Image = Properties.Resources.accountIcon;
-            pb_noti_like_user_avatar.Location = new Point(45, 22);
-            pb_noti_like_user_avatar.Name = "pb_noti_like_user_avatar";
-            pb_noti_like_user_avatar.Size = new Size(80, 80);
-            pb_noti_like_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
-            pb_noti_like_user_avatar.TabIndex = 0;
-            pb_noti_like_user_avatar.TabStop = false;
+            pb_all_noti_like_user_avatar.Image = Properties.Resources.accountIcon;
+            pb_all_noti_like_user_avatar.Location = new Point(45, 22);
+            pb_all_noti_like_user_avatar.Name = "pb_all_noti_like_user_avatar";
+            pb_all_noti_like_user_avatar.Size = new Size(80, 80);
+            pb_all_noti_like_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
+            pb_all_noti_like_user_avatar.TabIndex = 0;
+            pb_all_noti_like_user_avatar.TabStop = false;
             // 
-            // lbl_noti_today
+            // lbl_all_noti_today
             // 
-            lbl_noti_today.AutoSize = true;
-            lbl_noti_today.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_noti_today.Location = new Point(3, 11);
-            lbl_noti_today.Name = "lbl_noti_today";
-            lbl_noti_today.Size = new Size(116, 35);
-            lbl_noti_today.TabIndex = 0;
-            lbl_noti_today.Text = "Hôm nay";
+            lbl_all_noti_today.AutoSize = true;
+            lbl_all_noti_today.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_all_noti_today.Location = new Point(3, 11);
+            lbl_all_noti_today.Name = "lbl_all_noti_today";
+            lbl_all_noti_today.Size = new Size(116, 35);
+            lbl_all_noti_today.TabIndex = 0;
+            lbl_all_noti_today.Text = "Hôm nay";
             // 
             // btn_unread_noti
             // 
@@ -598,26 +598,26 @@
             panel_today_noti.ResumeLayout(false);
             panel_unread_noti.ResumeLayout(false);
             panel_unread_noti.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel_unread_likecmt.ResumeLayout(false);
+            panel_unread_likecmt.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_unread_likecmt_user_avatar).EndInit();
+            panel_unread_comment.ResumeLayout(false);
+            panel_unread_comment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_unread_comment_user_avatar).EndInit();
+            panel_unread_like.ResumeLayout(false);
+            panel_unread_like.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_unread_like_user_avatar).EndInit();
             panel_all_noti.ResumeLayout(false);
             panel_all_noti.PerformLayout();
-            panel_noti_today_likecmt.ResumeLayout(false);
-            panel_noti_today_likecmt.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pb_noti_likecmt_user_avatar).EndInit();
-            panel_noti_today_comment.ResumeLayout(false);
-            panel_noti_today_comment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pb_noti_comment_user_avatar).EndInit();
-            panel_noti_like.ResumeLayout(false);
-            panel_noti_like.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pb_noti_like_user_avatar).EndInit();
+            panel_all_noti_likecmt.ResumeLayout(false);
+            panel_all_noti_likecmt.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_all_noti_likecmt_user_avatar).EndInit();
+            panel_all_noti_comment.ResumeLayout(false);
+            panel_all_noti_comment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_all_noti_comment_user_avatar).EndInit();
+            panel_all_noti_like.ResumeLayout(false);
+            panel_all_noti_like.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_all_noti_like_user_avatar).EndInit();
             ResumeLayout(false);
         }
 
@@ -634,39 +634,39 @@
         private Panel panel_bg;
         private Panel panel2;
         private Panel panel_today_noti;
-        private Label lbl_noti_today;
+        private Label lbl_all_noti_today;
         private Label lbl_noti;
         private Button btn_unread_noti;
         private Button btn_all_noti;
         private Panel panel_all_noti;
-        private Panel panel_noti_like;
-        private Label label_liked_your_post;
-        private Label lbl_noti_like_name;
-        private PictureBox pb_noti_like_user_avatar;
-        private Panel panel_noti_today_comment;
-        private Label lbl_commented_your_post;
-        private Label lbl_noti_comment_name;
-        private PictureBox pb_noti_comment_user_avatar;
-        private Panel panel_noti_today_likecmt;
-        private Label lbl_likedyourcmt;
-        private Label lbl_noti_likecmt_name;
-        private PictureBox pb_noti_likecmt_user_avatar;
+        private Panel panel_all_noti_like;
+        private Label label_all_noti_liked_your_post;
+        private Label lbl_all_noti_like_name;
+        private PictureBox pb_all_noti_like_user_avatar;
+        private Panel panel_all_noti_comment;
+        private Label lbl_all_noti_commented_your_post;
+        private Label lbl_all_noti_comment_name;
+        private PictureBox pb_all_noti_comment_user_avatar;
+        private Panel panel_all_noti_likecmt;
+        private Label lbl_all_noti_likedyourcmt;
+        private Label lbl_all_noti_likecmt_name;
+        private PictureBox pb_all_noti_likecmt_user_avatar;
         private FlowLayoutPanel flp_notifications;
         private Panel panel_unread_noti;
-        private Label label1;
-        private Panel panel4;
-        private Label label2;
-        private Label label3;
-        private PictureBox pictureBox1;
-        private Panel panel5;
-        private Label label4;
-        private Label label5;
-        private PictureBox pictureBox2;
-        private Panel panel6;
-        private Label label6;
-        private Label label7;
-        private PictureBox pictureBox3;
-        private Label label8;
-        private Label lbl_noti_date;
+        private Label lbl_unread_date;
+        private Panel panel_unread_likecmt;
+        private Label lbl_unread_likedcmt;
+        private Label lbl_likecmt_name;
+        private PictureBox pb_unread_likecmt_user_avatar;
+        private Panel panel_unread_comment;
+        private Label lbl_unread_commentedyourpost;
+        private Label lbl_unread_name;
+        private PictureBox pb_unread_comment_user_avatar;
+        private Panel panel_unread_like;
+        private Label lbl_unread_likedyourpost;
+        private Label lbl_unread_like_name;
+        private PictureBox pb_unread_like_user_avatar;
+        private Label lbl_unread_today;
+        private Label lbl_all_noti_date;
     }
 }
