@@ -98,13 +98,14 @@ namespace Upic
             signUpPanel1.Visible = true;
         }
 
-        private void navigateToHomePage()
+        private void navigateToHomePage(String username)
         {
             close_by_X_btt = false;
             Close();
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.ShowInTaskbar = true;
+            homepageForm.homePageInstance.setUsername(username);
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
+            homepageForm.homePageInstance.ShowInTaskbar = true;
             homepageForm.homePageInstance.Visible = true;
             homepageForm.homePageInstance.AutoScroll = true;
         }
@@ -151,7 +152,7 @@ namespace Upic
                     if (password == userInfo["Password"].ToString())
                     {
                         MessageBox.Show("Đăng nhập thành công", "Thông báo");
-                        navigateToHomePage();
+                        navigateToHomePage(docSnap.Id);
                     }
                     else
                     {
@@ -173,7 +174,7 @@ namespace Upic
                     if (password == userInfo["Password"].ToString())
                     {
                         MessageBox.Show("Đăng nhập thành công", "Thông báo");
-                        navigateToHomePage();
+                        navigateToHomePage(docSnap.Id);
                     }
                     else
                     {

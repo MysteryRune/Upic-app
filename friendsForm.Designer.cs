@@ -87,7 +87,8 @@
             // 
             // pb_friends
             // 
-            pb_friends.Image = Properties.Resources.friends_shape_line;
+            pb_friends.Cursor = Cursors.Hand;
+            pb_friends.Image = Properties.Resources.friends_fill;
             pb_friends.Location = new Point(1286, 7);
             pb_friends.Name = "pb_friends";
             pb_friends.Size = new Size(55, 55);
@@ -97,6 +98,7 @@
             // 
             // pb_mess
             // 
+            pb_mess.Cursor = Cursors.Hand;
             pb_mess.Image = Properties.Resources.mess_shape_line;
             pb_mess.Location = new Point(1362, 12);
             pb_mess.Name = "pb_mess";
@@ -108,6 +110,7 @@
             // pb_noti
             // 
             pb_noti.BackColor = Color.Transparent;
+            pb_noti.Cursor = Cursors.Hand;
             pb_noti.Image = Properties.Resources.notificationIcon1;
             pb_noti.Location = new Point(1430, 8);
             pb_noti.Name = "pb_noti";
@@ -119,6 +122,7 @@
             // pb_user1
             // 
             pb_user1.BackColor = Color.Transparent;
+            pb_user1.Cursor = Cursors.Hand;
             pb_user1.Image = Properties.Resources.accountIcon1;
             pb_user1.Location = new Point(1500, 6);
             pb_user1.Name = "pb_user1";
@@ -142,6 +146,7 @@
             // 
             tb_search.BackColor = Color.FromArgb(240, 242, 245);
             tb_search.BorderStyle = BorderStyle.None;
+            tb_search.Cursor = Cursors.IBeam;
             tb_search.Font = new Font("Be Vietnam Pro", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             tb_search.Location = new Point(20, 21);
             tb_search.Multiline = true;
@@ -154,6 +159,7 @@
             // 
             pb_logo_UPIC.BackColor = Color.White;
             pb_logo_UPIC.BackgroundImageLayout = ImageLayout.Zoom;
+            pb_logo_UPIC.Cursor = Cursors.Hand;
             pb_logo_UPIC.Image = Properties.Resources.upic_logo;
             pb_logo_UPIC.Location = new Point(33, 7);
             pb_logo_UPIC.Name = "pb_logo_UPIC";
@@ -161,6 +167,7 @@
             pb_logo_UPIC.SizeMode = PictureBoxSizeMode.Zoom;
             pb_logo_UPIC.TabIndex = 1;
             pb_logo_UPIC.TabStop = false;
+            pb_logo_UPIC.Click += pb_logo_UPIC_Click;
             // 
             // panel_bg
             // 
@@ -366,6 +373,7 @@
             Controls.Add(panel_bg);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "friendsForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Upic";
             panelHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pb_friends).EndInit();
