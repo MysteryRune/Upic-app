@@ -113,6 +113,26 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addImage {
+            get {
+                object obj = ResourceManager.GetObject("addImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addImage1 {
+            get {
+                object obj = ResourceManager.GetObject("addImage1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ASUS_TUF_DASH_F15_2022 {
             get {
                 object obj = ResourceManager.GetObject("ASUS_TUF_DASH_F15_2022", resourceCulture);
@@ -226,6 +246,16 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap cartIcon1White {
             get {
                 object obj = ResourceManager.GetObject("cartIcon1White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dinhkemfile {
+            get {
+                object obj = ResourceManager.GetObject("dinhkemfile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -667,6 +697,26 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap searchIcon1 {
             get {
                 object obj = ResourceManager.GetObject("searchIcon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send {
+            get {
+                object obj = ResourceManager.GetObject("send", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_chat {
+            get {
+                object obj = ResourceManager.GetObject("send_chat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

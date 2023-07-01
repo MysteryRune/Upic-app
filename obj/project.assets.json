@@ -905,11 +905,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\FinalApp\\Upic.csproj",
+      "projectUniqueName": "D:\\C#\\FinalProject\\Upic.csproj",
       "projectName": "Upic",
-      "projectPath": "D:\\C#\\FinalApp\\Upic.csproj",
+      "projectPath": "D:\\C#\\FinalProject\\Upic.csproj",
       "packagesPath": "C:\\Users\\Acer Nitro\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\FinalApp\\obj\\",
+      "outputPath": "D:\\C#\\FinalProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer Nitro\\AppData\\Roaming\\NuGet\\NuGet.Config",

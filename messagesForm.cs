@@ -16,5 +16,16 @@ namespace Upic
         {
             InitializeComponent();
         }
+
+
+        private void panel_bg_Click(object sender, EventArgs e)
+        {
+            ActiveControl = null;
+        }
+
+        private void btn_add_image_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
