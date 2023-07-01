@@ -208,3 +208,4 @@ D:\C#\FinalProject\obj\Debug\net7.0-windows\refint\Upic.dll
 D:\C#\FinalProject\obj\Debug\net7.0-windows\Upic.pdb
 D:\C#\FinalProject\obj\Debug\net7.0-windows\Upic.genruntimeconfig.cache
 D:\C#\FinalProject\obj\Debug\net7.0-windows\ref\Upic.dll
+D:\C#\FinalProject\obj\Debug\net7.0-windows\Upic.editProfileUC.resources
