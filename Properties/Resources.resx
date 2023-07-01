@@ -205,6 +205,9 @@
   <data name="home_shape_line" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\home_shape_line.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="setting_shape_line" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\setting_shape_line.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="emailIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\emailIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,9 +216,6 @@
   </data>
   <data name="googleBrandIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\googleBrandIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Legion_5_(15inch_Gen_7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\product\Legion_5_(15inch_Gen_7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProArt Studiobook Pro 16 OLED (W7600, 12th Gen Intel)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\product\ProArt Studiobook Pro 16 OLED (W7600, 12th Gen Intel).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,6 +298,9 @@
   <data name="friends_fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\friends_fill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="edit_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\edit_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Zenbook 14X OLED (UM5401, AMD Ryzen 5000 Series)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\product\Zenbook 14X OLED (UM5401, AMD Ryzen 5000 Series).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -309,6 +312,9 @@
   </data>
   <data name="mess_shape_line" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\mess_shape_line.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Legion_5_(15inch_Gen_7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\product\Legion_5_(15inch_Gen_7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="billIcon2White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\billIcon2White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,7 +331,7 @@
   <data name="image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\logoImg\edit_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="setting_fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\setting_fill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

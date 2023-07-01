@@ -674,6 +674,26 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap setting_fill {
+            get {
+                object obj = ResourceManager.GetObject("setting_fill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap setting_shape_line {
+            get {
+                object obj = ResourceManager.GetObject("setting_shape_line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap supportIcon1White {
             get {
                 object obj = ResourceManager.GetObject("supportIcon1White", resourceCulture);
