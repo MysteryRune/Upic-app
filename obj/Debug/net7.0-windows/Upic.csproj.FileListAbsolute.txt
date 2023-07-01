@@ -110,3 +110,5 @@ D:\C#\UPIC\obj\Debug\net7.0-windows\Upic.genruntimeconfig.cache
 D:\C#\UPIC\obj\Debug\net7.0-windows\ref\Upic.dll
 D:\C#\UPIC\obj\Debug\net7.0-windows\Upic.profileForm.resources
 D:\C#\UPIC\obj\Debug\net7.0-windows\Upic.friendsForm.resources
+D:\C#\UPIC\obj\Debug\net7.0-windows\Upic.userProfileForm.resources
+D:\C#\UPIC\obj\Debug\net7.0-windows\Upic.notificationsForm.resources
