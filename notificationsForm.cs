@@ -21,5 +21,17 @@ namespace Upic
         {
             ActiveControl = null;
         }
+
+        private void btn_all_noti_Click(object sender, EventArgs e)
+        {
+            panel_unread_noti.Visible = false;
+            panel_all_noti.Visible = true;
+        }
+
+        private void btn_unread_noti_Click(object sender, EventArgs e)
+        {
+            panel_all_noti.Visible = false;
+            panel_unread_noti.Visible = true;
+        }
     }
 }

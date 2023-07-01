@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "E80OWcnEdea8JHhq/Zqu7/U+lx4K0tutpC0ntwk3pI4y/Z2ondw/zRHrpViDQA8ZykSX3XE1jnEZXGqM1aQR8w==",
   "success": true,
   "projectFilePath": "D:\\Project\\C#\\Upic\\Upic.csproj",
+=======
+  "dgSpecHash": "kakLfin7B4+sWvBcHN31wfCO+eI3gEHTF6So3Zd5fcunZ/xOkZFLD/cGOpp9OPZfDbkkmwUTMcBwvShD/3oreg==",
+  "success": true,
+  "projectFilePath": "D:\\C#\\FinalApp\\Upic.csproj",
+>>>>>>> main
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\google.api.commonprotos\\2.7.0\\google.api.commonprotos.2.7.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\google.api.gax\\4.3.1\\google.api.gax.4.3.1.nupkg.sha512",
