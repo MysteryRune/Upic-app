@@ -1,7 +1,11 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "D:\\Project\\C#\\Upic\\Upic.csproj": {}
+=======
     "D:\\C#\\FinalProject\\Upic.csproj": {}
+>>>>>>> main
   },
   "projects": {
     "D:\\C#\\FinalProject\\Upic.csproj": {
@@ -9,9 +13,15 @@
       "restore": {
         "projectUniqueName": "D:\\C#\\FinalProject\\Upic.csproj",
         "projectName": "Upic",
+<<<<<<< HEAD
+        "projectPath": "D:\\Project\\C#\\Upic\\Upic.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\C#\\Upic\\obj\\",
+=======
         "projectPath": "D:\\C#\\FinalProject\\Upic.csproj",
         "packagesPath": "C:\\Users\\Acer Nitro\\.nuget\\packages\\",
         "outputPath": "D:\\C#\\FinalProject\\obj\\",
+>>>>>>> main
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer Nitro\\AppData\\Roaming\\NuGet\\NuGet.Config",

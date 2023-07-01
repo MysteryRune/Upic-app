@@ -44,13 +44,13 @@
             panel3 = new Panel();
             tb_caption = new TextBox();
             panel_create_post = new Panel();
+            line_splitCreatePostPanel1 = new Button();
             btn_chooseImageFromDevice = new Button();
             pb_chooseImageFromDevice = new PictureBox();
             label1 = new Label();
             tb_status = new TextBox();
             cbb_post_privacy = new ComboBox();
             lbl_username = new Label();
-            label2 = new Label();
             btn_exit_post = new PictureBox();
             pb_user3 = new PictureBox();
             panel_bg = new Panel();
@@ -78,6 +78,7 @@
             // 
             pb_logo_UPIC.BackColor = Color.White;
             pb_logo_UPIC.BackgroundImageLayout = ImageLayout.Zoom;
+            pb_logo_UPIC.Cursor = Cursors.Hand;
             pb_logo_UPIC.Image = Properties.Resources.upic_logo;
             pb_logo_UPIC.Location = new Point(33, 7);
             pb_logo_UPIC.Name = "pb_logo_UPIC";
@@ -102,6 +103,7 @@
             // 
             // pb_friends
             // 
+            pb_friends.Cursor = Cursors.Hand;
             pb_friends.Image = Properties.Resources.friends_shape_line;
             pb_friends.Location = new Point(1286, 7);
             pb_friends.Name = "pb_friends";
@@ -113,6 +115,7 @@
             // 
             // pb_mess
             // 
+            pb_mess.Cursor = Cursors.Hand;
             pb_mess.Image = Properties.Resources.mess_shape_line;
             pb_mess.Location = new Point(1362, 12);
             pb_mess.Name = "pb_mess";
@@ -125,6 +128,7 @@
             // pb_noti
             // 
             pb_noti.BackColor = Color.Transparent;
+            pb_noti.Cursor = Cursors.Hand;
             pb_noti.Image = Properties.Resources.notificationIcon1;
             pb_noti.Location = new Point(1430, 8);
             pb_noti.Name = "pb_noti";
@@ -137,6 +141,7 @@
             // pb_user1
             // 
             pb_user1.BackColor = Color.Transparent;
+            pb_user1.Cursor = Cursors.Hand;
             pb_user1.Image = Properties.Resources.accountIcon1;
             pb_user1.Location = new Point(1500, 6);
             pb_user1.Name = "pb_user1";
@@ -160,6 +165,7 @@
             // 
             tb_search.BackColor = Color.FromArgb(240, 242, 245);
             tb_search.BorderStyle = BorderStyle.None;
+            tb_search.Cursor = Cursors.IBeam;
             tb_search.Font = new Font("Be Vietnam Pro", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             tb_search.Location = new Point(20, 21);
             tb_search.Multiline = true;
@@ -184,6 +190,7 @@
             // lbl_image
             // 
             lbl_image.AutoSize = true;
+            lbl_image.Cursor = Cursors.Hand;
             lbl_image.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
             lbl_image.ForeColor = Color.FromArgb(17, 122, 101);
             lbl_image.Location = new Point(968, 27);
@@ -195,6 +202,7 @@
             // 
             // pb_image
             // 
+            pb_image.Cursor = Cursors.Hand;
             pb_image.Image = Properties.Resources.image;
             pb_image.Location = new Point(902, 12);
             pb_image.Name = "pb_image";
@@ -241,13 +249,13 @@
             // 
             panel_create_post.BackColor = Color.White;
             panel_create_post.BorderStyle = BorderStyle.FixedSingle;
+            panel_create_post.Controls.Add(line_splitCreatePostPanel1);
             panel_create_post.Controls.Add(btn_chooseImageFromDevice);
             panel_create_post.Controls.Add(pb_chooseImageFromDevice);
             panel_create_post.Controls.Add(label1);
             panel_create_post.Controls.Add(tb_status);
             panel_create_post.Controls.Add(cbb_post_privacy);
             panel_create_post.Controls.Add(lbl_username);
-            panel_create_post.Controls.Add(label2);
             panel_create_post.Controls.Add(btn_exit_post);
             panel_create_post.Controls.Add(pb_user3);
             panel_create_post.Location = new Point(325, 100);
@@ -255,6 +263,19 @@
             panel_create_post.Size = new Size(950, 600);
             panel_create_post.TabIndex = 0;
             panel_create_post.Visible = false;
+            // 
+            // line_splitCreatePostPanel1
+            // 
+            line_splitCreatePostPanel1.BackColor = Color.FromArgb(171, 178, 185);
+            line_splitCreatePostPanel1.Enabled = false;
+            line_splitCreatePostPanel1.FlatAppearance.BorderSize = 0;
+            line_splitCreatePostPanel1.FlatStyle = FlatStyle.Flat;
+            line_splitCreatePostPanel1.Location = new Point(5, 90);
+            line_splitCreatePostPanel1.Name = "line_splitCreatePostPanel1";
+            line_splitCreatePostPanel1.Size = new Size(940, 1);
+            line_splitCreatePostPanel1.TabIndex = 12;
+            line_splitCreatePostPanel1.Text = "button1";
+            line_splitCreatePostPanel1.UseVisualStyleBackColor = false;
             // 
             // btn_chooseImageFromDevice
             // 
@@ -291,6 +312,7 @@
             label1.Size = new Size(226, 52);
             label1.TabIndex = 5;
             label1.Text = "Tạo bài viết";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tb_status
             // 
@@ -315,6 +337,7 @@
             cbb_post_privacy.Name = "cbb_post_privacy";
             cbb_post_privacy.Size = new Size(179, 28);
             cbb_post_privacy.TabIndex = 8;
+            cbb_post_privacy.Text = "Công khai";
             // 
             // lbl_username
             // 
@@ -326,18 +349,9 @@
             lbl_username.TabIndex = 7;
             lbl_username.Text = "Nguyễn Thị Như Vân";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.ForeColor = Color.FromArgb(171, 178, 185);
-            label2.Location = new Point(-9, 71);
-            label2.Name = "label2";
-            label2.Size = new Size(1083, 20);
-            label2.TabIndex = 1;
-            label2.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
-            // 
             // btn_exit_post
             // 
+            btn_exit_post.Cursor = Cursors.Hand;
             btn_exit_post.Image = Properties.Resources.exit_fill;
             btn_exit_post.Location = new Point(877, 21);
             btn_exit_post.Name = "btn_exit_post";
@@ -438,12 +452,12 @@
         private Label label1;
         private PictureBox pb_user3;
         private PictureBox btn_exit_post;
-        private Label label2;
         private ComboBox cbb_post_privacy;
         private Label lbl_username;
         private TextBox tb_status;
         private Button btn_chooseImageFromDevice;
         private PictureBox pb_chooseImageFromDevice;
         private FlowLayoutPanel flp_newfeeds;
+        private Button line_splitCreatePostPanel1;
     }
 }

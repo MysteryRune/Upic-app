@@ -905,11 +905,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "D:\\Project\\C#\\Upic\\Upic.csproj",
+      "projectName": "Upic",
+      "projectPath": "D:\\Project\\C#\\Upic\\Upic.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "D:\\Project\\C#\\Upic\\obj\\",
+=======
       "projectUniqueName": "D:\\C#\\FinalProject\\Upic.csproj",
       "projectName": "Upic",
       "projectPath": "D:\\C#\\FinalProject\\Upic.csproj",
       "packagesPath": "C:\\Users\\Acer Nitro\\.nuget\\packages\\",
       "outputPath": "D:\\C#\\FinalProject\\obj\\",
+>>>>>>> main
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer Nitro\\AppData\\Roaming\\NuGet\\NuGet.Config",
