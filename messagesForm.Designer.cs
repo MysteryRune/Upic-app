@@ -39,8 +39,8 @@
             pb_logo_UPIC = new PictureBox();
             panel2 = new Panel();
             panel_in_chatting = new Panel();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
+            btn_send = new PictureBox();
+            btn_add_file = new PictureBox();
             btn_add_image = new PictureBox();
             panel4 = new Panel();
             tb_enterchat = new TextBox();
@@ -55,6 +55,11 @@
             lbl_name_user_in_chat = new Label();
             pb_avatar_user_in_chat = new PictureBox();
             panel_bg = new Panel();
+            panel_send_message = new Panel();
+            panel_receive_message = new Panel();
+            lbl_send_message = new Label();
+            lbl_receive_message = new Label();
+            btn_create_new_chat = new PictureBox();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_friends).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_mess).BeginInit();
@@ -64,16 +69,20 @@
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).BeginInit();
             panel2.SuspendLayout();
             panel_in_chatting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btn_send).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btn_add_file).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_add_image).BeginInit();
             panel4.SuspendLayout();
+            flp_chatting.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel_messages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_unread_like_user_avatar).BeginInit();
             panel_chat_with_user.SuspendLayout();
             panel_user_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_avatar_user_in_chat).BeginInit();
+            panel_send_message.SuspendLayout();
+            panel_receive_message.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btn_create_new_chat).BeginInit();
             SuspendLayout();
             // 
             // panelHeader
@@ -170,6 +179,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(btn_create_new_chat);
             panel2.Controls.Add(panel_in_chatting);
             panel2.Controls.Add(flp_chatting);
             panel2.Controls.Add(lbl_chat);
@@ -182,8 +192,8 @@
             // 
             // panel_in_chatting
             // 
-            panel_in_chatting.Controls.Add(pictureBox2);
-            panel_in_chatting.Controls.Add(pictureBox1);
+            panel_in_chatting.Controls.Add(btn_send);
+            panel_in_chatting.Controls.Add(btn_add_file);
             panel_in_chatting.Controls.Add(btn_add_image);
             panel_in_chatting.Controls.Add(panel4);
             panel_in_chatting.Location = new Point(397, 722);
@@ -191,27 +201,27 @@
             panel_in_chatting.Size = new Size(632, 83);
             panel_in_chatting.TabIndex = 9;
             // 
-            // pictureBox2
+            // btn_send
             // 
-            pictureBox2.Cursor = Cursors.Hand;
-            pictureBox2.Image = Properties.Resources.send_chat;
-            pictureBox2.Location = new Point(569, 13);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(60, 60);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
+            btn_send.Cursor = Cursors.Hand;
+            btn_send.Image = Properties.Resources.send_chat;
+            btn_send.Location = new Point(569, 13);
+            btn_send.Name = "btn_send";
+            btn_send.Size = new Size(60, 60);
+            btn_send.SizeMode = PictureBoxSizeMode.Zoom;
+            btn_send.TabIndex = 7;
+            btn_send.TabStop = false;
             // 
-            // pictureBox1
+            // btn_add_file
             // 
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Image = Properties.Resources.dinhkemfile;
-            pictureBox1.Location = new Point(503, 13);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(60, 60);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            btn_add_file.Cursor = Cursors.Hand;
+            btn_add_file.Image = Properties.Resources.dinhkemfile;
+            btn_add_file.Location = new Point(503, 13);
+            btn_add_file.Name = "btn_add_file";
+            btn_add_file.Size = new Size(60, 60);
+            btn_add_file.SizeMode = PictureBoxSizeMode.Zoom;
+            btn_add_file.TabIndex = 6;
+            btn_add_file.TabStop = false;
             // 
             // btn_add_image
             // 
@@ -250,6 +260,8 @@
             // 
             // flp_chatting
             // 
+            flp_chatting.Controls.Add(panel_send_message);
+            flp_chatting.Controls.Add(panel_receive_message);
             flp_chatting.Location = new Point(397, 100);
             flp_chatting.Name = "flp_chatting";
             flp_chatting.Size = new Size(632, 616);
@@ -351,9 +363,63 @@
             panel_bg.Dock = DockStyle.Fill;
             panel_bg.Location = new Point(0, 0);
             panel_bg.Name = "panel_bg";
+            panel_bg.RightToLeft = RightToLeft.No;
             panel_bg.Size = new Size(1600, 900);
             panel_bg.TabIndex = 5;
             panel_bg.Click += panel_bg_Click;
+            // 
+            // panel_send_message
+            // 
+            panel_send_message.BackColor = Color.Transparent;
+            panel_send_message.BackgroundImage = Properties.Resources.search_bg;
+            panel_send_message.BackgroundImageLayout = ImageLayout.Zoom;
+            panel_send_message.Controls.Add(lbl_send_message);
+            panel_send_message.Location = new Point(3, 3);
+            panel_send_message.Name = "panel_send_message";
+            panel_send_message.Size = new Size(368, 62);
+            panel_send_message.TabIndex = 5;
+            // 
+            // panel_receive_message
+            // 
+            panel_receive_message.BackColor = Color.Transparent;
+            panel_receive_message.BackgroundImage = Properties.Resources.search_bg;
+            panel_receive_message.BackgroundImageLayout = ImageLayout.Zoom;
+            panel_receive_message.Controls.Add(lbl_receive_message);
+            panel_receive_message.Location = new Point(3, 71);
+            panel_receive_message.Name = "panel_receive_message";
+            panel_receive_message.Size = new Size(368, 62);
+            panel_receive_message.TabIndex = 6;
+            // 
+            // lbl_send_message
+            // 
+            lbl_send_message.AutoSize = true;
+            lbl_send_message.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_send_message.Location = new Point(25, 18);
+            lbl_send_message.Name = "lbl_send_message";
+            lbl_send_message.Size = new Size(242, 28);
+            lbl_send_message.TabIndex = 0;
+            lbl_send_message.Text = "Hế lô, nhà có gì ăn không?";
+            // 
+            // lbl_receive_message
+            // 
+            lbl_receive_message.AutoSize = true;
+            lbl_receive_message.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_receive_message.Location = new Point(25, 17);
+            lbl_receive_message.Name = "lbl_receive_message";
+            lbl_receive_message.Size = new Size(242, 28);
+            lbl_receive_message.TabIndex = 1;
+            lbl_receive_message.Text = "Không có nha đi dookki đi";
+            // 
+            // btn_create_new_chat
+            // 
+            btn_create_new_chat.Cursor = Cursors.Hand;
+            btn_create_new_chat.Image = Properties.Resources.createNewChat;
+            btn_create_new_chat.Location = new Point(312, 22);
+            btn_create_new_chat.Name = "btn_create_new_chat";
+            btn_create_new_chat.Size = new Size(50, 50);
+            btn_create_new_chat.SizeMode = PictureBoxSizeMode.Zoom;
+            btn_create_new_chat.TabIndex = 11;
+            btn_create_new_chat.TabStop = false;
             // 
             // messagesForm
             // 
@@ -377,11 +443,12 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel_in_chatting.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btn_send).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btn_add_file).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_add_image).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            flp_chatting.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             panel_messages.ResumeLayout(false);
             panel_messages.PerformLayout();
@@ -390,6 +457,11 @@
             panel_user_header.ResumeLayout(false);
             panel_user_header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pb_avatar_user_in_chat).EndInit();
+            panel_send_message.ResumeLayout(false);
+            panel_send_message.PerformLayout();
+            panel_receive_message.ResumeLayout(false);
+            panel_receive_message.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btn_create_new_chat).EndInit();
             ResumeLayout(false);
         }
 
@@ -418,8 +490,13 @@
         private FlowLayoutPanel flp_chatting;
         private Panel panel_bg;
         private PictureBox btn_add_image;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox btn_add_file;
+        private PictureBox btn_send;
         private Panel panel_chat_with_user;
+        private PictureBox btn_create_new_chat;
+        private Panel panel_send_message;
+        private Label lbl_send_message;
+        private Panel panel_receive_message;
+        private Label lbl_receive_message;
     }
 }

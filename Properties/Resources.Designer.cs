@@ -253,6 +253,16 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap createNewChat {
+            get {
+                object obj = ResourceManager.GetObject("createNewChat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dinhkemfile {
             get {
                 object obj = ResourceManager.GetObject("dinhkemfile", resourceCulture);
