@@ -377,11 +377,7 @@
             flp_newfeeds.BackColor = Color.White;
             flp_newfeeds.Controls.Add(panel_before_post);
             flp_newfeeds.FlowDirection = FlowDirection.TopDown;
-<<<<<<< HEAD
             flp_newfeeds.Location = new Point(260, 90);
-=======
-            flp_newfeeds.Location = new Point(261, 100);
->>>>>>> main
             flp_newfeeds.Name = "flp_newfeeds";
             flp_newfeeds.Size = new Size(1080, 810);
             flp_newfeeds.TabIndex = 1;

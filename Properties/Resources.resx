@@ -121,6 +121,9 @@
   <data name="cancleIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\cancleIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="setting_fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\setting_fill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Intro 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\other\Intro 2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,11 +133,14 @@
   <data name="search_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\search_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="billIcon1White" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\logoImg\billIcon1White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="noti_fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\noti_fill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="notificationIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\notificationIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="send" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\send.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ASUS_TUF_GAMING_F15_2022" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\product\ASUS_TUF_GAMING_F15_2022.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,6 +181,9 @@
   <data name="UPTO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\other\UPTO1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Zenbook 14X OLED (UM5401, AMD Ryzen 5000 Series)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\product\Zenbook 14X OLED (UM5401, AMD Ryzen 5000 Series).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="accountIconWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\accountIconWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -183,6 +192,9 @@
   </data>
   <data name="upic_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\upic_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addImage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\addImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cartIcon1White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\cartIcon1White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,9 +226,6 @@
   <data name="googleBrandIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\googleBrandIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Legion_5_(15inch_Gen_7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\product\Legion_5_(15inch_Gen_7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ProArt Studiobook Pro 16 OLED (W7600, 12th Gen Intel)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\product\ProArt Studiobook Pro 16 OLED (W7600, 12th Gen Intel).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -231,6 +240,9 @@
   </data>
   <data name="gmailIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\gmailIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="send_chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\send_chat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Microsoft_Surface_Laptop_1_i5_4GB_128GB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\product\Microsoft_Surface_Laptop_1_i5_4GB_128GB.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,6 +271,9 @@
   <data name="historyIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\historyIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dinhkemfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\dinhkemfile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logoutIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\logoutIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -286,11 +301,14 @@
   <data name="acceptIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\acceptIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="addImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\addImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="accountIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\accountIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="noti_fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\logoImg\noti_fill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="setting_shape_line" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\setting_shape_line.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProArt_Studiobook_16_OLED_(H7600_12th Gen Intel)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\product\ProArt_Studiobook_16_OLED_(H7600_12th Gen Intel).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,8 +316,11 @@
   <data name="friends_fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\friends_fill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Zenbook 14X OLED (UM5401, AMD Ryzen 5000 Series)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\product\Zenbook 14X OLED (UM5401, AMD Ryzen 5000 Series).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="edit_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\edit_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="billIcon1White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\billIcon1White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="editPencilIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\editPencilIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -309,6 +330,9 @@
   </data>
   <data name="mess_shape_line" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\mess_shape_line.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Legion_5_(15inch_Gen_7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\product\Legion_5_(15inch_Gen_7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="billIcon2White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\billIcon2White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,7 +349,7 @@
   <data name="image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\logoImg\edit_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="createNewChat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\createNewChat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
