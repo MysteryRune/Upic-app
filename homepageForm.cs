@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
+using Google.Cloud.Firestore;
+using Google.Cloud.Firestore.V1;
+using static Google.Api.ResourceDescriptor.Types;
+
 namespace Upic
 {
     public partial class homepageForm : Form
@@ -17,6 +21,7 @@ namespace Upic
 
         public static homepageForm? homePageInstance;
         private String username;
+        FirestoreDb database;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public homepageForm()
@@ -25,9 +30,16 @@ namespace Upic
             homePageInstance = this;
 
             InitializeComponent();
+            connectFirestoreDatabase();
             flp_newfeeds.BackColor = Color.White;
             loginForm form = new loginForm();
             form.Show();
+        }
+
+        private void connectFirestoreDatabase()
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"firestore.json";
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
         }
 
         public void setUsername(String username)
@@ -268,14 +280,44 @@ namespace Upic
             return panel;
         }
 
-        private void btn_accept_post_Click(object sender, EventArgs e, String[] pathFile)
+        private async Task btn_accept_post_Click(object sender, EventArgs e, String[] pathFile, String postStatus, int layoutMode, int visibleMode)
         {
             DateTime dateNow = DateTime.Now;
             String dateUpload = dateNow.ToString("dd'-'MM'-'yyyy'_'HH':'mm':'ss");
             String postID = dateUpload + "_" + username;
+            String[] tmp = { };
+            Dictionary<String, Object> tmp2 = new Dictionary<String, Object>();
+            List<String> imgNameFile = new List<string>();
+            int count = 1;
+            database = FirestoreDb.Create("social-app-c-sharp-programming");
+            CollectionReference postColl = database.Collection("Post");
+            Dictionary<String, Object> postDetail = new Dictionary<String, Object>();
 
+            foreach(String file in pathFile)
+            {
+                imgNameFile.Add(postID + "_" + count.ToString());
+                count++;
+            }
 
-            MessageBox.Show(postID, "Post ID");
+            postDetail.Add("Post status", postStatus);
+            postDetail.Add("Post image", imgNameFile);
+            postDetail.Add("Date upload", dateUpload);
+            postDetail.Add("Layout mode", layoutMode);
+            postDetail.Add("Visible mode", visibleMode);
+            postDetail.Add("Visible list", tmp);
+            postDetail.Add("Like list", tmp);
+            postDetail.Add("Comment list", tmp2);
+            Task task = postColl.Document(postID).SetAsync(postDetail);
+            await task;
+            if (task.IsCompleted)
+            {
+                MessageBox.Show("Đăng bài thành công", "Thông báo");
+                btn_exit_post_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Lỗi khi đăng tải! Vui lòng thử lại", "Thông báo");
+            }
         }
 
         private void showListImageBeforeUpload(String[] pathFile)
@@ -326,7 +368,9 @@ namespace Upic
                 btn_accept_post.Text = "Đăng bài";
                 btn_accept_post.UseVisualStyleBackColor = false;
 #pragma warning disable CS8604 // Possible null reference argument.
-                btn_accept_post.Click += (sender, EventArgs) => { btn_accept_post_Click(sender, EventArgs, pathFile); };
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                btn_accept_post.Click += (sender, EventArgs) => btn_accept_post_Click(sender, EventArgs, pathFile, tb_status.Text, 0, 0);
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 #pragma warning restore CS8604 // Possible null reference argument.
                 panel_create_post.Controls.Add(btn_accept_post);
 
