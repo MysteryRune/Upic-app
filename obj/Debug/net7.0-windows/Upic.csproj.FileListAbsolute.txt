@@ -157,3 +157,6 @@ D:\C#\FinalApp\obj\Debug\net7.0-windows\refint\Upic.dll
 D:\C#\FinalApp\obj\Debug\net7.0-windows\Upic.pdb
 D:\C#\FinalApp\obj\Debug\net7.0-windows\Upic.genruntimeconfig.cache
 D:\C#\FinalApp\obj\Debug\net7.0-windows\ref\Upic.dll
+D:\C#\FinalApp\obj\Debug\net7.0-windows\Upic.messagesForm.resources
+D:\C#\FinalApp\obj\Debug\net7.0-windows\Upic.popupUC.resources
+D:\C#\FinalApp\obj\Debug\net7.0-windows\Upic.searchUC.resources
