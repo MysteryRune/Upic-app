@@ -44,10 +44,10 @@
             panel3 = new Panel();
             tb_caption = new TextBox();
             panel_create_post = new Panel();
-            button1 = new Button();
-            pictureBox2 = new PictureBox();
+            btn_chooseImageFromDevice = new Button();
+            pb_chooseImageFromDevice = new PictureBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            tb_status = new TextBox();
             cbb_post_privacy = new ComboBox();
             lbl_username = new Label();
             label2 = new Label();
@@ -67,7 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)pb_user2).BeginInit();
             panel3.SuspendLayout();
             panel_create_post.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pb_chooseImageFromDevice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_exit_post).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_user3).BeginInit();
             panel_bg.SuspendLayout();
@@ -178,7 +178,7 @@
             panel_before_post.Controls.Add(panel3);
             panel_before_post.Location = new Point(3, 3);
             panel_before_post.Name = "panel_before_post";
-            panel_before_post.Size = new Size(1065, 84);
+            panel_before_post.Size = new Size(1074, 84);
             panel_before_post.TabIndex = 3;
             // 
             // lbl_image
@@ -222,19 +222,18 @@
             panel3.Controls.Add(tb_caption);
             panel3.Location = new Point(110, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(752, 60);
+            panel3.Size = new Size(750, 60);
             panel3.TabIndex = 4;
             // 
             // tb_caption
             // 
             tb_caption.BackColor = Color.FromArgb(240, 242, 245);
             tb_caption.BorderStyle = BorderStyle.None;
-            tb_caption.Font = new Font("Be Vietnam Pro", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            tb_caption.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point);
             tb_caption.Location = new Point(26, 15);
-            tb_caption.Multiline = true;
             tb_caption.Name = "tb_caption";
             tb_caption.PlaceholderText = "Hôm nay của bạn thế nào?";
-            tb_caption.Size = new Size(621, 37);
+            tb_caption.Size = new Size(690, 30);
             tb_caption.TabIndex = 0;
             tb_caption.Click += tb_caption_Click;
             // 
@@ -242,42 +241,46 @@
             // 
             panel_create_post.BackColor = Color.White;
             panel_create_post.BorderStyle = BorderStyle.FixedSingle;
-            panel_create_post.Controls.Add(button1);
-            panel_create_post.Controls.Add(pictureBox2);
+            panel_create_post.Controls.Add(btn_chooseImageFromDevice);
+            panel_create_post.Controls.Add(pb_chooseImageFromDevice);
             panel_create_post.Controls.Add(label1);
-            panel_create_post.Controls.Add(textBox1);
+            panel_create_post.Controls.Add(tb_status);
             panel_create_post.Controls.Add(cbb_post_privacy);
             panel_create_post.Controls.Add(lbl_username);
             panel_create_post.Controls.Add(label2);
             panel_create_post.Controls.Add(btn_exit_post);
             panel_create_post.Controls.Add(pb_user3);
-            panel_create_post.Location = new Point(270, 100);
+            panel_create_post.Location = new Point(325, 100);
             panel_create_post.Name = "panel_create_post";
-            panel_create_post.Size = new Size(947, 441);
+            panel_create_post.Size = new Size(950, 600);
             panel_create_post.TabIndex = 0;
             panel_create_post.Visible = false;
             // 
-            // button1
+            // btn_chooseImageFromDevice
             // 
-            button1.FlatAppearance.BorderColor = Color.White;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(346, 365);
-            button1.Name = "button1";
-            button1.Size = new Size(276, 44);
-            button1.TabIndex = 11;
-            button1.Text = "Chọn ảnh từ máy tính";
-            button1.UseVisualStyleBackColor = true;
+            btn_chooseImageFromDevice.Cursor = Cursors.Hand;
+            btn_chooseImageFromDevice.FlatAppearance.BorderColor = Color.White;
+            btn_chooseImageFromDevice.FlatStyle = FlatStyle.Flat;
+            btn_chooseImageFromDevice.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_chooseImageFromDevice.Location = new Point(337, 450);
+            btn_chooseImageFromDevice.Name = "btn_chooseImageFromDevice";
+            btn_chooseImageFromDevice.Size = new Size(276, 45);
+            btn_chooseImageFromDevice.TabIndex = 11;
+            btn_chooseImageFromDevice.Text = "Chọn ảnh từ máy tính";
+            btn_chooseImageFromDevice.UseVisualStyleBackColor = true;
+            btn_chooseImageFromDevice.Click += btn_chooseImageFromDevice_Click;
             // 
-            // pictureBox2
+            // pb_chooseImageFromDevice
             // 
-            pictureBox2.Image = Properties.Resources.upload;
-            pictureBox2.Location = new Point(416, 260);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(128, 90);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 10;
-            pictureBox2.TabStop = false;
+            pb_chooseImageFromDevice.Cursor = Cursors.Hand;
+            pb_chooseImageFromDevice.Image = Properties.Resources.upload;
+            pb_chooseImageFromDevice.Location = new Point(411, 360);
+            pb_chooseImageFromDevice.Name = "pb_chooseImageFromDevice";
+            pb_chooseImageFromDevice.Size = new Size(128, 90);
+            pb_chooseImageFromDevice.SizeMode = PictureBoxSizeMode.Zoom;
+            pb_chooseImageFromDevice.TabIndex = 10;
+            pb_chooseImageFromDevice.TabStop = false;
+            pb_chooseImageFromDevice.Click += pb_chooseImageFromDevice_Click;
             // 
             // label1
             // 
@@ -289,17 +292,18 @@
             label1.TabIndex = 5;
             label1.Text = "Tạo bài viết";
             // 
-            // textBox1
+            // tb_status
             // 
-            textBox1.BackColor = Color.White;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(44, 196);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Chia sẻ với mọi người bạn đang suy nghĩ gì nhé? ♪(´▽`)";
-            textBox1.Size = new Size(621, 37);
-            textBox1.TabIndex = 9;
+            tb_status.BackColor = Color.White;
+            tb_status.BorderStyle = BorderStyle.None;
+            tb_status.Font = new Font("Be Vietnam Pro", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tb_status.Location = new Point(45, 196);
+            tb_status.Multiline = true;
+            tb_status.Name = "tb_status";
+            tb_status.PlaceholderText = "Chia sẻ với mọi người bạn đang suy nghĩ gì nhé? ♪(´▽`)";
+            tb_status.Size = new Size(860, 150);
+            tb_status.TabIndex = 9;
+            tb_status.TextChanged += tb_status_TextChanged;
             // 
             // cbb_post_privacy
             // 
@@ -347,7 +351,7 @@
             // 
             pb_user3.BackColor = Color.Transparent;
             pb_user3.Image = Properties.Resources.accountIcon1;
-            pb_user3.Location = new Point(44, 107);
+            pb_user3.Location = new Point(45, 107);
             pb_user3.Name = "pb_user3";
             pb_user3.Size = new Size(70, 70);
             pb_user3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -357,9 +361,9 @@
             // panel_bg
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
+            panel_bg.Controls.Add(panel_create_post);
             panel_bg.Controls.Add(panelHeader);
             panel_bg.Controls.Add(flp_newfeeds);
-            panel_bg.Controls.Add(panel_create_post);
             panel_bg.Dock = DockStyle.Fill;
             panel_bg.Location = new Point(0, 0);
             panel_bg.Name = "panel_bg";
@@ -373,9 +377,13 @@
             flp_newfeeds.BackColor = Color.White;
             flp_newfeeds.Controls.Add(panel_before_post);
             flp_newfeeds.FlowDirection = FlowDirection.TopDown;
+<<<<<<< HEAD
+            flp_newfeeds.Location = new Point(260, 90);
+=======
             flp_newfeeds.Location = new Point(261, 100);
+>>>>>>> main
             flp_newfeeds.Name = "flp_newfeeds";
-            flp_newfeeds.Size = new Size(1080, 813);
+            flp_newfeeds.Size = new Size(1080, 810);
             flp_newfeeds.TabIndex = 1;
             // 
             // homepageForm
@@ -406,7 +414,7 @@
             panel3.PerformLayout();
             panel_create_post.ResumeLayout(false);
             panel_create_post.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pb_chooseImageFromDevice).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_exit_post).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_user3).EndInit();
             panel_bg.ResumeLayout(false);
@@ -437,9 +445,9 @@
         private Label label2;
         private ComboBox cbb_post_privacy;
         private Label lbl_username;
-        private TextBox textBox1;
-        private Button button1;
-        private PictureBox pictureBox2;
+        private TextBox tb_status;
+        private Button btn_chooseImageFromDevice;
+        private PictureBox pb_chooseImageFromDevice;
         private FlowLayoutPanel flp_newfeeds;
     }
 }
