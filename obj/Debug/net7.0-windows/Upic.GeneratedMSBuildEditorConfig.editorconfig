@@ -14,8 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Upic
-<<<<<<< HEAD
-build_property.ProjectDir = D:\C#\FinalApp\
-=======
 build_property.ProjectDir = D:\Project\C#\Upic\
->>>>>>> 6b064046cc3f6801d18c5655181de4051ab2a7b6

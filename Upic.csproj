@@ -13,6 +13,7 @@
 		<Folder Include="res\logoImg\" />
 	</ItemGroup>
 
+
 	<ItemGroup>
 	  <PackageReference Include="Google.Cloud.Firestore" Version="3.3.0" />
 	  <PackageReference Include="Google.Cloud.Firestore.V1" Version="3.3.0" />
