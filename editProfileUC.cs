@@ -22,5 +22,10 @@ namespace Upic
             panel_info.Visible = false;
             panel_edit_info.Visible = true;
         }
+
+        private void tb_edit_day_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
