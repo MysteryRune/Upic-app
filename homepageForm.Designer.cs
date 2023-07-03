@@ -232,6 +232,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(750, 60);
             panel3.TabIndex = 4;
+            panel3.Click += panel3_Click;
             // 
             // tb_caption
             // 
@@ -376,8 +377,8 @@
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
             panel_bg.Controls.Add(panel_create_post);
-            panel_bg.Controls.Add(panelHeader);
             panel_bg.Controls.Add(flp_newfeeds);
+            panel_bg.Controls.Add(panelHeader);
             panel_bg.Dock = DockStyle.Fill;
             panel_bg.Location = new Point(0, 0);
             panel_bg.Name = "panel_bg";
