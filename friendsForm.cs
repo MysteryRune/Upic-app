@@ -131,6 +131,7 @@ namespace Upic
                 friends.Add(friendRequest.Name);
                 friendRequests.Remove(friendRequest);
                 flp_friend_requests.Controls.Remove(panel_request_per_user);
+                //AddFriendToList(friendRequest.Name);
             };
             panel_request_per_user.Controls.Add(btn_accept_request);
 
@@ -156,7 +157,6 @@ namespace Upic
             flp_friend_requests.Controls.Add(panel_request_per_user);
         }
 
-
         public class FriendRequest
         {
             public string Name { get; }
@@ -168,5 +168,6 @@ namespace Upic
                 Avatar = avatar;
             }
         }
+
     }
 }

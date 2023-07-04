@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\FinalProject\\Upic.csproj": {}
+    "D:\\C#\\Upic\\Upic.csproj": {}
   },
   "projects": {
-    "D:\\C#\\FinalProject\\Upic.csproj": {
+    "D:\\C#\\Upic\\Upic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\FinalProject\\Upic.csproj",
+        "projectUniqueName": "D:\\C#\\Upic\\Upic.csproj",
         "projectName": "Upic",
-        "projectPath": "D:\\C#\\FinalProject\\Upic.csproj",
+        "projectPath": "D:\\C#\\Upic\\Upic.csproj",
         "packagesPath": "C:\\Users\\Acer Nitro\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\FinalProject\\obj\\",
+        "outputPath": "D:\\C#\\Upic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer Nitro\\AppData\\Roaming\\NuGet\\NuGet.Config",
