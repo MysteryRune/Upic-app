@@ -41,12 +41,6 @@
             panel2 = new Panel();
             btn_allfriends = new Button();
             btn_friendrequests = new Button();
-            flp_all_friends = new FlowLayoutPanel();
-            panel_friend_per_user = new Panel();
-            btn_delete_friend = new Button();
-            lbl_request_user_name = new Label();
-            lbl_request_name = new Label();
-            pb_request_avt = new PictureBox();
             flp_friend_requests = new FlowLayoutPanel();
             panel_request_per_user = new Panel();
             btn_accept_request = new Button();
@@ -54,6 +48,12 @@
             lbl_profile_username = new Label();
             lbl_friend_name = new Label();
             pb_avatar_of_user_request = new PictureBox();
+            flp_all_friends = new FlowLayoutPanel();
+            panel_friend_per_user = new Panel();
+            btn_delete_friend = new Button();
+            lbl_request_user_name = new Label();
+            lbl_request_name = new Label();
+            pb_request_avt = new PictureBox();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_friends).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_mess).BeginInit();
@@ -63,12 +63,12 @@
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).BeginInit();
             panel_bg.SuspendLayout();
             panel2.SuspendLayout();
-            flp_all_friends.SuspendLayout();
-            panel_friend_per_user.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pb_request_avt).BeginInit();
             flp_friend_requests.SuspendLayout();
             panel_request_per_user.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_avatar_of_user_request).BeginInit();
+            flp_all_friends.SuspendLayout();
+            panel_friend_per_user.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_request_avt).BeginInit();
             SuspendLayout();
             // 
             // panelHeader
@@ -219,6 +219,90 @@
             btn_friendrequests.UseVisualStyleBackColor = false;
             btn_friendrequests.Click += btn_friendrequests_Click;
             // 
+            // flp_friend_requests
+            // 
+            flp_friend_requests.BackColor = Color.White;
+            flp_friend_requests.Controls.Add(panel_request_per_user);
+            flp_friend_requests.Location = new Point(21, 71);
+            flp_friend_requests.Name = "flp_friend_requests";
+            flp_friend_requests.Size = new Size(1030, 715);
+            flp_friend_requests.TabIndex = 1;
+            // 
+            // panel_request_per_user
+            // 
+            panel_request_per_user.BorderStyle = BorderStyle.FixedSingle;
+            panel_request_per_user.Controls.Add(btn_accept_request);
+            panel_request_per_user.Controls.Add(btn_delete_request);
+            panel_request_per_user.Controls.Add(lbl_profile_username);
+            panel_request_per_user.Controls.Add(lbl_friend_name);
+            panel_request_per_user.Controls.Add(pb_avatar_of_user_request);
+            panel_request_per_user.Location = new Point(3, 3);
+            panel_request_per_user.Name = "panel_request_per_user";
+            panel_request_per_user.Size = new Size(237, 337);
+            panel_request_per_user.TabIndex = 1;
+            // 
+            // btn_accept_request
+            // 
+            btn_accept_request.BackColor = Color.FromArgb(52, 152, 219);
+            btn_accept_request.Cursor = Cursors.Hand;
+            btn_accept_request.FlatAppearance.BorderColor = Color.White;
+            btn_accept_request.FlatStyle = FlatStyle.Flat;
+            btn_accept_request.Font = new Font("Be Vietnam Pro SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_accept_request.ForeColor = Color.White;
+            btn_accept_request.Location = new Point(49, 231);
+            btn_accept_request.Name = "btn_accept_request";
+            btn_accept_request.Size = new Size(139, 44);
+            btn_accept_request.TabIndex = 2;
+            btn_accept_request.Text = "Chấp nhận";
+            btn_accept_request.UseVisualStyleBackColor = false;
+            // 
+            // btn_delete_request
+            // 
+            btn_delete_request.BackColor = Color.FromArgb(213, 216, 220);
+            btn_delete_request.Cursor = Cursors.Hand;
+            btn_delete_request.FlatAppearance.BorderColor = Color.White;
+            btn_delete_request.FlatStyle = FlatStyle.Flat;
+            btn_delete_request.Font = new Font("Be Vietnam Pro SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_delete_request.ForeColor = Color.Black;
+            btn_delete_request.Location = new Point(49, 281);
+            btn_delete_request.Name = "btn_delete_request";
+            btn_delete_request.Size = new Size(139, 44);
+            btn_delete_request.TabIndex = 1;
+            btn_delete_request.Text = "Xóa";
+            btn_delete_request.UseVisualStyleBackColor = false;
+            // 
+            // lbl_profile_username
+            // 
+            lbl_profile_username.AutoSize = true;
+            lbl_profile_username.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_profile_username.ForeColor = Color.FromArgb(86, 101, 115);
+            lbl_profile_username.Location = new Point(63, 194);
+            lbl_profile_username.Name = "lbl_profile_username";
+            lbl_profile_username.Size = new Size(116, 28);
+            lbl_profile_username.TabIndex = 3;
+            lbl_profile_username.Text = "@username";
+            // 
+            // lbl_friend_name
+            // 
+            lbl_friend_name.AutoSize = true;
+            lbl_friend_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_friend_name.Location = new Point(14, 166);
+            lbl_friend_name.Name = "lbl_friend_name";
+            lbl_friend_name.Size = new Size(204, 30);
+            lbl_friend_name.TabIndex = 1;
+            lbl_friend_name.Text = "Phạm Bùi Nhật Huy";
+            // 
+            // pb_avatar_of_user_request
+            // 
+            pb_avatar_of_user_request.Image = Properties.Resources.accountIcon;
+            pb_avatar_of_user_request.Location = new Point(37, 2);
+            pb_avatar_of_user_request.Name = "pb_avatar_of_user_request";
+            pb_avatar_of_user_request.Size = new Size(160, 160);
+            pb_avatar_of_user_request.SizeMode = PictureBoxSizeMode.Zoom;
+            pb_avatar_of_user_request.TabIndex = 0;
+            pb_avatar_of_user_request.TabStop = false;
+            pb_avatar_of_user_request.UseWaitCursor = true;
+            // 
             // flp_all_friends
             // 
             flp_all_friends.BackColor = Color.White;
@@ -285,86 +369,6 @@
             pb_request_avt.TabIndex = 0;
             pb_request_avt.TabStop = false;
             // 
-            // flp_friend_requests
-            // 
-            flp_friend_requests.BackColor = Color.White;
-            flp_friend_requests.Controls.Add(panel_request_per_user);
-            flp_friend_requests.Location = new Point(21, 71);
-            flp_friend_requests.Name = "flp_friend_requests";
-            flp_friend_requests.Size = new Size(1030, 715);
-            flp_friend_requests.TabIndex = 1;
-            // 
-            // panel_request_per_user
-            // 
-            panel_request_per_user.BorderStyle = BorderStyle.FixedSingle;
-            panel_request_per_user.Controls.Add(btn_accept_request);
-            panel_request_per_user.Controls.Add(btn_delete_request);
-            panel_request_per_user.Controls.Add(lbl_profile_username);
-            panel_request_per_user.Controls.Add(lbl_friend_name);
-            panel_request_per_user.Controls.Add(pb_avatar_of_user_request);
-            panel_request_per_user.Location = new Point(3, 3);
-            panel_request_per_user.Name = "panel_request_per_user";
-            panel_request_per_user.Size = new Size(237, 337);
-            panel_request_per_user.TabIndex = 1;
-            // 
-            // btn_accept_request
-            // 
-            btn_accept_request.BackColor = Color.FromArgb(52, 152, 219);
-            btn_accept_request.FlatAppearance.BorderColor = Color.White;
-            btn_accept_request.FlatStyle = FlatStyle.Flat;
-            btn_accept_request.Font = new Font("Be Vietnam Pro SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_accept_request.ForeColor = Color.White;
-            btn_accept_request.Location = new Point(49, 231);
-            btn_accept_request.Name = "btn_accept_request";
-            btn_accept_request.Size = new Size(139, 44);
-            btn_accept_request.TabIndex = 2;
-            btn_accept_request.Text = "Chấp nhận";
-            btn_accept_request.UseVisualStyleBackColor = false;
-            // 
-            // btn_delete_request
-            // 
-            btn_delete_request.BackColor = Color.FromArgb(213, 216, 220);
-            btn_delete_request.FlatAppearance.BorderColor = Color.White;
-            btn_delete_request.FlatStyle = FlatStyle.Flat;
-            btn_delete_request.Font = new Font("Be Vietnam Pro SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_delete_request.Location = new Point(49, 281);
-            btn_delete_request.Name = "btn_delete_request";
-            btn_delete_request.Size = new Size(139, 44);
-            btn_delete_request.TabIndex = 1;
-            btn_delete_request.Text = "Xóa";
-            btn_delete_request.UseVisualStyleBackColor = false;
-            // 
-            // lbl_profile_username
-            // 
-            lbl_profile_username.AutoSize = true;
-            lbl_profile_username.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_profile_username.ForeColor = Color.FromArgb(86, 101, 115);
-            lbl_profile_username.Location = new Point(63, 194);
-            lbl_profile_username.Name = "lbl_profile_username";
-            lbl_profile_username.Size = new Size(116, 28);
-            lbl_profile_username.TabIndex = 3;
-            lbl_profile_username.Text = "@username";
-            // 
-            // lbl_friend_name
-            // 
-            lbl_friend_name.AutoSize = true;
-            lbl_friend_name.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_friend_name.Location = new Point(14, 166);
-            lbl_friend_name.Name = "lbl_friend_name";
-            lbl_friend_name.Size = new Size(204, 30);
-            lbl_friend_name.TabIndex = 1;
-            lbl_friend_name.Text = "Phạm Bùi Nhật Huy";
-            // 
-            // pb_avatar_of_user_request
-            // 
-            pb_avatar_of_user_request.Image = Properties.Resources.accountIcon;
-            pb_avatar_of_user_request.Location = new Point(37, 2);
-            pb_avatar_of_user_request.Name = "pb_avatar_of_user_request";
-            pb_avatar_of_user_request.Size = new Size(160, 160);
-            pb_avatar_of_user_request.SizeMode = PictureBoxSizeMode.Zoom;
-            pb_avatar_of_user_request.TabIndex = 0;
-            pb_avatar_of_user_request.TabStop = false;
-            // 
             // friendsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -386,14 +390,14 @@
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).EndInit();
             panel_bg.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            flp_all_friends.ResumeLayout(false);
-            panel_friend_per_user.ResumeLayout(false);
-            panel_friend_per_user.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pb_request_avt).EndInit();
             flp_friend_requests.ResumeLayout(false);
             panel_request_per_user.ResumeLayout(false);
             panel_request_per_user.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pb_avatar_of_user_request).EndInit();
+            flp_all_friends.ResumeLayout(false);
+            panel_friend_per_user.ResumeLayout(false);
+            panel_friend_per_user.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_request_avt).EndInit();
             ResumeLayout(false);
         }
 
