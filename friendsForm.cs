@@ -8,10 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Google.Cloud.Firestore;
+using Google.Cloud.Firestore.V1;
+using static Google.Api.ResourceDescriptor.Types;
+
 namespace Upic
 {
     public partial class friendsForm : Form
     {
+        private List<FriendRequest> friendRequests = new List<FriendRequest>();
+        private List<string> friends = new List<string>();
+
         private bool close_by_X_btt;
 
         public friendsForm()
@@ -39,15 +46,15 @@ namespace Upic
 
         private void btn_allfriends_Click(object sender, EventArgs e)
         {
-            panel_requests.Visible = false;
-            panel_allfriends.Visible = true;
+            flp_friend_requests.Visible = false;
+            flp_all_friends.Visible = true;
 
         }
 
         private void btn_friendrequests_Click(object sender, EventArgs e)
         {
-            panel_allfriends.Visible = false;
-            panel_requests.Visible = true;
+            flp_all_friends.Visible = false;
+            flp_friend_requests.Visible = true;
         }
 
         private void pb_logo_UPIC_Click(object sender, EventArgs e)
@@ -55,6 +62,20 @@ namespace Upic
             close_by_X_btt = false;
             Close();
             returnToHomePage();
+        }
+
+
+
+        private void addFriend(string friendName)
+        {
+            Panel newFriendRequest = new Panel();
+            newFriendRequest.Name = "panel_request_of_" + friendName;
+            newFriendRequest.Text = friendName;
+            newFriendRequest.Visible = true;
+            newFriendRequest.AutoSize = true;
+
+            flp_friend_requests.Controls.Add(newFriendRequest);
+
         }
     }
 }
