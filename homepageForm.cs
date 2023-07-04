@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Text.Json;
+using firebaseFunctionCustom;
 
 using Google.Cloud.Firestore;
-using Google.Cloud.Firestore.V1;
-using static Google.Api.ResourceDescriptor.Types;
+using Google.Cloud.Storage;
+using Google.Cloud.Storage.V1;
+using static System.Net.Mime.MediaTypeNames;
+using System.Diagnostics;
 
 namespace Upic
 {
@@ -30,16 +33,10 @@ namespace Upic
             homePageInstance = this;
 
             InitializeComponent();
-            connectFirestoreDatabase();
+            (new firebaseFunctionCustom.firestoreDatabase()).connectToDatabase("firestore.json");
             flp_newfeeds.BackColor = Color.White;
             loginForm form = new loginForm();
             form.Show();
-        }
-
-        private void connectFirestoreDatabase()
-        {
-            string path = AppDomain.CurrentDomain.BaseDirectory + @"firestore.json";
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
         }
 
         public void setUsername(String username)
@@ -221,7 +218,7 @@ namespace Upic
                 pb.BackColor = Color.FromArgb(204, 0, 0, 0);
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
                 pb.BorderStyle = BorderStyle.None;
-                pb.Image = Image.FromFile(path);
+                pb.Image = System.Drawing.Image.FromFile(path);
                 panel.Controls.Add(pb);
 
                 count++;
@@ -362,6 +359,30 @@ namespace Upic
             return panel;
         }
 
+        private void storeImage2FirebaseStorage(String postID, String[] pathFile)
+        {
+            //String projectId = "social-app-c-sharp-programming";
+            var storage = StorageClient.Create();
+            // Create a bucket with a globally unique name
+            string jsonFile = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"firebaseStorage.json");
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+            Dictionary<string, object> json_Dictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonFile);
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            var bucketName = json_Dictionary["bucketName"].ToString();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+
+            foreach (int i in Enumerable.Range(0, pathFile.Length - 1))
+            {
+                String destination = "Image storage/" + username + "/" + "Image/" + postID + "_" + (i + 1).ToString();
+                String contentType = "image/" + Path.GetExtension(pathFile[i]).Split('.')[1];
+                using var fileStream = File.OpenRead(pathFile[i]);
+                storage.UploadObject(bucketName, destination, contentType, fileStream);
+            }
+
+            
+        }
+
         private async Task btn_accept_post_Click(object sender, EventArgs e, String[] pathFile, String postStatus, int layoutMode)
         {
             DateTime dateNow = DateTime.Now;
@@ -372,8 +393,8 @@ namespace Upic
             List<String> imgNameFile = new List<string>();
             int visibleMode;
             int count = 1;
-            database = FirestoreDb.Create("social-app-c-sharp-programming");
-            CollectionReference postColl = database.Collection("Post");
+            database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
+            CollectionReference postColl = database.Collection("Posts");
             Dictionary<String, Object> postDetail = new Dictionary<String, Object>();
 
             switch (cbb_post_privacy.Text)
@@ -418,6 +439,7 @@ namespace Upic
             await task;
             if (task.IsCompleted)
             {
+                storeImage2FirebaseStorage(postID, pathFile);
                 MessageBox.Show("Đăng bài thành công", "Thông báo");
                 btn_exit_post_Click(sender, e);
             }
@@ -444,7 +466,7 @@ namespace Upic
 
                         break;
                     }
-                    Image loadedImage = Image.FromFile(path);
+                    System.Drawing.Image loadedImage = System.Drawing.Image.FromFile(path);
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                     Control panel_listImage = panel_create_post.Controls["panel_listImage"];
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.

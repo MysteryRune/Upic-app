@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 
+using firebaseFunctionCustom;
+
 using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
 using static Google.Api.ResourceDescriptor.Types;
@@ -30,17 +32,11 @@ namespace Upic
             InitializeComponent();
 
             close_by_X_btt = true;
-            connectFirestoreDatabase();
+            (new firestoreDatabase()).connectToDatabase("firestore.json");
 
 #pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
             FormClosed += new FormClosedEventHandler(loginForm_FormClosedByXBtt);
 #pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
-        }
-
-        private void connectFirestoreDatabase()
-        {
-            string path = AppDomain.CurrentDomain.BaseDirectory + @"firestore.json";
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
         }
 
         private void loginForm_Load(object sender, EventArgs e)
@@ -52,8 +48,6 @@ namespace Upic
             loginAnnouncement.Visible = false;
             loginBtt.Visible = true;
             signUpBtt.Visible = true;
-
-            connectFirestoreDatabase();
         }
 
         private void googleLogin_Click(object sender, EventArgs e)
