@@ -56,5 +56,16 @@ namespace Upic
             panel_edit_info.Visible = true;
 
         }
+
+        private void btn_edit_avatar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg, *.png, *.jpeg)|*.jpg;*.png;*.jpeg";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pb_profile_user_avatar.Image = new Bitmap(openFileDialog.FileName);
+            }
+        }
     }
 }

@@ -116,6 +116,7 @@
             btn_edit_avatar.TabIndex = 5;
             btn_edit_avatar.Text = "Chỉnh sửa";
             btn_edit_avatar.UseVisualStyleBackColor = false;
+            btn_edit_avatar.Click += btn_edit_avatar_Click;
             // 
             // lbl_profile_info
             // 
