@@ -211,10 +211,11 @@ D:\C#\FinalProject\obj\Debug\net7.0-windows\refint\Upic.dll
 D:\C#\FinalProject\obj\Debug\net7.0-windows\Upic.pdb
 D:\C#\FinalProject\obj\Debug\net7.0-windows\Upic.genruntimeconfig.cache
 D:\C#\FinalProject\obj\Debug\net7.0-windows\ref\Upic.dll
-<<<<<<< HEAD
 D:\C#\FinalProject\obj\Debug\net7.0-windows\Upic.editProfileUC.resources
-=======
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.messagesForm.resources
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.popupUC.resources
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.searchUC.resources
->>>>>>> main
+D:\C#\Upic\obj\Debug\net7.0-windows\Upic.editProfileUC.resources
+D:\C#\Upic\obj\Debug\net7.0-windows\Upic.messagesForm.resources
+D:\C#\Upic\obj\Debug\net7.0-windows\Upic.popupUC.resources
+D:\C#\Upic\obj\Debug\net7.0-windows\Upic.searchUC.resources
