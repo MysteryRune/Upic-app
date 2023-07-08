@@ -56,5 +56,26 @@ namespace Upic
             Close();
             returnToHomePage();
         }
+
+        private void pb_mess_Click(object sender, EventArgs e)
+        {
+            Close();
+            Form form = new messagesForm();
+            form.Show();
+        }
+
+        private void pb_noti_Click(object sender, EventArgs e)
+        {
+            Close();
+            Form form = new notificationsForm();
+            form.Show();
+        }
+
+        private void pb_user1_Click(object sender, EventArgs e)
+        {
+            Close();
+            Form form = new userProfileForm();
+            form.Show();
+        }
     }
 }

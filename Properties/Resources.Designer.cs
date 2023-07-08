@@ -193,6 +193,16 @@ namespace Upic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BannerLayoutIcon {
+            get {
+                object obj = ResourceManager.GetObject("BannerLayoutIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap billIcon1White {
             get {
                 object obj = ResourceManager.GetObject("billIcon1White", resourceCulture);
@@ -246,6 +256,16 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap cartIcon1White {
             get {
                 object obj = ResourceManager.GetObject("cartIcon1White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ColumnLayoutIcon {
+            get {
+                object obj = ResourceManager.GetObject("ColumnLayoutIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -356,6 +376,16 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap facebookIcon {
             get {
                 object obj = ResourceManager.GetObject("facebookIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FrameLayoutIcon {
+            get {
+                object obj = ResourceManager.GetObject("FrameLayoutIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -542,6 +572,16 @@ namespace Upic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Logo_Brand {
+            get {
+                object obj = ResourceManager.GetObject("Logo_Brand", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logoutIcon1 {
@@ -597,6 +637,16 @@ namespace Upic.Properties {
         internal static System.Drawing.Bitmap Microsoft_Surface_Pro_8_i5_8GB_128GB {
             get {
                 object obj = ResourceManager.GetObject("Microsoft_Surface_Pro 8_i5_8GB_128GB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NoneIcon {
+            get {
+                object obj = ResourceManager.GetObject("NoneIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

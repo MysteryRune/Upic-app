@@ -44,6 +44,11 @@
             panel3 = new Panel();
             tb_caption = new TextBox();
             panel_create_post = new Panel();
+            flp_groupLayoutModeBtn = new FlowLayoutPanel();
+            btn_noneLayout = new Button();
+            btn_columnLayout = new Button();
+            btn_bannerLayout = new Button();
+            btn_frameLayout = new Button();
             line_splitCreatePostPanel1 = new Button();
             btn_chooseImageFromDevice = new Button();
             pb_chooseImageFromDevice = new PictureBox();
@@ -67,11 +72,11 @@
             ((System.ComponentModel.ISupportInitialize)pb_user2).BeginInit();
             panel3.SuspendLayout();
             panel_create_post.SuspendLayout();
+            flp_groupLayoutModeBtn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_chooseImageFromDevice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_exit_post).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_user3).BeginInit();
             panel_bg.SuspendLayout();
-            flp_newfeeds.SuspendLayout();
             SuspendLayout();
             // 
             // pb_logo_UPIC
@@ -86,6 +91,7 @@
             pb_logo_UPIC.SizeMode = PictureBoxSizeMode.Zoom;
             pb_logo_UPIC.TabIndex = 1;
             pb_logo_UPIC.TabStop = false;
+            pb_logo_UPIC.Click += pb_logo_UPIC_Click;
             // 
             // panelHeader
             // 
@@ -149,6 +155,7 @@
             pb_user1.SizeMode = PictureBoxSizeMode.Zoom;
             pb_user1.TabIndex = 2;
             pb_user1.TabStop = false;
+            pb_user1.Click += pb_user1_Click;
             // 
             // panel1
             // 
@@ -173,7 +180,6 @@
             tb_search.PlaceholderText = "Tìm kiếm trên Upic";
             tb_search.Size = new Size(291, 27);
             tb_search.TabIndex = 0;
-            tb_search.TextChanged += tb_search_TextChanged;
             // 
             // panel_before_post
             // 
@@ -182,7 +188,7 @@
             panel_before_post.Controls.Add(pb_image);
             panel_before_post.Controls.Add(pb_user2);
             panel_before_post.Controls.Add(panel3);
-            panel_before_post.Location = new Point(3, 3);
+            panel_before_post.Location = new Point(263, 90);
             panel_before_post.Name = "panel_before_post";
             panel_before_post.Size = new Size(1074, 84);
             panel_before_post.TabIndex = 3;
@@ -250,6 +256,7 @@
             // 
             panel_create_post.BackColor = Color.White;
             panel_create_post.BorderStyle = BorderStyle.FixedSingle;
+            panel_create_post.Controls.Add(flp_groupLayoutModeBtn);
             panel_create_post.Controls.Add(line_splitCreatePostPanel1);
             panel_create_post.Controls.Add(btn_chooseImageFromDevice);
             panel_create_post.Controls.Add(pb_chooseImageFromDevice);
@@ -259,11 +266,88 @@
             panel_create_post.Controls.Add(lbl_username);
             panel_create_post.Controls.Add(btn_exit_post);
             panel_create_post.Controls.Add(pb_user3);
+            panel_create_post.Font = new Font("Be Vietnam Pro", 8.999999F, FontStyle.Regular, GraphicsUnit.Point);
             panel_create_post.Location = new Point(325, 100);
             panel_create_post.Name = "panel_create_post";
             panel_create_post.Size = new Size(950, 600);
             panel_create_post.TabIndex = 0;
             panel_create_post.Visible = false;
+            // 
+            // flp_groupLayoutModeBtn
+            // 
+            flp_groupLayoutModeBtn.Controls.Add(btn_noneLayout);
+            flp_groupLayoutModeBtn.Controls.Add(btn_columnLayout);
+            flp_groupLayoutModeBtn.Controls.Add(btn_bannerLayout);
+            flp_groupLayoutModeBtn.Controls.Add(btn_frameLayout);
+            flp_groupLayoutModeBtn.Location = new Point(2, 360);
+            flp_groupLayoutModeBtn.Name = "flp_groupLayoutModeBtn";
+            flp_groupLayoutModeBtn.Size = new Size(40, 200);
+            flp_groupLayoutModeBtn.TabIndex = 14;
+            flp_groupLayoutModeBtn.Visible = false;
+            // 
+            // btn_noneLayout
+            // 
+            btn_noneLayout.BackgroundImage = Properties.Resources.NoneIcon;
+            btn_noneLayout.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_noneLayout.Cursor = Cursors.Hand;
+            btn_noneLayout.FlatAppearance.BorderColor = Color.LightGray;
+            btn_noneLayout.FlatAppearance.BorderSize = 3;
+            btn_noneLayout.FlatStyle = FlatStyle.Flat;
+            btn_noneLayout.Location = new Point(0, 5);
+            btn_noneLayout.Margin = new Padding(0, 5, 0, 5);
+            btn_noneLayout.Name = "btn_noneLayout";
+            btn_noneLayout.Size = new Size(40, 40);
+            btn_noneLayout.TabIndex = 0;
+            btn_noneLayout.UseVisualStyleBackColor = true;
+            btn_noneLayout.Click += btn_noneLayout_Click;
+            // 
+            // btn_columnLayout
+            // 
+            btn_columnLayout.BackgroundImage = Properties.Resources.ColumnLayoutIcon;
+            btn_columnLayout.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_columnLayout.Cursor = Cursors.Hand;
+            btn_columnLayout.FlatAppearance.BorderColor = Color.LightGray;
+            btn_columnLayout.FlatAppearance.BorderSize = 3;
+            btn_columnLayout.FlatStyle = FlatStyle.Flat;
+            btn_columnLayout.Location = new Point(0, 55);
+            btn_columnLayout.Margin = new Padding(0, 5, 0, 5);
+            btn_columnLayout.Name = "btn_columnLayout";
+            btn_columnLayout.Size = new Size(40, 40);
+            btn_columnLayout.TabIndex = 1;
+            btn_columnLayout.UseVisualStyleBackColor = true;
+            btn_columnLayout.Click += btn_columnLayout_Click;
+            // 
+            // btn_bannerLayout
+            // 
+            btn_bannerLayout.BackgroundImage = Properties.Resources.BannerLayoutIcon;
+            btn_bannerLayout.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_bannerLayout.Cursor = Cursors.Hand;
+            btn_bannerLayout.FlatAppearance.BorderColor = Color.LightGray;
+            btn_bannerLayout.FlatAppearance.BorderSize = 3;
+            btn_bannerLayout.FlatStyle = FlatStyle.Flat;
+            btn_bannerLayout.Location = new Point(0, 105);
+            btn_bannerLayout.Margin = new Padding(0, 5, 0, 5);
+            btn_bannerLayout.Name = "btn_bannerLayout";
+            btn_bannerLayout.Size = new Size(40, 40);
+            btn_bannerLayout.TabIndex = 2;
+            btn_bannerLayout.UseVisualStyleBackColor = true;
+            btn_bannerLayout.Click += btn_bannerLayout_Click;
+            // 
+            // btn_frameLayout
+            // 
+            btn_frameLayout.BackgroundImage = Properties.Resources.FrameLayoutIcon;
+            btn_frameLayout.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_frameLayout.Cursor = Cursors.Hand;
+            btn_frameLayout.FlatAppearance.BorderColor = Color.LightGray;
+            btn_frameLayout.FlatAppearance.BorderSize = 3;
+            btn_frameLayout.FlatStyle = FlatStyle.Flat;
+            btn_frameLayout.Location = new Point(0, 155);
+            btn_frameLayout.Margin = new Padding(0, 5, 0, 5);
+            btn_frameLayout.Name = "btn_frameLayout";
+            btn_frameLayout.Size = new Size(40, 40);
+            btn_frameLayout.TabIndex = 3;
+            btn_frameLayout.UseVisualStyleBackColor = true;
+            btn_frameLayout.Visible = false;
             // 
             // line_splitCreatePostPanel1
             // 
@@ -275,7 +359,7 @@
             line_splitCreatePostPanel1.Name = "line_splitCreatePostPanel1";
             line_splitCreatePostPanel1.Size = new Size(940, 1);
             line_splitCreatePostPanel1.TabIndex = 12;
-            line_splitCreatePostPanel1.Text = "button1";
+            line_splitCreatePostPanel1.Text = "s";
             line_splitCreatePostPanel1.UseVisualStyleBackColor = false;
             // 
             // btn_chooseImageFromDevice
@@ -336,7 +420,7 @@
             cbb_post_privacy.Items.AddRange(new object[] { "Chỉ mình tôi", "Bạn bè", "Công khai" });
             cbb_post_privacy.Location = new Point(130, 149);
             cbb_post_privacy.Name = "cbb_post_privacy";
-            cbb_post_privacy.Size = new Size(179, 28);
+            cbb_post_privacy.Size = new Size(179, 31);
             cbb_post_privacy.TabIndex = 8;
             cbb_post_privacy.Text = "Công khai";
             // 
@@ -376,8 +460,9 @@
             // panel_bg
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
-            panel_bg.Controls.Add(panel_create_post);
+            panel_bg.Controls.Add(panel_before_post);
             panel_bg.Controls.Add(flp_newfeeds);
+            panel_bg.Controls.Add(panel_create_post);
             panel_bg.Controls.Add(panelHeader);
             panel_bg.Dock = DockStyle.Fill;
             panel_bg.Location = new Point(0, 0);
@@ -390,11 +475,10 @@
             // 
             flp_newfeeds.AutoScroll = true;
             flp_newfeeds.BackColor = Color.White;
-            flp_newfeeds.Controls.Add(panel_before_post);
             flp_newfeeds.FlowDirection = FlowDirection.TopDown;
-            flp_newfeeds.Location = new Point(260, 90);
+            flp_newfeeds.Location = new Point(260, 177);
             flp_newfeeds.Name = "flp_newfeeds";
-            flp_newfeeds.Size = new Size(1080, 810);
+            flp_newfeeds.Size = new Size(1080, 723);
             flp_newfeeds.TabIndex = 1;
             // 
             // homepageForm
@@ -425,11 +509,11 @@
             panel3.PerformLayout();
             panel_create_post.ResumeLayout(false);
             panel_create_post.PerformLayout();
+            flp_groupLayoutModeBtn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pb_chooseImageFromDevice).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_exit_post).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_user3).EndInit();
             panel_bg.ResumeLayout(false);
-            flp_newfeeds.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -460,5 +544,10 @@
         private PictureBox pb_chooseImageFromDevice;
         private FlowLayoutPanel flp_newfeeds;
         private Button line_splitCreatePostPanel1;
+        private Button btn_noneLayout;
+        private Button btn_bannerLayout;
+        private Button btn_columnLayout;
+        private Button btn_frameLayout;
+        private FlowLayoutPanel flp_groupLayoutModeBtn;
     }
 }

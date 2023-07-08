@@ -958,7 +958,7 @@ namespace Upic
             // 
             monthBoxCombo.Font = new Font("Be Vietnam Pro", 8.999999F, FontStyle.Bold, GraphicsUnit.Point);
             monthBoxCombo.FormattingEnabled = true;
-            monthBoxCombo.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
+            monthBoxCombo.Items.AddRange(new object[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" });
             monthBoxCombo.Location = new Point(175, 260);
             monthBoxCombo.Name = "monthBoxCombo";
             monthBoxCombo.Size = new Size(150, 31);
@@ -1194,8 +1194,8 @@ namespace Upic
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1600, 900);
-            Controls.Add(loginAnnouncement);
             Controls.Add(signUpPanel2);
+            Controls.Add(loginAnnouncement);
             Controls.Add(signUpPanel1);
             Controls.Add(signUpBtt);
             Controls.Add(loginBtt);

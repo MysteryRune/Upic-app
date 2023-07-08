@@ -1,5 +1,6 @@
 namespace Upic
 {
+    
     internal static class Program
     {
         /// <summary>

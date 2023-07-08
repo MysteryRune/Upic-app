@@ -13,11 +13,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 
-using firebaseFunctionCustom;
+using Upic.myMethods.firebaseFunctionCustom;
 
 using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
 using static Google.Api.ResourceDescriptor.Types;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Google.Cloud.Storage.V1;
 
 namespace Upic
 {
@@ -30,6 +32,9 @@ namespace Upic
         public loginForm()
         {
             InitializeComponent();
+
+            provinceBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            monthBoxCombo.DropDownStyle = ComboBoxStyle.DropDownList;
 
             close_by_X_btt = true;
             (new firestoreDatabase()).connectToDatabase("firestore.json");
@@ -124,7 +129,7 @@ namespace Upic
 
             String userName = emailOrUserNameBox.Text;
             String password = passwordBox.Text;
-            database = FirestoreDb.Create("social-app-c-sharp-programming");
+            database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
             CollectionReference collRef = database.Collection("Users");
             var email = new EmailAddressAttribute();
             //DocumentReference docRef = collRef.Document(userName);
@@ -278,6 +283,13 @@ namespace Upic
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(userNameBoxRegister.Text))
+            {
+                string message = "Tên đăng nhập Không được bỏ trống hoặc chứa khoảng trắng!";
+                MessageBox.Show(message, "Dữ liệu không hợp lệ");
+                return false;
+            }
+
             if (userNameBoxRegister.Text.Length < 6)
             {
                 string message = "Tên đăng nhập phải từ 6 kí tự trở lên!";
@@ -371,7 +383,7 @@ namespace Upic
             // DBadd_1: Add item to Database fail
             // ------
 
-            database = FirestoreDb.Create("social-app-c-sharp-programming");
+            database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
             CollectionReference usersColl = database.Collection("Users");
             String[] Data = { username, phonenum, email };
 
@@ -424,6 +436,21 @@ namespace Upic
         {
             if (checkDataFieldValidSignUpPanel2())
             {
+                // Upload default Icon on Google Cloud Storage
+                var storage = StorageClient.Create();
+                String pathFileOnCloud;
+                String bucketName = (new firebaseStorage()).getBucketName("firebaseStorage.json");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                String pathAvaDefault = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"res\logoImg\", "accountIcon.png");
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+                String destination = "Image storage/" + userNameBoxRegister.Text + "/" + "Avatar/" + "default";
+                String contentType = "image/" + Path.GetExtension(pathAvaDefault).Split('.')[1];
+                using var fileStream = File.OpenRead(pathAvaDefault);
+                Task task_2 = storage.UploadObjectAsync(bucketName, destination, contentType, fileStream);
+                await task_2;
+                pathFileOnCloud = destination;
+                // Upload default Icon on Google Cloud Storage
+
                 String username_tmp = userNameBoxRegister.Text;
                 String password_tmp = passwordBoxRegister.Text;
                 String phonenum_tmp = phoneNumberBoxRegister.Text;
@@ -432,7 +459,7 @@ namespace Upic
                 String sex_tmp = "";
                 String dateOfBirth_tmp = dayBox.Text + "-" + monthBoxCombo.Text + "-" + yearBox.Text;
                 String address_tmp = communeBox.Text + "_" + townBox.Text + "_" + provinceBox.Text + "_" + "Việt Nam";
-                String avatar_tmp = "default";
+                String avatar_tmp = destination;
                 String story_tmp = "";
                 String hobby_tmp = "";
 
@@ -453,11 +480,21 @@ namespace Upic
                 String errorCode = await task;
                 if (errorCode == "DBadd_0")
                 {
+                    userNameBoxRegister.Text = "";
+                    passwordBoxRegister.Text = "";
+                    phoneNumberBoxRegister.Text = "";
+                    emailAddressBoxRegister.Text = "";
+                    profileNameBox.Text = "";
+                    maleGender.Checked = true;
+                    dayBox.Text = ""; monthBoxCombo.Text = ""; yearBox.Text = "";
+                    communeBox.Text = ""; townBox.Text = ""; provinceBox.Text = "";
+
                     signUpPanel2.Visible = false;
                     emailOrUserNameBox.Text = username_tmp;
                     passwordBox.Text = password_tmp;
                     loginAnnouncement.Visible = true;
                 }
+                
             }
         }
 
