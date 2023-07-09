@@ -12,7 +12,16 @@ namespace Upic
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new homepageForm());
+            homepageForm mainPage = new homepageForm();
+            Application.Run(mainPage);
+            mainPage.Dispose();
+            DirectoryInfo di = new DirectoryInfo(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/homepage"));
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+            //mainPage.releaseMemory();
+
         }
 
 

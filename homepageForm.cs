@@ -26,7 +26,7 @@ namespace Upic
 {
     public partial class homepageForm : Form
     {
-
+        private bool close_by_X_btt;
         public static homepageForm? homePageInstance;
         private String username;
         private postShowHomePage postShowHomePageVarible = new postShowHomePage();
@@ -37,12 +37,19 @@ namespace Upic
         public homepageForm()
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
+            //close_by_X_btt = true;
             homePageInstance = this;
+            this.FormClosed += new FormClosedEventHandler(homepageForm_FormClosed);
 
             InitializeComponent();
             (new firestoreDatabase()).connectToDatabase("firestore.json");
             loginForm form = new loginForm();
             form.Show();
+        }
+
+        private void homepageForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //releaseMemory();
         }
 
         public void setUsername(String username)
@@ -447,7 +454,14 @@ namespace Upic
             panel_create_post.Controls.Remove(panel_create_post.Controls["panel_paddingBottomPanelCreatePost"]);
             showListImageBeforeUpload(pathFiles, 2);
         }
+
+        public void releaseMemory()
+        {
+            DirectoryInfo di = new DirectoryInfo(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/homepage"));
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+        }
     }
-
-
 }
