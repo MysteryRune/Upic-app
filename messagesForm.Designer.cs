@@ -38,6 +38,7 @@
             tb_search = new TextBox();
             pb_logo_UPIC = new PictureBox();
             panel2 = new Panel();
+            btn_create_new_chat = new PictureBox();
             panel_in_chatting = new Panel();
             btn_send = new PictureBox();
             btn_add_file = new PictureBox();
@@ -45,6 +46,10 @@
             panel4 = new Panel();
             tb_enterchat = new TextBox();
             flp_chatting = new FlowLayoutPanel();
+            panel_send_message = new Panel();
+            lbl_send_message = new Label();
+            panel_receive_message = new Panel();
+            lbl_receive_message = new Label();
             lbl_chat = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel_messages = new Panel();
@@ -55,11 +60,6 @@
             lbl_name_user_in_chat = new Label();
             pb_avatar_user_in_chat = new PictureBox();
             panel_bg = new Panel();
-            panel_send_message = new Panel();
-            panel_receive_message = new Panel();
-            lbl_send_message = new Label();
-            lbl_receive_message = new Label();
-            btn_create_new_chat = new PictureBox();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_friends).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_mess).BeginInit();
@@ -68,21 +68,21 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btn_create_new_chat).BeginInit();
             panel_in_chatting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btn_send).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_add_file).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_add_image).BeginInit();
             panel4.SuspendLayout();
             flp_chatting.SuspendLayout();
+            panel_send_message.SuspendLayout();
+            panel_receive_message.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel_messages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_unread_like_user_avatar).BeginInit();
             panel_chat_with_user.SuspendLayout();
             panel_user_header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_avatar_user_in_chat).BeginInit();
-            panel_send_message.SuspendLayout();
-            panel_receive_message.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)btn_create_new_chat).BeginInit();
             SuspendLayout();
             // 
             // panelHeader
@@ -108,16 +108,18 @@
             pb_friends.SizeMode = PictureBoxSizeMode.Zoom;
             pb_friends.TabIndex = 5;
             pb_friends.TabStop = false;
+            pb_friends.Click += pb_friends_Click;
             // 
             // pb_mess
             // 
-            pb_mess.Image = Properties.Resources.mess_shape_line;
+            pb_mess.Image = Properties.Resources.mess_fill;
             pb_mess.Location = new Point(1362, 12);
             pb_mess.Name = "pb_mess";
             pb_mess.Size = new Size(50, 50);
             pb_mess.SizeMode = PictureBoxSizeMode.Zoom;
             pb_mess.TabIndex = 4;
             pb_mess.TabStop = false;
+            pb_mess.Click += pb_mess_Click;
             // 
             // pb_noti
             // 
@@ -129,6 +131,7 @@
             pb_noti.SizeMode = PictureBoxSizeMode.Zoom;
             pb_noti.TabIndex = 3;
             pb_noti.TabStop = false;
+            pb_noti.Click += pb_noti_Click;
             // 
             // pb_user1
             // 
@@ -140,6 +143,7 @@
             pb_user1.SizeMode = PictureBoxSizeMode.Zoom;
             pb_user1.TabIndex = 2;
             pb_user1.TabStop = false;
+            pb_user1.Click += pb_user1_Click;
             // 
             // panel1
             // 
@@ -175,6 +179,7 @@
             pb_logo_UPIC.SizeMode = PictureBoxSizeMode.Zoom;
             pb_logo_UPIC.TabIndex = 1;
             pb_logo_UPIC.TabStop = false;
+            pb_logo_UPIC.Click += pb_logo_UPIC_Click;
             // 
             // panel2
             // 
@@ -189,6 +194,17 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1070, 820);
             panel2.TabIndex = 4;
+            // 
+            // btn_create_new_chat
+            // 
+            btn_create_new_chat.Cursor = Cursors.Hand;
+            btn_create_new_chat.Image = Properties.Resources.createNewChat;
+            btn_create_new_chat.Location = new Point(312, 22);
+            btn_create_new_chat.Name = "btn_create_new_chat";
+            btn_create_new_chat.Size = new Size(50, 50);
+            btn_create_new_chat.SizeMode = PictureBoxSizeMode.Zoom;
+            btn_create_new_chat.TabIndex = 11;
+            btn_create_new_chat.TabStop = false;
             // 
             // panel_in_chatting
             // 
@@ -266,6 +282,48 @@
             flp_chatting.Name = "flp_chatting";
             flp_chatting.Size = new Size(632, 616);
             flp_chatting.TabIndex = 8;
+            // 
+            // panel_send_message
+            // 
+            panel_send_message.BackColor = Color.Transparent;
+            panel_send_message.BackgroundImage = Properties.Resources.search_bg;
+            panel_send_message.BackgroundImageLayout = ImageLayout.Zoom;
+            panel_send_message.Controls.Add(lbl_send_message);
+            panel_send_message.Location = new Point(3, 3);
+            panel_send_message.Name = "panel_send_message";
+            panel_send_message.Size = new Size(368, 62);
+            panel_send_message.TabIndex = 5;
+            // 
+            // lbl_send_message
+            // 
+            lbl_send_message.AutoSize = true;
+            lbl_send_message.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_send_message.Location = new Point(25, 18);
+            lbl_send_message.Name = "lbl_send_message";
+            lbl_send_message.Size = new Size(242, 28);
+            lbl_send_message.TabIndex = 0;
+            lbl_send_message.Text = "Hế lô, nhà có gì ăn không?";
+            // 
+            // panel_receive_message
+            // 
+            panel_receive_message.BackColor = Color.Transparent;
+            panel_receive_message.BackgroundImage = Properties.Resources.search_bg;
+            panel_receive_message.BackgroundImageLayout = ImageLayout.Zoom;
+            panel_receive_message.Controls.Add(lbl_receive_message);
+            panel_receive_message.Location = new Point(3, 71);
+            panel_receive_message.Name = "panel_receive_message";
+            panel_receive_message.Size = new Size(368, 62);
+            panel_receive_message.TabIndex = 6;
+            // 
+            // lbl_receive_message
+            // 
+            lbl_receive_message.AutoSize = true;
+            lbl_receive_message.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_receive_message.Location = new Point(25, 17);
+            lbl_receive_message.Name = "lbl_receive_message";
+            lbl_receive_message.Size = new Size(242, 28);
+            lbl_receive_message.TabIndex = 1;
+            lbl_receive_message.Text = "Không có nha đi dookki đi";
             // 
             // lbl_chat
             // 
@@ -368,59 +426,6 @@
             panel_bg.TabIndex = 5;
             panel_bg.Click += panel_bg_Click;
             // 
-            // panel_send_message
-            // 
-            panel_send_message.BackColor = Color.Transparent;
-            panel_send_message.BackgroundImage = Properties.Resources.search_bg;
-            panel_send_message.BackgroundImageLayout = ImageLayout.Zoom;
-            panel_send_message.Controls.Add(lbl_send_message);
-            panel_send_message.Location = new Point(3, 3);
-            panel_send_message.Name = "panel_send_message";
-            panel_send_message.Size = new Size(368, 62);
-            panel_send_message.TabIndex = 5;
-            // 
-            // panel_receive_message
-            // 
-            panel_receive_message.BackColor = Color.Transparent;
-            panel_receive_message.BackgroundImage = Properties.Resources.search_bg;
-            panel_receive_message.BackgroundImageLayout = ImageLayout.Zoom;
-            panel_receive_message.Controls.Add(lbl_receive_message);
-            panel_receive_message.Location = new Point(3, 71);
-            panel_receive_message.Name = "panel_receive_message";
-            panel_receive_message.Size = new Size(368, 62);
-            panel_receive_message.TabIndex = 6;
-            // 
-            // lbl_send_message
-            // 
-            lbl_send_message.AutoSize = true;
-            lbl_send_message.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_send_message.Location = new Point(25, 18);
-            lbl_send_message.Name = "lbl_send_message";
-            lbl_send_message.Size = new Size(242, 28);
-            lbl_send_message.TabIndex = 0;
-            lbl_send_message.Text = "Hế lô, nhà có gì ăn không?";
-            // 
-            // lbl_receive_message
-            // 
-            lbl_receive_message.AutoSize = true;
-            lbl_receive_message.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_receive_message.Location = new Point(25, 17);
-            lbl_receive_message.Name = "lbl_receive_message";
-            lbl_receive_message.Size = new Size(242, 28);
-            lbl_receive_message.TabIndex = 1;
-            lbl_receive_message.Text = "Không có nha đi dookki đi";
-            // 
-            // btn_create_new_chat
-            // 
-            btn_create_new_chat.Cursor = Cursors.Hand;
-            btn_create_new_chat.Image = Properties.Resources.createNewChat;
-            btn_create_new_chat.Location = new Point(312, 22);
-            btn_create_new_chat.Name = "btn_create_new_chat";
-            btn_create_new_chat.Size = new Size(50, 50);
-            btn_create_new_chat.SizeMode = PictureBoxSizeMode.Zoom;
-            btn_create_new_chat.TabIndex = 11;
-            btn_create_new_chat.TabStop = false;
-            // 
             // messagesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -442,6 +447,7 @@
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btn_create_new_chat).EndInit();
             panel_in_chatting.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btn_send).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_add_file).EndInit();
@@ -449,6 +455,10 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             flp_chatting.ResumeLayout(false);
+            panel_send_message.ResumeLayout(false);
+            panel_send_message.PerformLayout();
+            panel_receive_message.ResumeLayout(false);
+            panel_receive_message.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             panel_messages.ResumeLayout(false);
             panel_messages.PerformLayout();
@@ -457,11 +467,6 @@
             panel_user_header.ResumeLayout(false);
             panel_user_header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pb_avatar_user_in_chat).EndInit();
-            panel_send_message.ResumeLayout(false);
-            panel_send_message.PerformLayout();
-            panel_receive_message.ResumeLayout(false);
-            panel_receive_message.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)btn_create_new_chat).EndInit();
             ResumeLayout(false);
         }
 

@@ -106,6 +106,7 @@
             pb_mess.SizeMode = PictureBoxSizeMode.Zoom;
             pb_mess.TabIndex = 4;
             pb_mess.TabStop = false;
+            pb_mess.Click += pb_mess_Click;
             // 
             // pb_noti
             // 
@@ -118,6 +119,7 @@
             pb_noti.SizeMode = PictureBoxSizeMode.Zoom;
             pb_noti.TabIndex = 3;
             pb_noti.TabStop = false;
+            pb_noti.Click += pb_noti_Click;
             // 
             // pb_user1
             // 
@@ -130,6 +132,7 @@
             pb_user1.SizeMode = PictureBoxSizeMode.Zoom;
             pb_user1.TabIndex = 2;
             pb_user1.TabStop = false;
+            pb_user1.Click += pb_user1_Click;
             // 
             // panel1
             // 

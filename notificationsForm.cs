@@ -33,5 +33,40 @@ namespace Upic
             panel_all_noti.Visible = false;
             panel_unread_noti.Visible = true;
         }
+
+        private void pb_logo_UPIC_Click(object sender, EventArgs e)
+        {
+            Close();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            homepageForm.homePageInstance.Visible = true;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            homepageForm.homePageInstance.ShowInTaskbar = true;
+        }
+
+        private void pb_friends_Click(object sender, EventArgs e)
+        {
+            Close();
+            Form form = new friendsForm();
+            form.Show();
+        }
+
+        private void pb_mess_Click(object sender, EventArgs e)
+        {
+            Close();
+            Form form = new messagesForm();
+            form.Show();
+        }
+
+        private void pb_noti_Click(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        private void pb_user1_Click(object sender, EventArgs e)
+        {
+            Close();
+            Form form = new userProfileForm();
+            form.Show();
+        }
     }
 }

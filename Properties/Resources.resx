@@ -352,4 +352,19 @@
   <data name="createNewChat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logoImg\createNewChat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Logo_Brand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\Logo-Brand.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BannerLayoutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\BannerLayoutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ColumnLayoutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\ColumnLayoutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NoneIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\NoneIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FrameLayoutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\logoImg\FrameLayoutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
