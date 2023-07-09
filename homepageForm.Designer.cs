@@ -59,7 +59,6 @@
             btn_exit_post = new PictureBox();
             pb_user3 = new PictureBox();
             panel_bg = new Panel();
-            flp_newfeeds = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).BeginInit();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_friends).BeginInit();
@@ -461,7 +460,6 @@
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
             panel_bg.Controls.Add(panel_before_post);
-            panel_bg.Controls.Add(flp_newfeeds);
             panel_bg.Controls.Add(panel_create_post);
             panel_bg.Controls.Add(panelHeader);
             panel_bg.Dock = DockStyle.Fill;
@@ -470,16 +468,6 @@
             panel_bg.Size = new Size(1600, 900);
             panel_bg.TabIndex = 4;
             panel_bg.Click += panel_bg_Click;
-            // 
-            // flp_newfeeds
-            // 
-            flp_newfeeds.AutoScroll = true;
-            flp_newfeeds.BackColor = Color.White;
-            flp_newfeeds.FlowDirection = FlowDirection.TopDown;
-            flp_newfeeds.Location = new Point(260, 177);
-            flp_newfeeds.Name = "flp_newfeeds";
-            flp_newfeeds.Size = new Size(1080, 723);
-            flp_newfeeds.TabIndex = 1;
             // 
             // homepageForm
             // 
@@ -542,7 +530,6 @@
         private TextBox tb_status;
         private Button btn_chooseImageFromDevice;
         private PictureBox pb_chooseImageFromDevice;
-        private FlowLayoutPanel flp_newfeeds;
         private Button line_splitCreatePostPanel1;
         private Button btn_noneLayout;
         private Button btn_bannerLayout;

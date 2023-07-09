@@ -20,6 +20,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Diagnostics;
 using Google.Apis.Upload;
 using Google.Apis.Util;
+using static System.Net.WebRequestMethods;
 
 namespace Upic
 {
@@ -28,6 +29,7 @@ namespace Upic
 
         public static homepageForm? homePageInstance;
         private String username;
+        private postShowHomePage postShowHomePageVarible = new postShowHomePage();
         FirestoreDb database;
         String[] pathFiles;
 
@@ -39,7 +41,6 @@ namespace Upic
 
             InitializeComponent();
             (new firestoreDatabase()).connectToDatabase("firestore.json");
-            flp_newfeeds.BackColor = Color.White;
             loginForm form = new loginForm();
             form.Show();
         }
@@ -59,29 +60,39 @@ namespace Upic
             panel_create_post.HorizontalScroll.Maximum = 0;
             panel_create_post.AutoScroll = true;
 
-            flp_newfeeds.AutoScroll = false;
-            flp_newfeeds.VerticalScroll.Maximum = 0;
-            flp_newfeeds.HorizontalScroll.Maximum = 0;
-            flp_newfeeds.AutoScroll = true;
-
             loadAllPostFromDatabaseForUserCanVisibleAsync();
         }
 
         private async void loadAllPostFromDatabaseForUserCanVisibleAsync()
         {
+            FlowLayoutPanel flp_newfeeds = new FlowLayoutPanel();
+            flp_newfeeds.VerticalScroll.Maximum = 0;
+            flp_newfeeds.HorizontalScroll.Maximum = 0;
+            flp_newfeeds.BackColor = Color.White;
+            flp_newfeeds.AutoScroll = true;
+            flp_newfeeds.FlowDirection = FlowDirection.LeftToRight;
+            flp_newfeeds.Location = new Point(260, 177);
+            flp_newfeeds.Name = "flp_newfeeds";
+            flp_newfeeds.Size = new Size(1080, 720);
+            panel_bg.Controls.Add(flp_newfeeds);
+
             database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
             CollectionReference collRef = database.Collection("Posts");
             QuerySnapshot snapshot = await collRef.GetSnapshotAsync();
-            foreach (DocumentSnapshot document in snapshot.Documents)
+            for (int i = snapshot.Count - 1; i >= 0; i--)
             {
-                FlowLayoutPanel flp = await (new postShowHomePage()).createFlowLayoutPanelIncludePost(document.Id);
+                DocumentSnapshot document = snapshot.Documents[i];
+                FlowLayoutPanel flp = await postShowHomePageVarible.createFlowLayoutPanelIncludePost(document.Id, this);
+                flp.BringToFront();
+                flp.Location = new Point(0, 0);
                 flp_newfeeds.Controls.Add(flp);
             }
         }
 
-        private void pb_logo_UPIC_Click(object sender, EventArgs e)
+        public void pb_logo_UPIC_Click(object sender, EventArgs e)
         {
-            Refresh();
+            panel_bg.Controls.Remove(panel_bg.Controls["flp_newfeeds"]);
+            loadAllPostFromDatabaseForUserCanVisibleAsync();
         }
 
         private void pb_friends_Click(object sender, EventArgs e)
@@ -146,7 +157,8 @@ namespace Upic
 
             panel_before_post.Visible = false;
             panel_create_post.Visible = true;
-            //flp_newfeeds.Visible = false;
+            FlowLayoutPanel flp_newfeeds = (FlowLayoutPanel)panel_bg.Controls["flp_newfeeds"];
+            flp_newfeeds.Visible = false;
             panel_create_post.BringToFront();
         }
 
@@ -184,6 +196,7 @@ namespace Upic
             resetCreatePostState();
             panel_create_post.Visible = false;
             panel_before_post.Visible = true;
+            FlowLayoutPanel flp_newfeeds = (FlowLayoutPanel)panel_bg.Controls["flp_newfeeds"];
             flp_newfeeds.Visible = true;
             flp_newfeeds.BringToFront();
         }
@@ -247,7 +260,7 @@ namespace Upic
             {
                 String destination = "Image storage/" + username + "/" + "Image/" + postID + "_" + (i + 1).ToString();
                 String contentType = "image/" + Path.GetExtension(pathFile[i]).Split('.')[1];
-                using var fileStream = File.OpenRead(pathFile[i]);
+                using var fileStream = System.IO.File.OpenRead(pathFile[i]);
 
                 Task task = storage.UploadObjectAsync(bucketName, destination, contentType, fileStream);
                 await task;
@@ -335,7 +348,7 @@ namespace Upic
                         }
                     case 2:
                         {
-                            panelListImage = (new layoutPost()).createLayoutMode2Post(pathFile, this, "tmp");
+                            panelListImage = (new layoutPost()).createLayoutMode2Post(pathFile, this, "tmp", tb_status.Text);
                             if (panelListImage == null)
                             {
                                 panelListImage = (new layoutPost()).createLayoutMode0Post(pathFile, this, "tmp");

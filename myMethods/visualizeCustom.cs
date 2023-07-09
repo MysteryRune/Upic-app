@@ -10,6 +10,8 @@ using Google.Cloud.Firestore;
 
 using Upic.myMethods.firebaseFunctionCustom;
 using System.Globalization;
+using static Google.Cloud.Firestore.V1.StructuredAggregationQuery.Types.Aggregation.Types;
+using System.IO;
 
 namespace Upic.myMethods.visualizeCustom
 {
@@ -442,7 +444,7 @@ namespace Upic.myMethods.visualizeCustom
             return panel;
         }
 
-        public Panel createLayoutMode2Post(String[] pathFiles, Form form, String idProperty)
+        public Panel createLayoutMode2Post(String[] pathFiles, Form form, String idProperty, String oldCaptionPostStyle)
         {
             // Layout: Banner style
             // Amount picture must > 1
@@ -455,8 +457,7 @@ namespace Upic.myMethods.visualizeCustom
             //panel.Location = new Point(45, 360);
             panel.BorderStyle = BorderStyle.None;
 
-            TextBox oldCaptionPostStyle = (TextBox)form.Controls["panel_bg"].Controls["panel_create_post"].Controls["tb_status"];
-            if (oldCaptionPostStyle.TextLength >= 100 || Regex.Split(oldCaptionPostStyle.Text, @"\r\n").ToList().Count > 1)
+            if (oldCaptionPostStyle.Length >= 100 || Regex.Split(oldCaptionPostStyle, @"\r\n").ToList().Count > 1)
             {
                 MessageBox.Show("Nội dung caption quá dài hoặc nhiều dòng, không thích hợp!");
                 return null;
@@ -464,7 +465,7 @@ namespace Upic.myMethods.visualizeCustom
 
             Label newCaptionPostStyle = new Label();
             newCaptionPostStyle.Font = new Font("Be Vietnam Pro", 8.999999F, FontStyle.Regular, GraphicsUnit.Point);
-            newCaptionPostStyle.Text = oldCaptionPostStyle.Text;
+            newCaptionPostStyle.Text = oldCaptionPostStyle;
             newCaptionPostStyle.TextAlign = ContentAlignment.MiddleCenter;
             newCaptionPostStyle.BorderStyle = BorderStyle.None;
             newCaptionPostStyle.BackColor = Color.Transparent;
@@ -608,7 +609,9 @@ namespace Upic.myMethods.visualizeCustom
 
     class postShowHomePage
     {
-        public async Task<FlowLayoutPanel> createFlowLayoutPanelIncludePost(String postID)
+        public List<Image> tempFileVarible = new List<Image>();
+
+        public async Task<FlowLayoutPanel> createFlowLayoutPanelIncludePost(String postID, Form form)
         {
             FirestoreDb database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
             CollectionReference postColl = database.Collection("Posts");
@@ -637,18 +640,27 @@ namespace Upic.myMethods.visualizeCustom
 
             FlowLayoutPanel flp = new FlowLayoutPanel();
             flp.Name = "flp_" + postID;
-            flp.Size = new Size(1074, 800);
+            flp.Size = new Size(1000, 1000);
+            flp.Margin = new Padding(40, 0, 40, 10);
             flp.VerticalScroll.Maximum = 0;
             flp.HorizontalScroll.Maximum = 0;
             flp.AutoScroll = true;
             flp.BackColor = Color.Transparent;
             flp.FlowDirection = FlowDirection.TopDown;
 
+            Panel panelPost = new Panel();
+            panelPost.Name = "panel_backgroundPost_" + postID;
+            panelPost.Size = new Size(950, 1000);
+            panelPost.Margin = new Padding(25, 0, 25, 0);
+            panelPost.BorderStyle = BorderStyle.FixedSingle;
+            flp.Controls.Add(panelPost);
+
             Panel panel = new Panel();
             panel.Name = "panel_userInfo_" + postID;
-            panel.Size = new Size(950, 150);
-            panel.Margin = new Padding(62, 0, 62, 10);
-            flp.Controls.Add(panel);
+            panel.Size = new Size(950, 80);
+            panel.Margin = new Padding(0, 0, 0, 0);
+            panel.Location = new Point(0, 0);
+            panelPost.Controls.Add(panel);
 
             PictureBox ava = new PictureBox();
             ava.Name = "pb_userAvatar_" + postID;
@@ -656,14 +668,16 @@ namespace Upic.myMethods.visualizeCustom
             ava.Location = new Point(25, 25);
             ava.SizeMode = PictureBoxSizeMode.Zoom;
             var obj = storage.GetObject(bucketName, userInfo["Avatar profile"].ToString());
-            var fileStream = File.Create("tmp." + obj.ContentType.ToString().Split("/")[1]);
+            String pathFolderTemp = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/homepage");
+            String nameTempFile = "tmp_" + (tempFileVarible.Count + 1).ToString() + "." + obj.ContentType.ToString().Split("/")[1];
+            var fileStream = File.Create(pathFolderTemp + "/" + nameTempFile);
             await storage.DownloadObjectAsync(bucketName, userInfo["Avatar profile"].ToString(), fileStream);
             String path_tmpFile = Path.GetFullPath(fileStream.Name);
-            //Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp", "product2.txt")
             fileStream.Close();
-            ava.Image = Image.FromFile(path_tmpFile);
+            tempFileVarible.Add(Image.FromFile(path_tmpFile));
+            ava.Image = tempFileVarible[tempFileVarible.Count - 1];
             panel.Controls.Add(ava);
-            
+
             Label lbl = new Label();
             lbl.Name = "lbl_userProfileName_" + postID;
             lbl.Font = new Font("Be Vietnam Pro Black", 11F, FontStyle.Bold, GraphicsUnit.Point);
@@ -685,6 +699,116 @@ namespace Upic.myMethods.visualizeCustom
             lbl.Location = new Point(25 + ava.Size.Width + 10, 25 + 22 + 5);
             lbl.BackColor = Color.Transparent;
             panel.Controls.Add(lbl);
+
+            List<String> pathFileTempImageDownloadLocal = new List<String>();
+            foreach (String path in pathFiles) 
+            {
+                String imagePostID = path.ToString().Split("/")[3];
+                PictureBox pb = new PictureBox();
+                pb.Name = "pb_imgPost_" + imagePostID;
+                pb.Size = new Size(50, 50);
+                pb.Location = new Point(25, 25);
+                pb.SizeMode = PictureBoxSizeMode.Zoom;
+                var obj_ = storage.GetObject(bucketName, path.ToString());
+                String pathFolderTemp_ = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/homepage");
+                String nameTempFile_ = "tmp_" + imagePostID.Replace(":", "-") + "." + obj_.ContentType.ToString().Split("/")[1];
+                var fileStream_ = File.Create(pathFolderTemp_ + "/" + nameTempFile_);
+                await storage.DownloadObjectAsync(bucketName, path.ToString(), fileStream_);
+                pathFileTempImageDownloadLocal.Add(Path.GetFullPath(fileStream_.Name));
+                fileStream_.Close();
+            }
+
+            Panel listPicture = null;
+            switch (layoutMode)
+            {
+                case 0:
+                    {
+                        FlowLayoutPanel flp_tmp = new FlowLayoutPanel();
+                        flp_tmp.Name = "flp_contentPost_" + postID;
+                        flp_tmp.AutoSize = true;
+                        flp_tmp.Margin = new Padding(25, 0, 25, 0);
+                        flp_tmp.Location = new Point(50, 90);
+                        flp_tmp.FlowDirection = FlowDirection.TopDown;
+                        flp_tmp.BackColor = Color.Transparent;
+                        panelPost.Controls.Add(flp_tmp);
+
+                        lbl = new Label();
+                        lbl.Name = "lbl_captionPost_" + postID;
+                        lbl.Font = new Font("Be Vietnam Pro", 9F, FontStyle.Regular, GraphicsUnit.Point);
+                        lbl.Text = postInfo["Post status"].ToString();
+                        lbl.ForeColor = Color.Black;
+                        lbl.AutoSize = true;
+                        lbl.Margin = new Padding(0, 0, 0, 10);
+                        lbl.MaximumSize = new Size(900, 0);
+                        lbl.Location = new Point(0, 0);
+                        lbl.BackColor = Color.Transparent;
+                        flp_tmp.Controls.Add(lbl);
+
+                        listPicture = (new layoutPost()).createLayoutMode0Post(pathFileTempImageDownloadLocal.ToArray(), form, postID);
+                        listPicture.Margin = new Padding(0, 0, 0, 0);
+                        flp_tmp.Controls.Add(listPicture);
+                        break;
+                    }
+                case 1:
+                    {
+                        FlowLayoutPanel flp_tmp = new FlowLayoutPanel();
+                        flp_tmp.Name = "flp_contentPost_" + postID;
+                        flp_tmp.AutoSize = true;
+                        flp_tmp.Margin = new Padding(25, 0, 25, 0);
+                        flp_tmp.Location = new Point(50, 90);
+                        flp_tmp.FlowDirection = FlowDirection.LeftToRight;
+                        flp_tmp.BackColor = Color.Transparent;
+                        panelPost.Controls.Add(flp_tmp);
+
+                        lbl = new Label();
+                        lbl.Name = "lbl_captionPost_" + postID;
+                        lbl.Font = new Font("Be Vietnam Pro", 9F, FontStyle.Regular, GraphicsUnit.Point);
+                        lbl.Text = postInfo["Post status"].ToString();
+                        lbl.ForeColor = Color.Black;
+                        lbl.AutoSize = true;
+                        lbl.Margin = new Padding(0, 0, 0, 10);
+                        lbl.MaximumSize = new Size(900, 0);
+                        lbl.Location = new Point(0, 0);
+                        lbl.BackColor = Color.Transparent;
+                        flp_tmp.Controls.Add(lbl);
+
+                        listPicture = (new layoutPost()).createLayoutMode1Post(pathFileTempImageDownloadLocal.ToArray(), form, postID);
+                        listPicture.Margin = new Padding(20, 0, 20, 0);
+                        flp_tmp.Controls.Add(listPicture);
+                        break;
+                    }
+                case 2:
+                    {
+                        FlowLayoutPanel flp_tmp = new FlowLayoutPanel();
+                        flp_tmp.Name = "flp_contentPost_" + postID;
+                        flp_tmp.AutoSize = true;
+                        flp_tmp.Margin = new Padding(25, 0, 25, 0);
+                        flp_tmp.Location = new Point(50, 90);
+                        flp_tmp.FlowDirection = FlowDirection.LeftToRight;
+                        flp_tmp.BackColor = Color.Transparent;
+                        panelPost.Controls.Add(flp_tmp);
+
+                        listPicture = (new layoutPost()).createLayoutMode2Post(pathFileTempImageDownloadLocal.ToArray(), form, postID, postInfo["Post status"].ToString());
+                        listPicture.Margin = new Padding(20, 0, 20, 0);
+                        flp_tmp.Controls.Add(listPicture);
+                        break;
+                    }
+            }
+            for (int i = 0; i < pathFileTempImageDownloadLocal.Count; i++)
+            {
+                if (i == 4)
+                {
+                    break;
+                }
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+                Control pb = listPicture.Controls["pb_image" + (i + 1).ToString() + "_" + postID] as PictureBox;
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                (pb as PictureBox).Image = System.Drawing.Image.FromFile(pathFileTempImageDownloadLocal[i]);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            }
 
             return flp;
         }
