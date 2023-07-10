@@ -1,11 +1,7 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "D:\\C#\\UPIC\\Upic.csproj": {}
-=======
-    "D:\\Project\\C#\\Upic\\Upic.csproj": {}
->>>>>>> 63afb04177ecf11561fb7d46e41f289947f90259
   },
   "projects": {
     "D:\\C#\\UPIC\\Upic.csproj": {
@@ -13,15 +9,9 @@
       "restore": {
         "projectUniqueName": "D:\\C#\\UPIC\\Upic.csproj",
         "projectName": "Upic",
-<<<<<<< HEAD
         "projectPath": "D:\\C#\\UPIC\\Upic.csproj",
         "packagesPath": "C:\\Users\\Acer Nitro\\.nuget\\packages\\",
         "outputPath": "D:\\C#\\UPIC\\obj\\",
-=======
-        "projectPath": "D:\\Project\\C#\\Upic\\Upic.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\C#\\Upic\\obj\\",
->>>>>>> 63afb04177ecf11561fb7d46e41f289947f90259
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer Nitro\\AppData\\Roaming\\NuGet\\NuGet.Config",
