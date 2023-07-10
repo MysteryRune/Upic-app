@@ -80,6 +80,7 @@
             pb_friends.SizeMode = PictureBoxSizeMode.Zoom;
             pb_friends.TabIndex = 5;
             pb_friends.TabStop = false;
+            pb_friends.Click += pb_friends_Click;
             // 
             // pb_mess
             // 
@@ -90,6 +91,7 @@
             pb_mess.SizeMode = PictureBoxSizeMode.Zoom;
             pb_mess.TabIndex = 4;
             pb_mess.TabStop = false;
+            pb_mess.Click += pb_mess_Click;
             // 
             // pb_noti
             // 
@@ -101,6 +103,7 @@
             pb_noti.SizeMode = PictureBoxSizeMode.Zoom;
             pb_noti.TabIndex = 3;
             pb_noti.TabStop = false;
+            pb_noti.Click += pb_noti_Click;
             // 
             // pb_user1
             // 
@@ -112,6 +115,7 @@
             pb_user1.SizeMode = PictureBoxSizeMode.Zoom;
             pb_user1.TabIndex = 2;
             pb_user1.TabStop = false;
+            pb_user1.Click += pb_user1_Click;
             // 
             // panel1
             // 
@@ -147,6 +151,7 @@
             pb_logo_UPIC.SizeMode = PictureBoxSizeMode.Zoom;
             pb_logo_UPIC.TabIndex = 1;
             pb_logo_UPIC.TabStop = false;
+            pb_logo_UPIC.Click += pb_logo_UPIC_Click;
             // 
             // panel_bg
             // 

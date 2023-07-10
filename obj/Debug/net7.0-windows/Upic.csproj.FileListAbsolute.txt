@@ -215,6 +215,9 @@ D:\C#\FinalProject\obj\Debug\net7.0-windows\Upic.editProfileUC.resources
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.messagesForm.resources
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.popupUC.resources
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.searchUC.resources
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Google.Api.Gax.Rest.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Google.Apis.Storage.v1.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Google.Cloud.Storage.V1.dll
 D:\C#\Upic\obj\Debug\net7.0-windows\Upic.editProfileUC.resources
 D:\C#\Upic\obj\Debug\net7.0-windows\Upic.messagesForm.resources
 D:\C#\Upic\obj\Debug\net7.0-windows\Upic.popupUC.resources

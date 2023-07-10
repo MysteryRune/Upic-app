@@ -7,39 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Text.Json;
+
+using Upic.myMethods.firebaseFunctionCustom;
+using Upic.myMethods.visualizeCustom;
 
 using Google.Cloud.Firestore;
-using Google.Cloud.Firestore.V1;
-using static Google.Api.ResourceDescriptor.Types;
+using Google.Cloud.Storage;
+using Google.Cloud.Storage.V1;
+using static System.Net.Mime.MediaTypeNames;
+using System.Diagnostics;
+using Google.Apis.Upload;
+using Google.Apis.Util;
+using static System.Net.WebRequestMethods;
 
 namespace Upic
 {
     public partial class homepageForm : Form
     {
-
+        private bool close_by_X_btt;
         public static homepageForm? homePageInstance;
         private String username;
+        private postShowHomePage postShowHomePageVarible = new postShowHomePage();
         FirestoreDb database;
+        String[] pathFiles;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public homepageForm()
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
+            //close_by_X_btt = true;
             homePageInstance = this;
+            this.FormClosed += new FormClosedEventHandler(homepageForm_FormClosed);
 
             InitializeComponent();
-            connectFirestoreDatabase();
-            flp_newfeeds.BackColor = Color.White;
+            (new firestoreDatabase()).connectToDatabase("firestore.json");
             loginForm form = new loginForm();
             form.Show();
         }
 
-        private void connectFirestoreDatabase()
+        private void homepageForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + @"firestore.json";
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
+            //releaseMemory();
         }
 
         public void setUsername(String username)
@@ -57,36 +67,43 @@ namespace Upic
             panel_create_post.HorizontalScroll.Maximum = 0;
             panel_create_post.AutoScroll = true;
 
-            flp_newfeeds.AutoScroll = false;
+            loadAllPostFromDatabaseForUserCanVisibleAsync();
+        }
+
+        private async void loadAllPostFromDatabaseForUserCanVisibleAsync()
+        {
+            FlowLayoutPanel flp_newfeeds = new FlowLayoutPanel();
             flp_newfeeds.VerticalScroll.Maximum = 0;
             flp_newfeeds.HorizontalScroll.Maximum = 0;
+            flp_newfeeds.BackColor = Color.White;
             flp_newfeeds.AutoScroll = true;
+            flp_newfeeds.FlowDirection = FlowDirection.LeftToRight;
+            flp_newfeeds.Location = new Point(260, 177);
+            flp_newfeeds.Name = "flp_newfeeds";
+            flp_newfeeds.Size = new Size(1080, 720);
+            panel_bg.Controls.Add(flp_newfeeds);
 
+            database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
+            CollectionReference collRef = database.Collection("Posts");
+            QuerySnapshot snapshot = await collRef.GetSnapshotAsync();
+            for (int i = snapshot.Count - 1; i >= 0; i--)
+            {
+                DocumentSnapshot document = snapshot.Documents[i];
+                FlowLayoutPanel flp = await postShowHomePageVarible.createFlowLayoutPanelIncludePost(document.Id, this);
+                flp.BringToFront();
+                flp.Location = new Point(0, 0);
+                flp_newfeeds.Controls.Add(flp);
+            }
         }
 
-        private void pb_mess_Click(object sender, EventArgs e)
+        public void pb_logo_UPIC_Click(object sender, EventArgs e)
         {
-            changeStateToShapeLine();
-            pb_mess.Image = global::Upic.Properties.Resources.mess_fill;
-        }
-
-        private void pb_noti_Click(object sender, EventArgs e)
-        {
-            changeStateToShapeLine();
-            pb_noti.Image = global::Upic.Properties.Resources.noti_fill;
-        }
-
-        private void changeStateToShapeLine()
-        {
-            pb_noti.Image = global::Upic.Properties.Resources.notificationIcon1;
-            pb_mess.Image = global::Upic.Properties.Resources.mess_shape_line;
-            pb_friends.Image = global::Upic.Properties.Resources.friends_shape_line;
+            panel_bg.Controls.Remove(panel_bg.Controls["flp_newfeeds"]);
+            loadAllPostFromDatabaseForUserCanVisibleAsync();
         }
 
         private void pb_friends_Click(object sender, EventArgs e)
         {
-            //changeStateToShapeLine();
-            //pb_friends.Image = global::Upic.Properties.Resources.friends_fill;
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             homePageInstance.Visible = false;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
@@ -96,9 +113,37 @@ namespace Upic
             form.Show();
         }
 
-        private void tb_search_TextChanged(object sender, EventArgs e)
+        private void pb_mess_Click(object sender, EventArgs e)
         {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            homePageInstance.Visible = false;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            homePageInstance.ShowInTaskbar = false;
 
+            Form form = new messagesForm();
+            form.Show();
+        }
+
+        private void pb_noti_Click(object sender, EventArgs e)
+        {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            homePageInstance.Visible = false;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            homePageInstance.ShowInTaskbar = false;
+
+            Form form = new notificationsForm();
+            form.Show();
+        }
+
+        private void pb_user1_Click(object sender, EventArgs e)
+        {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            homePageInstance.Visible = false;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            homePageInstance.ShowInTaskbar = false;
+
+            Form form = new userProfileForm();
+            form.Show();
         }
 
         private void panel_bg_Click(object sender, EventArgs e)
@@ -106,11 +151,21 @@ namespace Upic
             ActiveControl = null;
         }
 
-        private void tb_caption_Click(object sender, EventArgs e)
+        private async void tb_caption_Click(object sender, EventArgs e)
         {
+            database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
+            CollectionReference collRef = database.Collection("Users");
+            DocumentReference docRef = collRef.Document(username);
+            DocumentSnapshot snap = await docRef.GetSnapshotAsync();
+            Dictionary<String, Object> userInfo = snap.ToDictionary();
+            lbl_username.Text = userInfo["Profile name"].ToString();
+
+            cbb_post_privacy.DropDownStyle = ComboBoxStyle.DropDownList;
+
             panel_before_post.Visible = false;
             panel_create_post.Visible = true;
-            //flp_newfeeds.Visible = false;
+            FlowLayoutPanel flp_newfeeds = (FlowLayoutPanel)panel_bg.Controls["flp_newfeeds"];
+            flp_newfeeds.Visible = false;
             panel_create_post.BringToFront();
         }
 
@@ -133,11 +188,12 @@ namespace Upic
         private void resetCreatePostState()
         {
             ActiveControl = null;
-            cbb_post_privacy.Text = null;
+            cbb_post_privacy.Text = "Công khai";
             tb_status.Text = null;
-            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_listImage"]);
+            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_listImage_tmp"]);
             panel_create_post.Controls.Remove(panel_create_post.Controls["btn_accept_post"]);
             panel_create_post.Controls.Remove(panel_create_post.Controls["panel_paddingBottomPanelCreatePost"]);
+            flp_groupLayoutModeBtn.Visible = false;
             pb_chooseImageFromDevice.Visible = true;
             btn_chooseImageFromDevice.Visible = true;
         }
@@ -147,6 +203,7 @@ namespace Upic
             resetCreatePostState();
             panel_create_post.Visible = false;
             panel_before_post.Visible = true;
+            FlowLayoutPanel flp_newfeeds = (FlowLayoutPanel)panel_bg.Controls["flp_newfeeds"];
             flp_newfeeds.Visible = true;
             flp_newfeeds.BringToFront();
         }
@@ -167,9 +224,13 @@ namespace Upic
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 path = ofd.FileNames;
+                pathFiles = path;
             }
-
-            showListImageBeforeUpload(path);
+            showListImageBeforeUpload(path, 0);
+            if (path.Length > 1)
+            {
+                flp_groupLayoutModeBtn.Visible = true;
+            }
         }
 
         private void pb_chooseImageFromDevice_Click(object sender, EventArgs e)
@@ -177,189 +238,45 @@ namespace Upic
             btn_chooseImageFromDevice_Click(sender, e);
         }
 
-        private void btn_closepanel_listImageSeeMore_ForCreatePost_CLick(object sender, EventArgs e)
+        private async Task<List<String>> storeImage2FirebaseStorage(String postID, String[] pathFile)
         {
-            Controls.Remove(Controls["panel_listImageSeeMore_ForCreatePost"]);
-        }
+            var storage = StorageClient.Create();
+            String bucketName = (new firebaseStorage()).getBucketName("firebaseStorage.json");
+            List<String> pathFilesOnCLoud = new List<String>();
 
-        private void createListPictureBoxSeeMore_ForCreatePost(String[] pathFiles)
-        {
-            Panel panel = new Panel();
-            panel.Name = "panel_listImageSeeMore_ForCreatePost";
-            panel.Size = new Size(1080, 810);
-            panel.Location = new Point(260, 90);
-            panel.AutoScroll = false;
-            panel.VerticalScroll.Maximum = 0;
-            panel.HorizontalScroll.Maximum = 0;
-            panel.AutoScroll = true;
-            panel.Visible = true;
-            Controls.Add(panel);
-            panel.BringToFront();
+            Form formAnnouncement = new Form();
+            formAnnouncement.FormBorderStyle = FormBorderStyle.FixedDialog;
+            formAnnouncement.ControlBox = false;
+            formAnnouncement.Size = new Size(200, 200);
+            formAnnouncement.StartPosition = FormStartPosition.CenterScreen;
+            formAnnouncement.BackColor = Color.White;
+            formAnnouncement.Visible = false;
+            Label lbl = new Label();
+            lbl.Text = "Đang xử lý";
+            lbl.Font = new Font("Be Vietnam Pro ExtraBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl.TextAlign = ContentAlignment.MiddleCenter;
+            lbl.BackColor = Color.Transparent;
+            lbl.AutoSize = false;
+            lbl.Size = new Size(150, 150);
+            lbl.Location = new Point(25, 25);
+            formAnnouncement.Controls.Add(lbl);
 
-            Button btn = new Button();
-            btn.Name = "btn_closepanel_listImageSeeMore_ForCreatePost";
-            btn.Size = new Size(50, 50);
-            btn.Location = new Point(1010, 20);
-            btn.BackgroundImageLayout = ImageLayout.Zoom;
-            btn.FlatAppearance.BorderSize = 0;
-            btn.FlatStyle = FlatStyle.Flat;
-            btn.BackgroundImage = Properties.Resources.exit_fill;
-            btn.Cursor = Cursors.Hand;
-#pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
-            btn.Click += btn_closepanel_listImageSeeMore_ForCreatePost_CLick;
-#pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
-            panel.Controls.Add(btn);
-
-            int count = 1;
-            Point newLoctionpb = new Point(60, 120);
-            foreach (String path in pathFiles)
+            formAnnouncement.Visible = true;
+            this.Visible = false;
+            foreach (int i in Enumerable.Range(0, pathFile.Length))
             {
-                PictureBox pb = new PictureBox();
-                pb.Name = "pb_image" + count.ToString();
-                pb.Location = newLoctionpb;
-                pb.Size = new Size(960, 540);
-                pb.BackColor = Color.FromArgb(204, 0, 0, 0);
-                pb.SizeMode = PictureBoxSizeMode.Zoom;
-                pb.BorderStyle = BorderStyle.None;
-                pb.Image = Image.FromFile(path);
-                panel.Controls.Add(pb);
+                String destination = "Image storage/" + username + "/" + "Image/" + postID + "_" + (i + 1).ToString();
+                String contentType = "image/" + Path.GetExtension(pathFile[i]).Split('.')[1];
+                using var fileStream = System.IO.File.OpenRead(pathFile[i]);
 
-                count++;
-                newLoctionpb.Y += 540 + 50;
+                Task task = storage.UploadObjectAsync(bucketName, destination, contentType, fileStream);
+                await task;
+                pathFilesOnCLoud.Add(destination);
             }
-        }
+            formAnnouncement.Close();
+            this.Visible = true;
 
-        private void lbl_seeMorePicture_CLick(object sender, EventArgs e, String[] pathFiles)
-        {
-            createListPictureBoxSeeMore_ForCreatePost(pathFiles);
-        }
-
-        private Panel createListPictureBoxLayout0_ForCreatePost(String[] pathFiles)
-        {
-            // Layout: None style
-            // Amount picture must > 0
-            int amountPicture = pathFiles.Length;
-            Panel panel = new Panel();
-            panel.Name = "panel_listImage";
-            panel.BackColor = ColorTranslator.FromHtml("#f6f6f6");
-            panel.Location = new Point(45, 360);
-            panel.Size = new Size(860, 860);
-            panel.BorderStyle = BorderStyle.None;
-
-            switch (amountPicture)
-            {
-                case 1:
-                    {
-                        PictureBox pb = new PictureBox();
-                        pb.Name = "pb_image1";
-                        pb.Location = new Point(20, 20);
-                        pb.Size = new Size(820, 820);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.BorderStyle = BorderStyle.None;
-                        panel.Controls.Add(pb);
-                        break;
-                    }
-                case 2:
-                    {
-                        PictureBox pb = new PictureBox();
-                        pb.Name = "pb_image1";
-                        pb.Location = new Point(20, 20);
-                        pb.Size = new Size(400, 820);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.BorderStyle = BorderStyle.None;
-                        panel.Controls.Add(pb);
-
-                        pb = new PictureBox();
-                        pb.Name = "pb_image2";
-                        pb.Location = new Point(440, 20);
-                        pb.Size = new Size(400, 820);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.BorderStyle = BorderStyle.None;
-                        panel.Controls.Add(pb);
-                        break;
-                    }
-                case 3:
-                    {
-                        PictureBox pb = new PictureBox();
-                        pb.Name = "pb_image1";
-                        pb.Location = new Point(20, 20);
-                        pb.Size = new Size(400, 820);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.BorderStyle = BorderStyle.None;
-                        panel.Controls.Add(pb);
-
-                        pb = new PictureBox();
-                        pb.Name = "pb_image2";
-                        pb.Location = new Point(440, 20);
-                        pb.Size = new Size(400, 400);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.BorderStyle = BorderStyle.None;
-                        panel.Controls.Add(pb);
-
-                        pb = new PictureBox();
-                        pb.Name = "pb_image3";
-                        pb.Location = new Point(440, 440);
-                        pb.Size = new Size(400, 400);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.BorderStyle = BorderStyle.None;
-                        panel.Controls.Add(pb);
-                        break;
-                    }
-                default:
-                    {
-                        PictureBox pb = new PictureBox();
-                        pb.Name = "pb_image1";
-                        pb.Location = new Point(20, 20);
-                        pb.Size = new Size(400, 400);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.BorderStyle = BorderStyle.None;
-                        panel.Controls.Add(pb);
-
-                        pb = new PictureBox();
-                        pb.Name = "pb_image2";
-                        pb.Location = new Point(440, 20);
-                        pb.Size = new Size(400, 400);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.BorderStyle = BorderStyle.None;
-                        panel.Controls.Add(pb);
-
-                        pb = new PictureBox();
-                        pb.Name = "pb_image3";
-                        pb.Location = new Point(20, 440);
-                        pb.Size = new Size(400, 400);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        panel.Controls.Add(pb);
-
-                        pb = new PictureBox();
-                        pb.Name = "pb_image4";
-                        pb.Location = new Point(440, 440);
-                        pb.Size = new Size(400, 400);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.BorderStyle = BorderStyle.None;
-                        panel.Controls.Add(pb);
-
-                        if (amountPicture > 4)
-                        {
-                            Label lbl = new Label();
-                            lbl.Name = "lbl_seeMorePicture";
-                            lbl.Location = new Point(0, 0);
-                            lbl.Size = new Size(400, 400);
-                            lbl.Parent = pb;
-                            lbl.BackColor = Color.FromArgb(102, 0, 0, 0); //Color.Transparent;
-                            lbl.TextAlign = ContentAlignment.MiddleCenter;
-                            lbl.Font = new Font("Be Vietnam Pro Black", 40F, FontStyle.Bold, GraphicsUnit.Point);
-                            lbl.ForeColor = ColorTranslator.FromHtml("#ffffff");
-                            lbl.Text = "+" + (amountPicture - 3).ToString();
-#pragma warning disable CS8604 // Possible null reference argument.
-                            lbl.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles);
-                            lbl.Cursor = Cursors.Hand;
-#pragma warning restore CS8604 // Possible null reference argument.
-                            pb.Controls.Add(lbl);
-                        }
-                        break;
-                    }
-            }
-            return panel;
+            return pathFilesOnCLoud;
         }
 
         private async Task btn_accept_post_Click(object sender, EventArgs e, String[] pathFile, String postStatus, int layoutMode)
@@ -369,11 +286,10 @@ namespace Upic
             String postID = dateUpload + "_" + username;
             String[] tmp = { };
             Dictionary<String, Object> tmp2 = new Dictionary<String, Object>();
-            List<String> imgNameFile = new List<string>();
+            List<String> pathFilesOnCloud = new List<string>();
             int visibleMode;
-            int count = 1;
-            database = FirestoreDb.Create("social-app-c-sharp-programming");
-            CollectionReference postColl = database.Collection("Post");
+            database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
+            CollectionReference postColl = database.Collection("Posts");
             Dictionary<String, Object> postDetail = new Dictionary<String, Object>();
 
             switch (cbb_post_privacy.Text)
@@ -400,14 +316,9 @@ namespace Upic
                     }
             }
 
-            foreach (String file in pathFile)
-            {
-                imgNameFile.Add(postID + "_" + count.ToString());
-                count++;
-            }
-
+            pathFilesOnCloud = await storeImage2FirebaseStorage(postID, pathFile);
             postDetail.Add("Post status", postStatus);
-            postDetail.Add("Post image", imgNameFile);
+            postDetail.Add("Post image", pathFilesOnCloud);
             postDetail.Add("Date upload", dateUpload);
             postDetail.Add("Layout mode", layoutMode);
             postDetail.Add("Visible mode", visibleMode);
@@ -418,7 +329,7 @@ namespace Upic
             await task;
             if (task.IsCompleted)
             {
-                MessageBox.Show("Đăng bài thành công", "Thông báo");
+                MessageBox.Show("Đăng bài viết thành công", "Thông báo");
                 btn_exit_post_Click(sender, e);
             }
             else
@@ -427,14 +338,39 @@ namespace Upic
             }
         }
 
-        private void showListImageBeforeUpload(String[] pathFile)
+        private void showListImageBeforeUpload(String[] pathFile, int layoutMode)
         {
             if (pathFile.Length > 0)
             {
                 pb_chooseImageFromDevice.Visible = false;
                 btn_chooseImageFromDevice.Visible = false;
 
-                panel_create_post.Controls.Add(createListPictureBoxLayout0_ForCreatePost(pathFile));
+                Panel panelListImage;
+                switch (layoutMode)
+                {
+                    case 1:
+                        {
+                            panelListImage = (new layoutPost()).createLayoutMode1Post(pathFile, this, "tmp");
+                            break;
+                        }
+                    case 2:
+                        {
+                            panelListImage = (new layoutPost()).createLayoutMode2Post(pathFile, this, "tmp", tb_status.Text);
+                            if (panelListImage == null)
+                            {
+                                panelListImage = (new layoutPost()).createLayoutMode0Post(pathFile, this, "tmp");
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            panelListImage = (new layoutPost()).createLayoutMode0Post(pathFile, this, "tmp");
+                            break;
+                        }
+                }
+                panelListImage.Location = new Point((panel_create_post.Width - panelListImage.Width) / 2, 360);
+                //panel_create_post.Controls.Add(createListPictureBoxLayout0_ForCreatePost(pathFile));
+                panel_create_post.Controls.Add(panelListImage);
 
                 int count = 1;
                 foreach (String path in pathFile)
@@ -444,14 +380,14 @@ namespace Upic
 
                         break;
                     }
-                    Image loadedImage = Image.FromFile(path);
+                    System.Drawing.Image loadedImage = System.Drawing.Image.FromFile(path);
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                    Control panel_listImage = panel_create_post.Controls["panel_listImage"];
+                    Control panel_listImage = panel_create_post.Controls["panel_listImage_tmp"];
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                    Control pb = (PictureBox)panel_listImage.Controls["pb_image" + count.ToString()] as PictureBox;
+                    Control pb = (PictureBox)panel_listImage.Controls["pb_image" + count.ToString() + "_tmp"] as PictureBox;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 
@@ -467,7 +403,7 @@ namespace Upic
                 btn_accept_post.FlatStyle = FlatStyle.Flat;
                 btn_accept_post.Font = new Font("Be Vietnam Pro ExtraBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
                 btn_accept_post.ForeColor = Color.White;
-                btn_accept_post.Location = new Point(765, 1240);
+                btn_accept_post.Location = new Point(765, 360 + panelListImage.Height + 20);
                 btn_accept_post.Name = "btn_accept_post";
                 btn_accept_post.Size = new Size(140, 45);
                 btn_accept_post.TabIndex = 12;
@@ -476,7 +412,7 @@ namespace Upic
                 btn_accept_post.UseVisualStyleBackColor = false;
 #pragma warning disable CS8604 // Possible null reference argument.
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-                btn_accept_post.Click += (sender, EventArgs) => btn_accept_post_Click(sender, EventArgs, pathFile, tb_status.Text, 0);
+                btn_accept_post.Click += (sender, EventArgs) => btn_accept_post_Click(sender, EventArgs, pathFile, tb_status.Text, layoutMode);
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 #pragma warning restore CS8604 // Possible null reference argument.
                 panel_create_post.Controls.Add(btn_accept_post);
@@ -484,7 +420,7 @@ namespace Upic
                 Label panel_paddingBottomPanelCreatePost = new Label();
                 panel_paddingBottomPanelCreatePost.Name = "panel_paddingBottomPanelCreatePost";
                 panel_paddingBottomPanelCreatePost.Size = new Size(930, 20);
-                panel_paddingBottomPanelCreatePost.Location = new Point(10, 1285);
+                panel_paddingBottomPanelCreatePost.Location = new Point(10, btn_accept_post.Location.Y + 20 + 25);
                 panel_paddingBottomPanelCreatePost.BackColor = Color.Transparent;
                 panel_create_post.Controls.Add(panel_paddingBottomPanelCreatePost);
             }
@@ -494,7 +430,38 @@ namespace Upic
         {
             tb_caption_Click(sender, e);
         }
+
+        private void btn_noneLayout_Click(object sender, EventArgs e)
+        {
+            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_listImage_tmp"]);
+            panel_create_post.Controls.Remove(panel_create_post.Controls["btn_accept_post"]);
+            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_paddingBottomPanelCreatePost"]);
+            showListImageBeforeUpload(pathFiles, 0);
+        }
+
+        private void btn_columnLayout_Click(object sender, EventArgs e)
+        {
+            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_listImage_tmp"]);
+            panel_create_post.Controls.Remove(panel_create_post.Controls["btn_accept_post"]);
+            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_paddingBottomPanelCreatePost"]);
+            showListImageBeforeUpload(pathFiles, 1);
+        }
+
+        private void btn_bannerLayout_Click(object sender, EventArgs e)
+        {
+            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_listImage_tmp"]);
+            panel_create_post.Controls.Remove(panel_create_post.Controls["btn_accept_post"]);
+            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_paddingBottomPanelCreatePost"]);
+            showListImageBeforeUpload(pathFiles, 2);
+        }
+
+        public void releaseMemory()
+        {
+            DirectoryInfo di = new DirectoryInfo(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/homepage"));
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+        }
     }
-
-
 }
