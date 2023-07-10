@@ -45,7 +45,6 @@
             lbl_profile_name = new Label();
             pb_profile_user_avatar = new PictureBox();
             editProfileuc1 = new editProfileUC();
-            flp_profile_and_posts = new FlowLayoutPanel();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_friends).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_mess).BeginInit();
@@ -159,7 +158,6 @@
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
             panel_bg.Controls.Add(panel_profile_and_posts);
             panel_bg.Controls.Add(editProfileuc1);
-            panel_bg.Controls.Add(flp_profile_and_posts);
             panel_bg.Dock = DockStyle.Fill;
             panel_bg.Location = new Point(0, 0);
             panel_bg.Name = "panel_bg";
@@ -254,14 +252,6 @@
             editProfileuc1.Visible = false;
             editProfileuc1.VisibleChanged += editProfileuc1_VisibleChanged;
             // 
-            // flp_profile_and_posts
-            // 
-            flp_profile_and_posts.BackColor = Color.White;
-            flp_profile_and_posts.Location = new Point(260, 300);
-            flp_profile_and_posts.Name = "flp_profile_and_posts";
-            flp_profile_and_posts.Size = new Size(1080, 590);
-            flp_profile_and_posts.TabIndex = 1;
-            // 
             // userProfileForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -306,7 +296,6 @@
         private Label lbl_profile_name;
         private PictureBox pb_profile_user_avatar;
         private Button btn_edit_profile;
-        private FlowLayoutPanel flp_profile_and_posts;
         private editProfileUC editProfileuc1;
     }
 }
