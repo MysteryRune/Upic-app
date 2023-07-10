@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "D:\\Project\\C#\\Upic\\Upic.csproj": {}
   },
   "projects": {
@@ -13,19 +12,6 @@
         "projectPath": "D:\\Project\\C#\\Upic\\Upic.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
         "outputPath": "D:\\Project\\C#\\Upic\\obj\\",
-=======
-    "D:\\C#\\Upic\\Upic.csproj": {}
-  },
-  "projects": {
-    "D:\\C#\\Upic\\Upic.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\C#\\Upic\\Upic.csproj",
-        "projectName": "Upic",
-        "projectPath": "D:\\C#\\Upic\\Upic.csproj",
-        "packagesPath": "C:\\Users\\Acer Nitro\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\Upic\\obj\\",
->>>>>>> 6541bae9d73bd40a79b54725c31a26121a9d1bdc
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,6 +55,10 @@
             "Google.Cloud.Storage.V1": {
               "target": "Package",
               "version": "[4.6.0, )"
+            },
+            "Uno.UI": {
+              "target": "Package",
+              "version": "[4.9.26, )"
             }
           },
           "imports": [
@@ -86,7 +76,7 @@
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "Microsoft.WindowsDesktop.App": {
               "privateAssets": "none"
             }
           },

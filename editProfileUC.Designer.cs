@@ -28,18 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl_edit_profile = new Label();
-            lbl_profile_avatar = new Label();
-            pb_profile_user_avatar = new PictureBox();
-            btn_edit_avatar = new Button();
-            lbl_profile_info = new Label();
             panel_info = new Panel();
             lbl_user_year = new Label();
             label4 = new Label();
             lbl_user_month = new Label();
             label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
+            lbl_hobbyContent = new Label();
+            lbl_storyContent = new Label();
             lbl_user_address = new Label();
             lbl_user_day = new Label();
             lbl_user_sex = new Label();
@@ -50,6 +45,13 @@
             lbl_address = new Label();
             lbl_dob = new Label();
             lbl_name = new Label();
+            btn_save_profile = new Button();
+            btn_update_info = new Button();
+            lbl_profile_info = new Label();
+            btn_edit_avatar = new Button();
+            pb_profile_user_avatar = new PictureBox();
+            lbl_profile_avatar = new Label();
+            lbl_edit_profile = new Label();
             panel_edit_info = new Panel();
             cbb_sex = new ComboBox();
             tb_edit_hobby = new TextBox();
@@ -65,69 +67,10 @@
             label12 = new Label();
             label13 = new Label();
             label14 = new Label();
-            btn_update_info = new Button();
-            btn_save_profile = new Button();
-            ((System.ComponentModel.ISupportInitialize)pb_profile_user_avatar).BeginInit();
             panel_info.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_profile_user_avatar).BeginInit();
             panel_edit_info.SuspendLayout();
             SuspendLayout();
-            // 
-            // lbl_edit_profile
-            // 
-            lbl_edit_profile.AutoSize = true;
-            lbl_edit_profile.Font = new Font("Be Vietnam Pro ExtraBold", 22.1999989F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_edit_profile.Location = new Point(326, 9);
-            lbl_edit_profile.Name = "lbl_edit_profile";
-            lbl_edit_profile.Size = new Size(321, 57);
-            lbl_edit_profile.TabIndex = 2;
-            lbl_edit_profile.Text = "Chỉnh sửa hồ sơ";
-            // 
-            // lbl_profile_avatar
-            // 
-            lbl_profile_avatar.AutoSize = true;
-            lbl_profile_avatar.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_profile_avatar.ForeColor = Color.Black;
-            lbl_profile_avatar.Location = new Point(29, 81);
-            lbl_profile_avatar.Name = "lbl_profile_avatar";
-            lbl_profile_avatar.Size = new Size(158, 35);
-            lbl_profile_avatar.TabIndex = 3;
-            lbl_profile_avatar.Text = "Ảnh đại diện";
-            // 
-            // pb_profile_user_avatar
-            // 
-            pb_profile_user_avatar.Image = Properties.Resources.accountIcon;
-            pb_profile_user_avatar.Location = new Point(387, 81);
-            pb_profile_user_avatar.Name = "pb_profile_user_avatar";
-            pb_profile_user_avatar.Size = new Size(200, 200);
-            pb_profile_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
-            pb_profile_user_avatar.TabIndex = 4;
-            pb_profile_user_avatar.TabStop = false;
-            // 
-            // btn_edit_avatar
-            // 
-            btn_edit_avatar.BackColor = Color.White;
-            btn_edit_avatar.FlatAppearance.BorderColor = Color.White;
-            btn_edit_avatar.FlatStyle = FlatStyle.Flat;
-            btn_edit_avatar.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_edit_avatar.ForeColor = Color.SteelBlue;
-            btn_edit_avatar.Location = new Point(763, 72);
-            btn_edit_avatar.Name = "btn_edit_avatar";
-            btn_edit_avatar.Size = new Size(159, 44);
-            btn_edit_avatar.TabIndex = 5;
-            btn_edit_avatar.Text = "Chỉnh sửa";
-            btn_edit_avatar.UseVisualStyleBackColor = false;
-            btn_edit_avatar.Click += btn_edit_avatar_Click;
-            // 
-            // lbl_profile_info
-            // 
-            lbl_profile_info.AutoSize = true;
-            lbl_profile_info.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_profile_info.ForeColor = Color.Black;
-            lbl_profile_info.Location = new Point(29, 307);
-            lbl_profile_info.Name = "lbl_profile_info";
-            lbl_profile_info.Size = new Size(258, 35);
-            lbl_profile_info.TabIndex = 6;
-            lbl_profile_info.Text = "Thông tin người dùng";
             // 
             // panel_info
             // 
@@ -135,8 +78,8 @@
             panel_info.Controls.Add(label4);
             panel_info.Controls.Add(lbl_user_month);
             panel_info.Controls.Add(label3);
-            panel_info.Controls.Add(label2);
-            panel_info.Controls.Add(label1);
+            panel_info.Controls.Add(lbl_hobbyContent);
+            panel_info.Controls.Add(lbl_storyContent);
             panel_info.Controls.Add(lbl_user_address);
             panel_info.Controls.Add(lbl_user_day);
             panel_info.Controls.Add(lbl_user_sex);
@@ -147,10 +90,10 @@
             panel_info.Controls.Add(lbl_address);
             panel_info.Controls.Add(lbl_dob);
             panel_info.Controls.Add(lbl_name);
-            panel_info.Location = new Point(29, 348);
+            panel_info.Location = new Point(30, 370);
             panel_info.Name = "panel_info";
             panel_info.Size = new Size(893, 473);
-            panel_info.TabIndex = 7;
+            panel_info.TabIndex = 25;
             // 
             // lbl_user_year
             // 
@@ -192,23 +135,23 @@
             label3.TabIndex = 14;
             label3.Text = "/";
             // 
-            // label2
+            // lbl_hobbyContent
             // 
-            label2.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(339, 353);
-            label2.Name = "label2";
-            label2.Size = new Size(522, 87);
-            label2.TabIndex = 13;
-            label2.Text = "Yêu một lúc 10 người\r\n";
+            lbl_hobbyContent.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_hobbyContent.Location = new Point(339, 353);
+            lbl_hobbyContent.Name = "lbl_hobbyContent";
+            lbl_hobbyContent.Size = new Size(522, 87);
+            lbl_hobbyContent.TabIndex = 13;
+            lbl_hobbyContent.Text = "Yêu một lúc 10 người\r\n";
             // 
-            // label1
+            // lbl_storyContent
             // 
-            label1.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(339, 250);
-            label1.Name = "label1";
-            label1.Size = new Size(522, 103);
-            label1.TabIndex = 12;
-            label1.Text = "Một chút nhớ góp thành bão giông, một chút mưa đầy biển rộng, một chút yêu thôi, mà đau như cháy lòng";
+            lbl_storyContent.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_storyContent.Location = new Point(339, 250);
+            lbl_storyContent.Name = "lbl_storyContent";
+            lbl_storyContent.Size = new Size(522, 103);
+            lbl_storyContent.TabIndex = 12;
+            lbl_storyContent.Text = "Một chút nhớ góp thành bão giông, một chút mưa đầy biển rộng, một chút yêu thôi, mà đau như cháy lòng";
             // 
             // lbl_user_address
             // 
@@ -309,6 +252,95 @@
             lbl_name.TabIndex = 2;
             lbl_name.Text = "Tên hồ sơ:";
             // 
+            // btn_save_profile
+            // 
+            btn_save_profile.BackColor = Color.SteelBlue;
+            btn_save_profile.Cursor = Cursors.Hand;
+            btn_save_profile.FlatAppearance.BorderColor = Color.White;
+            btn_save_profile.FlatStyle = FlatStyle.Flat;
+            btn_save_profile.Font = new Font("Be Vietnam Pro", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_save_profile.ForeColor = Color.White;
+            btn_save_profile.Location = new Point(403, 868);
+            btn_save_profile.Name = "btn_save_profile";
+            btn_save_profile.Size = new Size(169, 54);
+            btn_save_profile.TabIndex = 28;
+            btn_save_profile.Text = "Hoàn tất";
+            btn_save_profile.UseVisualStyleBackColor = false;
+            btn_save_profile.Visible = false;
+            // 
+            // btn_update_info
+            // 
+            btn_update_info.BackColor = Color.White;
+            btn_update_info.Cursor = Cursors.Hand;
+            btn_update_info.FlatAppearance.BorderColor = Color.White;
+            btn_update_info.FlatStyle = FlatStyle.Flat;
+            btn_update_info.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_update_info.ForeColor = Color.SteelBlue;
+            btn_update_info.Location = new Point(764, 320);
+            btn_update_info.Name = "btn_update_info";
+            btn_update_info.Size = new Size(159, 44);
+            btn_update_info.TabIndex = 26;
+            btn_update_info.Text = "Chỉnh sửa";
+            btn_update_info.UseVisualStyleBackColor = false;
+            // 
+            // lbl_profile_info
+            // 
+            lbl_profile_info.AutoSize = true;
+            lbl_profile_info.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_profile_info.ForeColor = Color.Black;
+            lbl_profile_info.Location = new Point(30, 329);
+            lbl_profile_info.Name = "lbl_profile_info";
+            lbl_profile_info.Size = new Size(258, 35);
+            lbl_profile_info.TabIndex = 24;
+            lbl_profile_info.Text = "Thông tin người dùng";
+            // 
+            // btn_edit_avatar
+            // 
+            btn_edit_avatar.BackColor = Color.White;
+            btn_edit_avatar.Cursor = Cursors.Hand;
+            btn_edit_avatar.FlatAppearance.BorderColor = Color.White;
+            btn_edit_avatar.FlatStyle = FlatStyle.Flat;
+            btn_edit_avatar.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_edit_avatar.ForeColor = Color.SteelBlue;
+            btn_edit_avatar.Location = new Point(764, 94);
+            btn_edit_avatar.Name = "btn_edit_avatar";
+            btn_edit_avatar.Size = new Size(159, 44);
+            btn_edit_avatar.TabIndex = 23;
+            btn_edit_avatar.Text = "Chỉnh sửa";
+            btn_edit_avatar.UseVisualStyleBackColor = false;
+            btn_edit_avatar.Click += btn_edit_avatar_Click;
+            // 
+            // pb_profile_user_avatar
+            // 
+            pb_profile_user_avatar.Image = Properties.Resources.accountIcon;
+            pb_profile_user_avatar.Location = new Point(388, 103);
+            pb_profile_user_avatar.Name = "pb_profile_user_avatar";
+            pb_profile_user_avatar.Size = new Size(200, 200);
+            pb_profile_user_avatar.SizeMode = PictureBoxSizeMode.Zoom;
+            pb_profile_user_avatar.TabIndex = 22;
+            pb_profile_user_avatar.TabStop = false;
+            // 
+            // lbl_profile_avatar
+            // 
+            lbl_profile_avatar.AutoSize = true;
+            lbl_profile_avatar.Font = new Font("Be Vietnam Pro SemiBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_profile_avatar.ForeColor = Color.Black;
+            lbl_profile_avatar.Location = new Point(30, 103);
+            lbl_profile_avatar.Name = "lbl_profile_avatar";
+            lbl_profile_avatar.Size = new Size(158, 35);
+            lbl_profile_avatar.TabIndex = 21;
+            lbl_profile_avatar.Text = "Ảnh đại diện";
+            // 
+            // lbl_edit_profile
+            // 
+            lbl_edit_profile.AutoSize = true;
+            lbl_edit_profile.Font = new Font("Be Vietnam Pro ExtraBold", 22.1999989F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_edit_profile.Location = new Point(327, 31);
+            lbl_edit_profile.Name = "lbl_edit_profile";
+            lbl_edit_profile.Size = new Size(321, 57);
+            lbl_edit_profile.TabIndex = 20;
+            lbl_edit_profile.Text = "Chỉnh sửa hồ sơ";
+            // 
             // panel_edit_info
             // 
             panel_edit_info.Controls.Add(cbb_sex);
@@ -325,10 +357,10 @@
             panel_edit_info.Controls.Add(label12);
             panel_edit_info.Controls.Add(label13);
             panel_edit_info.Controls.Add(label14);
-            panel_edit_info.Location = new Point(29, 348);
+            panel_edit_info.Location = new Point(30, 370);
             panel_edit_info.Name = "panel_edit_info";
             panel_edit_info.Size = new Size(893, 473);
-            panel_edit_info.TabIndex = 9;
+            panel_edit_info.TabIndex = 27;
             panel_edit_info.Visible = false;
             // 
             // cbb_sex
@@ -348,7 +380,7 @@
             tb_edit_hobby.Location = new Point(341, 370);
             tb_edit_hobby.Multiline = true;
             tb_edit_hobby.Name = "tb_edit_hobby";
-            tb_edit_hobby.PlaceholderText = "Nhập địa chỉ mới";
+            tb_edit_hobby.PlaceholderText = "Nhập sở thích mới";
             tb_edit_hobby.Size = new Size(495, 87);
             tb_edit_hobby.TabIndex = 21;
             // 
@@ -478,41 +510,13 @@
             label14.TabIndex = 2;
             label14.Text = "Tên hồ sơ:";
             // 
-            // btn_update_info
-            // 
-            btn_update_info.BackColor = Color.White;
-            btn_update_info.FlatAppearance.BorderColor = Color.White;
-            btn_update_info.FlatStyle = FlatStyle.Flat;
-            btn_update_info.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_update_info.ForeColor = Color.SteelBlue;
-            btn_update_info.Location = new Point(763, 298);
-            btn_update_info.Name = "btn_update_info";
-            btn_update_info.Size = new Size(159, 44);
-            btn_update_info.TabIndex = 8;
-            btn_update_info.Text = "Chỉnh sửa";
-            btn_update_info.UseVisualStyleBackColor = false;
-            btn_update_info.Click += btn_update_info_Click;
-            // 
-            // btn_save_profile
-            // 
-            btn_save_profile.BackColor = Color.SteelBlue;
-            btn_save_profile.FlatAppearance.BorderColor = Color.White;
-            btn_save_profile.FlatStyle = FlatStyle.Flat;
-            btn_save_profile.Font = new Font("Be Vietnam Pro", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_save_profile.ForeColor = Color.White;
-            btn_save_profile.Location = new Point(402, 846);
-            btn_save_profile.Name = "btn_save_profile";
-            btn_save_profile.Size = new Size(169, 54);
-            btn_save_profile.TabIndex = 10;
-            btn_save_profile.Text = "Hoàn tất";
-            btn_save_profile.UseVisualStyleBackColor = false;
-            btn_save_profile.Click += btn_save_profile_Click;
-            // 
             // editProfileUC
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(panel_info);
+            Controls.Add(panel_edit_info);
             Controls.Add(btn_save_profile);
             Controls.Add(btn_update_info);
             Controls.Add(lbl_profile_info);
@@ -520,14 +524,12 @@
             Controls.Add(pb_profile_user_avatar);
             Controls.Add(lbl_profile_avatar);
             Controls.Add(lbl_edit_profile);
-            Controls.Add(panel_info);
-            Controls.Add(panel_edit_info);
             Name = "editProfileUC";
             Size = new Size(952, 952);
             Load += editProfileUC_Load;
-            ((System.ComponentModel.ISupportInitialize)pb_profile_user_avatar).EndInit();
             panel_info.ResumeLayout(false);
             panel_info.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_profile_user_avatar).EndInit();
             panel_edit_info.ResumeLayout(false);
             panel_edit_info.PerformLayout();
             ResumeLayout(false);
@@ -536,25 +538,32 @@
 
         #endregion
 
-        private Label lbl_edit_profile;
-        private Label lbl_profile_avatar;
-        private PictureBox pb_profile_user_avatar;
-        private Button btn_edit_avatar;
-        private Label lbl_profile_info;
         private Panel panel_info;
-        private Label lbl_address;
-        private Label lbl_dob;
-        private Label lbl_name;
-        private Label lbl_hobby;
-        private Label lbl_story;
-        private Label lbl_sex;
-        private Label label1;
+        private Label lbl_user_year;
+        private Label label4;
+        private Label lbl_user_month;
+        private Label label3;
+        private Label lbl_hobbyContent;
+        private Label lbl_storyContent;
         private Label lbl_user_address;
         private Label lbl_user_day;
         private Label lbl_user_sex;
         private Label lbl_user_name;
+        private Label lbl_hobby;
+        private Label lbl_story;
+        private Label lbl_sex;
+        private Label lbl_address;
+        private Label lbl_dob;
+        private Label lbl_name;
+        private Button btn_save_profile;
         private Button btn_update_info;
+        private Label lbl_profile_info;
+        private Button btn_edit_avatar;
+        private PictureBox pb_profile_user_avatar;
+        private Label lbl_profile_avatar;
+        private Label lbl_edit_profile;
         private Panel panel_edit_info;
+        private ComboBox cbb_sex;
         private TextBox tb_edit_hobby;
         private TextBox tb_edit_story;
         private TextBox tb_edit_address;
@@ -568,12 +577,5 @@
         private Label label12;
         private Label label13;
         private Label label14;
-        private Label label2;
-        private Button btn_save_profile;
-        private ComboBox cbb_sex;
-        private Label lbl_user_year;
-        private Label label4;
-        private Label lbl_user_month;
-        private Label label3;
     }
 }

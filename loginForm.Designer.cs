@@ -613,7 +613,7 @@ namespace Upic
             passwordConfirmBoxRegister.Name = "passwordConfirmBoxRegister";
             passwordConfirmBoxRegister.PasswordChar = '*';
             passwordConfirmBoxRegister.Size = new Size(340, 33);
-            passwordConfirmBoxRegister.TabIndex = 1;
+            passwordConfirmBoxRegister.TabIndex = 6;
             // 
             // passwordConfirmLabel
             // 
@@ -636,7 +636,7 @@ namespace Upic
             nextBtt.Location = new Point(200, 670);
             nextBtt.Name = "nextBtt";
             nextBtt.Size = new Size(100, 35);
-            nextBtt.TabIndex = 15;
+            nextBtt.TabIndex = 7;
             nextBtt.Text = "TIẾP TỤC";
             nextBtt.UseVisualStyleBackColor = false;
             nextBtt.Click += nextBtt_Click;
@@ -657,7 +657,7 @@ namespace Upic
             phoneNumberBoxRegister.Location = new Point(80, 435);
             phoneNumberBoxRegister.Name = "phoneNumberBoxRegister";
             phoneNumberBoxRegister.Size = new Size(340, 33);
-            phoneNumberBoxRegister.TabIndex = 2;
+            phoneNumberBoxRegister.TabIndex = 3;
             // 
             // userNameLabel
             // 
@@ -675,7 +675,7 @@ namespace Upic
             userNameBoxRegister.Location = new Point(80, 495);
             userNameBoxRegister.Name = "userNameBoxRegister";
             userNameBoxRegister.Size = new Size(340, 33);
-            userNameBoxRegister.TabIndex = 2;
+            userNameBoxRegister.TabIndex = 4;
             // 
             // emailConfirmLabel
             // 
@@ -737,7 +737,7 @@ namespace Upic
             passwordBoxRegister.Name = "passwordBoxRegister";
             passwordBoxRegister.PasswordChar = '*';
             passwordBoxRegister.Size = new Size(340, 33);
-            passwordBoxRegister.TabIndex = 2;
+            passwordBoxRegister.TabIndex = 5;
             // 
             // emailAddressLabel1
             // 
@@ -802,7 +802,7 @@ namespace Upic
             loginPanelBtt1.Location = new Point(200, 740);
             loginPanelBtt1.Name = "loginPanelBtt1";
             loginPanelBtt1.Size = new Size(100, 30);
-            loginPanelBtt1.TabIndex = 34;
+            loginPanelBtt1.TabIndex = 8;
             loginPanelBtt1.Text = "Đăng nhập";
             loginPanelBtt1.UseVisualStyleBackColor = true;
             loginPanelBtt1.Click += loginPanelBtt1_Click;
@@ -894,7 +894,7 @@ namespace Upic
             backBtt.Location = new Point(90, 670);
             backBtt.Name = "backBtt";
             backBtt.Size = new Size(150, 35);
-            backBtt.TabIndex = 45;
+            backBtt.TabIndex = 12;
             backBtt.Text = "QUAY LẠI";
             backBtt.UseVisualStyleBackColor = false;
             backBtt.Click += backBtt_Click;
@@ -921,7 +921,7 @@ namespace Upic
             adsEmailConfirm.Location = new Point(50, 570);
             adsEmailConfirm.Name = "adsEmailConfirm";
             adsEmailConfirm.Size = new Size(350, 50);
-            adsEmailConfirm.TabIndex = 43;
+            adsEmailConfirm.TabIndex = 11;
             adsEmailConfirm.Text = "Bạn có muốn nhận thông báo các chương trình thông qua Email?";
             adsEmailConfirm.UseVisualStyleBackColor = true;
             // 
@@ -934,7 +934,7 @@ namespace Upic
             provinceBox.Location = new Point(80, 395);
             provinceBox.Name = "provinceBox";
             provinceBox.Size = new Size(340, 31);
-            provinceBox.TabIndex = 42;
+            provinceBox.TabIndex = 8;
             // 
             // yearBox
             // 
@@ -942,7 +942,7 @@ namespace Upic
             yearBox.Location = new Point(350, 261);
             yearBox.Name = "yearBox";
             yearBox.Size = new Size(70, 26);
-            yearBox.TabIndex = 39;
+            yearBox.TabIndex = 4;
             // 
             // yearLabel
             // 
@@ -962,7 +962,7 @@ namespace Upic
             monthBoxCombo.Location = new Point(175, 260);
             monthBoxCombo.Name = "monthBoxCombo";
             monthBoxCombo.Size = new Size(150, 31);
-            monthBoxCombo.TabIndex = 4;
+            monthBoxCombo.TabIndex = 3;
             // 
             // monthLabel
             // 
@@ -980,7 +980,7 @@ namespace Upic
             dayBox.Location = new Point(80, 260);
             dayBox.Name = "dayBox";
             dayBox.Size = new Size(70, 26);
-            dayBox.TabIndex = 36;
+            dayBox.TabIndex = 2;
             // 
             // dayLabel
             // 
@@ -1008,7 +1008,7 @@ namespace Upic
             communeBox.Location = new Point(80, 517);
             communeBox.Name = "communeBox";
             communeBox.Size = new Size(340, 33);
-            communeBox.TabIndex = 31;
+            communeBox.TabIndex = 10;
             // 
             // communeLabel
             // 
@@ -1031,7 +1031,7 @@ namespace Upic
             finishBtt.Location = new Point(260, 670);
             finishBtt.Name = "finishBtt";
             finishBtt.Size = new Size(150, 35);
-            finishBtt.TabIndex = 15;
+            finishBtt.TabIndex = 13;
             finishBtt.Text = "HOÀN THÀNH";
             finishBtt.UseVisualStyleBackColor = false;
             finishBtt.Click += finishBtt_Click;
@@ -1091,7 +1091,7 @@ namespace Upic
             townBox.Location = new Point(80, 455);
             townBox.Name = "townBox";
             townBox.Size = new Size(340, 33);
-            townBox.TabIndex = 12;
+            townBox.TabIndex = 9;
             // 
             // profileName
             // 
@@ -1109,7 +1109,7 @@ namespace Upic
             profileNameBox.Location = new Point(80, 175);
             profileNameBox.Name = "profileNameBox";
             profileNameBox.Size = new Size(340, 33);
-            profileNameBox.TabIndex = 10;
+            profileNameBox.TabIndex = 1;
             // 
             // signUpAnnoucementPanel2
             // 
@@ -1130,7 +1130,7 @@ namespace Upic
             loginPanelBtt2.Location = new Point(200, 735);
             loginPanelBtt2.Name = "loginPanelBtt2";
             loginPanelBtt2.Size = new Size(100, 29);
-            loginPanelBtt2.TabIndex = 34;
+            loginPanelBtt2.TabIndex = 14;
             loginPanelBtt2.Text = "Đăng nhập";
             loginPanelBtt2.UseVisualStyleBackColor = true;
             loginPanelBtt2.Click += loginPanelBtt2_Click;
@@ -1156,7 +1156,7 @@ namespace Upic
             invisibleGender.Location = new Point(210, 12);
             invisibleGender.Name = "invisibleGender";
             invisibleGender.Size = new Size(127, 27);
-            invisibleGender.TabIndex = 42;
+            invisibleGender.TabIndex = 7;
             invisibleGender.Text = "Không tiết lộ";
             invisibleGender.UseVisualStyleBackColor = true;
             // 
@@ -1168,7 +1168,7 @@ namespace Upic
             femaleGender.Location = new Point(120, 12);
             femaleGender.Name = "femaleGender";
             femaleGender.Size = new Size(51, 27);
-            femaleGender.TabIndex = 42;
+            femaleGender.TabIndex = 6;
             femaleGender.Text = "Nữ";
             femaleGender.UseVisualStyleBackColor = true;
             // 
@@ -1181,7 +1181,7 @@ namespace Upic
             maleGender.Location = new Point(10, 12);
             maleGender.Name = "maleGender";
             maleGender.Size = new Size(65, 27);
-            maleGender.TabIndex = 40;
+            maleGender.TabIndex = 5;
             maleGender.TabStop = true;
             maleGender.Text = "Nam";
             maleGender.UseVisualStyleBackColor = true;
@@ -1195,8 +1195,8 @@ namespace Upic
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1600, 900);
             Controls.Add(signUpPanel2);
-            Controls.Add(loginAnnouncement);
             Controls.Add(signUpPanel1);
+            Controls.Add(loginAnnouncement);
             Controls.Add(signUpBtt);
             Controls.Add(loginBtt);
             Controls.Add(intro);

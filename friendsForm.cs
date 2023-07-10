@@ -19,6 +19,7 @@ namespace Upic
     public partial class friendsForm : Form
     {
         private bool close_by_X_btt;
+        String username;
 
         public friendsForm()
         {
@@ -62,8 +63,6 @@ namespace Upic
             Close();
             returnToHomePage();
         }
-
-<<<<<<< HEAD
         private void pb_mess_Click(object sender, EventArgs e)
         {
             Close();
@@ -81,10 +80,10 @@ namespace Upic
         private void pb_user1_Click(object sender, EventArgs e)
         {
             Close();
-            Form form = new userProfileForm();
-            form.Show();
+            userProfileForm tmp = new userProfileForm();
+            tmp.setUsername(username);
+            tmp.Show();
         }
-=======
         private List<FriendRequest> friendRequests = new List<FriendRequest>();
         private List<string> friends = new List<string>();
 
@@ -190,7 +189,5 @@ namespace Upic
                 Avatar = avatar;
             }
         }
-
->>>>>>> main
     }
 }
