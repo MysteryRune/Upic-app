@@ -16,6 +16,20 @@ namespace Upic
             ApplicationConfiguration.Initialize();
             homepageForm mainPage = new homepageForm();
             Application.Run(mainPage);
+
+
+
+            // Release memory
+            DirectoryInfo di = new DirectoryInfo(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/homepage"));
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+            di = new DirectoryInfo(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/personal"));
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
         }
 
 

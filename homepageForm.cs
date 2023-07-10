@@ -22,6 +22,8 @@ using System.Diagnostics;
 using Google.Apis.Upload;
 using Google.Apis.Util;
 using static System.Net.WebRequestMethods;
+using System.Globalization;
+using System.Runtime.Intrinsics.X86;
 
 namespace Upic
 {
@@ -91,10 +93,61 @@ namespace Upic
             {
                 DocumentSnapshot document = snapshot.Documents[i];
                 FlowLayoutPanel flp = null;
-                flp = await postShowHomePageVarible.createFlowLayoutPanelIncludePost(document.Id, this);
+                flp = await postShowHomePageVarible.createFlowLayoutPanelIncludePost(document.Id, this, "homepage");
                 flp.BringToFront();
                 flp.Location = new Point(0, 0);
                 flp_newfeeds.Controls.Add(flp);
+            }
+        }
+
+        public async void likeBtn_Click(object sender, EventArgs e)
+        {
+            String postID = ((Button)sender).Name.Split("_")[2] + "_" + ((Button)sender).Name.Split("_")[3] + "_" + ((Button)sender).Name.Split("_")[4];
+            String username_local = ((Button)sender).Name.Split("_")[4];
+
+            FirestoreDb database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
+            CollectionReference postColl = database.Collection("Posts");
+            DocumentReference docRef = postColl.Document(postID);
+            DocumentSnapshot docSnap = await docRef.GetSnapshotAsync();
+            Dictionary<String, Object> postInfo = docSnap.ToDictionary();
+
+
+            Control likeBtn_Control = panel_bg.Controls["flp_newfeeds"].Controls["flp_" + postID].Controls["panel_backgroundPost_" + postID].Controls["panel_userInfo_" + postID].Controls["btn_likeBtn_" + postID];
+            List<Object> amountLikeOnDatabase = (List<Object>)postInfo["Like list"];
+
+            if (likeBtn_Control.Text == "")
+            {
+                List<String> list = new List<String>();
+                foreach (Object user in amountLikeOnDatabase)
+                {
+                    list.Add(user.ToString());
+                }
+                list.Add(username_local);
+                Dictionary<String, Object> userInfo = new Dictionary<String, Object>();
+                userInfo.Add("Like list", list.ToArray());
+                docRef.UpdateAsync(userInfo);
+
+                likeBtn_Control.BackgroundImage = global::Upic.Properties.Resources.heartIconFill;
+                likeBtn_Control.Text = " ";
+                panel_bg.Controls["flp_newfeeds"].Controls["flp_" + postID].Controls["panel_backgroundPost_" + postID].Controls["panel_userInfo_" + postID].Controls["lbl_amountLike_" + postID].Text = (amountLikeOnDatabase.Count + 1).ToString();
+            }
+            else if (likeBtn_Control.Text == " ")
+            {
+                List<String> list = new List<String>();
+                foreach (Object user in amountLikeOnDatabase)
+                {
+                    if (user.ToString() != username_local)
+                    {
+                        list.Add(user.ToString());
+                    }
+                }
+                Dictionary<String, Object> userInfo = new Dictionary<String, Object>();
+                userInfo.Add("Like list", list.ToArray());
+                docRef.UpdateAsync(userInfo);
+
+                likeBtn_Control.BackgroundImage = global::Upic.Properties.Resources.heartIconNotFill;
+                likeBtn_Control.Text = "";
+                panel_bg.Controls["flp_newfeeds"].Controls["flp_" + postID].Controls["panel_backgroundPost_" + postID].Controls["panel_userInfo_" + postID].Controls["lbl_amountLike_" + postID].Text = (amountLikeOnDatabase.Count - 1).ToString();
             }
         }
 
