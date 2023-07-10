@@ -44,6 +44,7 @@
             lbl_profile_username = new Label();
             lbl_profile_name = new Label();
             pb_profile_user_avatar = new PictureBox();
+            editProfileuc1 = new editProfileUC();
             flp_profile_and_posts = new FlowLayoutPanel();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_friends).BeginInit();
@@ -157,6 +158,7 @@
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
             panel_bg.Controls.Add(panel_profile_and_posts);
+            panel_bg.Controls.Add(editProfileuc1);
             panel_bg.Controls.Add(flp_profile_and_posts);
             panel_bg.Dock = DockStyle.Fill;
             panel_bg.Location = new Point(0, 0);
@@ -174,9 +176,9 @@
             panel_profile_and_posts.Controls.Add(lbl_profile_name);
             panel_profile_and_posts.Controls.Add(pb_profile_user_avatar);
             panel_profile_and_posts.ForeColor = Color.FromArgb(128, 139, 150);
-            panel_profile_and_posts.Location = new Point(270, 106);
+            panel_profile_and_posts.Location = new Point(260, 90);
             panel_profile_and_posts.Name = "panel_profile_and_posts";
-            panel_profile_and_posts.Size = new Size(1071, 206);
+            panel_profile_and_posts.Size = new Size(1080, 200);
             panel_profile_and_posts.TabIndex = 0;
             // 
             // btn_edit_profile
@@ -194,6 +196,7 @@
             btn_edit_profile.TabIndex = 5;
             btn_edit_profile.Text = "  Chỉnh sửa hồ sơ";
             btn_edit_profile.UseVisualStyleBackColor = false;
+            btn_edit_profile.Click += btn_edit_profile_Click;
             // 
             // lbl_numbers_of_friends
             // 
@@ -238,12 +241,23 @@
             pb_profile_user_avatar.TabIndex = 0;
             pb_profile_user_avatar.TabStop = false;
             // 
+            // editProfileuc1
+            // 
+            editProfileuc1.AutoScroll = true;
+            editProfileuc1.BackColor = Color.White;
+            editProfileuc1.Location = new Point(324, 90);
+            editProfileuc1.Name = "editProfileuc1";
+            editProfileuc1.Size = new Size(952, 800);
+            editProfileuc1.TabIndex = 2;
+            editProfileuc1.Visible = false;
+            editProfileuc1.VisibleChanged += editProfileuc1_VisibleChanged;
+            // 
             // flp_profile_and_posts
             // 
             flp_profile_and_posts.BackColor = Color.White;
-            flp_profile_and_posts.Location = new Point(270, 91);
+            flp_profile_and_posts.Location = new Point(260, 300);
             flp_profile_and_posts.Name = "flp_profile_and_posts";
-            flp_profile_and_posts.Size = new Size(1071, 820);
+            flp_profile_and_posts.Size = new Size(1080, 590);
             flp_profile_and_posts.TabIndex = 1;
             // 
             // userProfileForm
@@ -255,7 +269,9 @@
             Controls.Add(panel_bg);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "userProfileForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Upic";
+            Load += userProfileForm_Load;
             panelHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pb_friends).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_mess).EndInit();
@@ -289,5 +305,6 @@
         private PictureBox pb_profile_user_avatar;
         private Button btn_edit_profile;
         private FlowLayoutPanel flp_profile_and_posts;
+        private editProfileUC editProfileuc1;
     }
 }

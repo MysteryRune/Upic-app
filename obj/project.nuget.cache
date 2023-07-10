@@ -1,18 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "dr1Pow2xmnYE71vtOo/ysS6Bt1ziVJ1OROJmzurRXK/B/djiuDHpomY5S721jRx+RM0TM6Jrs/7JZa7uM4I45Q==",
-=======
-<<<<<<< HEAD
-  "dgSpecHash": "E80OWcnEdea8JHhq/Zqu7/U+lx4K0tutpC0ntwk3pI4y/Z2ondw/zRHrpViDQA8ZykSX3XE1jnEZXGqM1aQR8w==",
->>>>>>> main
   "success": true,
   "projectFilePath": "D:\\Project\\C#\\Upic\\Upic.csproj",
-=======
-  "dgSpecHash": "Cld/PiZOdXMLR8cAFjBTXPWrXJ2eqqJdEKmdGk4tvtcbHL2iWiBMAz/JkGAtfH87dOKqA9x09k7EVFckggJJgg==",
-  "success": true,
-  "projectFilePath": "D:\\C#\\Upic\\Upic.csproj",
->>>>>>> 6541bae9d73bd40a79b54725c31a26121a9d1bdc
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\google.api.commonprotos\\2.7.0\\google.api.commonprotos.2.7.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\google.api.gax\\4.4.0\\google.api.gax.4.4.0.nupkg.sha512",
@@ -41,16 +31,5 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
-<<<<<<< HEAD
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Project\\C#\\Upic\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
-=======
   "logs": []
->>>>>>> main
 }

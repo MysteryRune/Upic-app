@@ -1019,19 +1019,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\Project\\C#\\Upic\\Upic.csproj",
       "projectName": "Upic",
       "projectPath": "D:\\Project\\C#\\Upic\\Upic.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
       "outputPath": "D:\\Project\\C#\\Upic\\obj\\",
-=======
-      "projectUniqueName": "D:\\C#\\Upic\\Upic.csproj",
-      "projectName": "Upic",
-      "projectPath": "D:\\C#\\Upic\\Upic.csproj",
-      "packagesPath": "C:\\Users\\Acer Nitro\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\Upic\\obj\\",
->>>>>>> 6541bae9d73bd40a79b54725c31a26121a9d1bdc
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1099,17 +1091,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
       }
     }
-<<<<<<< HEAD
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Project\\C#\\Upic\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
-=======
   }
->>>>>>> main
 }

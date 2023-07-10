@@ -12,6 +12,8 @@ namespace Upic
 {
     public partial class notificationsForm : Form
     {
+        String username;
+
         public notificationsForm()
         {
             InitializeComponent();
@@ -65,8 +67,9 @@ namespace Upic
         private void pb_user1_Click(object sender, EventArgs e)
         {
             Close();
-            Form form = new userProfileForm();
-            form.Show();
+            userProfileForm tmp = new userProfileForm();
+            tmp.setUsername(username);
+            tmp.Show();
         }
     }
 }

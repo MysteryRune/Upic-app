@@ -756,7 +756,7 @@ namespace Upic.myMethods.visualizeCustom
                         flp_tmp.AutoSize = true;
                         flp_tmp.Margin = new Padding(25, 0, 25, 0);
                         flp_tmp.Location = new Point(50, 90);
-                        flp_tmp.FlowDirection = FlowDirection.LeftToRight;
+                        flp_tmp.FlowDirection = FlowDirection.TopDown;
                         flp_tmp.BackColor = Color.Transparent;
                         panelPost.Controls.Add(flp_tmp);
 
@@ -784,7 +784,7 @@ namespace Upic.myMethods.visualizeCustom
                         flp_tmp.AutoSize = true;
                         flp_tmp.Margin = new Padding(25, 0, 25, 0);
                         flp_tmp.Location = new Point(50, 90);
-                        flp_tmp.FlowDirection = FlowDirection.LeftToRight;
+                        flp_tmp.FlowDirection = FlowDirection.TopDown;
                         flp_tmp.BackColor = Color.Transparent;
                         panelPost.Controls.Add(flp_tmp);
 

@@ -89,7 +89,8 @@ namespace Upic
             for (int i = snapshot.Count - 1; i >= 0; i--)
             {
                 DocumentSnapshot document = snapshot.Documents[i];
-                FlowLayoutPanel flp = await postShowHomePageVarible.createFlowLayoutPanelIncludePost(document.Id, this);
+                FlowLayoutPanel flp = null;
+                flp = await postShowHomePageVarible.createFlowLayoutPanelIncludePost(document.Id, this);
                 flp.BringToFront();
                 flp.Location = new Point(0, 0);
                 flp_newfeeds.Controls.Add(flp);
@@ -142,8 +143,9 @@ namespace Upic
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             homePageInstance.ShowInTaskbar = false;
 
-            Form form = new userProfileForm();
-            form.Show();
+            userProfileForm tmp = new userProfileForm();
+            tmp.setUsername(username);
+            tmp.Show();
         }
 
         private void panel_bg_Click(object sender, EventArgs e)
