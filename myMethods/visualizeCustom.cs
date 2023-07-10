@@ -12,6 +12,8 @@ using Upic.myMethods.firebaseFunctionCustom;
 using System.Globalization;
 using static Google.Cloud.Firestore.V1.StructuredAggregationQuery.Types.Aggregation.Types;
 using System.IO;
+using System.Windows.Media.Imaging;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Upic.myMethods.visualizeCustom
 {
@@ -611,7 +613,7 @@ namespace Upic.myMethods.visualizeCustom
     {
         public List<Image> tempFileVarible = new List<Image>();
 
-        public async Task<FlowLayoutPanel> createFlowLayoutPanelIncludePost(String postID, Form form)
+        public async Task<FlowLayoutPanel> createFlowLayoutPanelIncludePost(String postID, Form form, String tempFolderName)
         {
             FirestoreDb database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
             CollectionReference postColl = database.Collection("Posts");
@@ -668,14 +670,20 @@ namespace Upic.myMethods.visualizeCustom
             ava.Location = new Point(25, 25);
             ava.SizeMode = PictureBoxSizeMode.Zoom;
             var obj = storage.GetObject(bucketName, userInfo["Avatar profile"].ToString());
-            String pathFolderTemp = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/homepage");
+            String pathFolderTemp = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/", tempFolderName);
             String nameTempFile = "tmp_" + (tempFileVarible.Count + 1).ToString() + "." + obj.ContentType.ToString().Split("/")[1];
             var fileStream = File.Create(pathFolderTemp + "/" + nameTempFile);
             await storage.DownloadObjectAsync(bucketName, userInfo["Avatar profile"].ToString(), fileStream);
             String path_tmpFile = Path.GetFullPath(fileStream.Name);
+
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.StreamSource = fileStream;
+            image.EndInit();
+            ava.Image = Image.FromStream(fileStream);
             fileStream.Close();
-            tempFileVarible.Add(Image.FromFile(path_tmpFile));
-            ava.Image = tempFileVarible[tempFileVarible.Count - 1];
+            File.Delete(path_tmpFile);
             panel.Controls.Add(ava);
 
             Label lbl = new Label();
@@ -699,6 +707,46 @@ namespace Upic.myMethods.visualizeCustom
             lbl.Location = new Point(25 + ava.Size.Width + 10, 25 + 22 + 5);
             lbl.BackColor = Color.Transparent;
             panel.Controls.Add(lbl);
+
+            Button likeBtn = new Button();
+            likeBtn.Name = "btn_likeBtn_" + postID;
+            likeBtn.FlatStyle = FlatStyle.Flat;
+            likeBtn.FlatAppearance.BorderSize = 0;
+            likeBtn.BackColor = Color.Transparent;
+            likeBtn.BackgroundImage = global::Upic.Properties.Resources.heartIconNotFill;
+            likeBtn.Text = ""; // nolike
+            likeBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            likeBtn.Location = new Point(890, 0);
+            likeBtn.Size = new Size(40, 40);
+            likeBtn.Cursor = Cursors.Hand;
+            likeBtn.Click += homepageForm.homePageInstance.likeBtn_Click;
+            panel.Controls.Add(likeBtn);
+
+            Label amountLike = new Label();
+            amountLike.Name = "lbl_amountLike_" + postID;
+            amountLike.Font = new Font("Be Vietnam Pro", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            amountLike.ForeColor = Color.DarkGray;
+            amountLike.Size = new Size(40, 40);
+            amountLike.TextAlign = ContentAlignment.MiddleCenter;
+            amountLike.Text = "0";
+            amountLike.Location = new Point(890, 40);
+            amountLike.BackColor = Color.Transparent;
+            panel.Controls.Add(amountLike);
+
+            List<Object> amountLikeOnDatabase = (List<Object>)postInfo["Like list"];
+            amountLike.Text = amountLikeOnDatabase.Count.ToString();
+
+            foreach (Object user in amountLikeOnDatabase)
+            {
+                if (user.ToString() == postID.Split("_")[2])
+                {
+                    likeBtn.BackgroundImage = global::Upic.Properties.Resources.heartIconFill;
+                    likeBtn.Text = " "; // like
+                    break;
+                }
+            }
+
+
 
             List<String> pathFileTempImageDownloadLocal = new List<String>();
             foreach (String path in pathFiles) 
@@ -756,7 +804,7 @@ namespace Upic.myMethods.visualizeCustom
                         flp_tmp.AutoSize = true;
                         flp_tmp.Margin = new Padding(25, 0, 25, 0);
                         flp_tmp.Location = new Point(50, 90);
-                        flp_tmp.FlowDirection = FlowDirection.LeftToRight;
+                        flp_tmp.FlowDirection = FlowDirection.TopDown;
                         flp_tmp.BackColor = Color.Transparent;
                         panelPost.Controls.Add(flp_tmp);
 
@@ -784,7 +832,7 @@ namespace Upic.myMethods.visualizeCustom
                         flp_tmp.AutoSize = true;
                         flp_tmp.Margin = new Padding(25, 0, 25, 0);
                         flp_tmp.Location = new Point(50, 90);
-                        flp_tmp.FlowDirection = FlowDirection.LeftToRight;
+                        flp_tmp.FlowDirection = FlowDirection.TopDown;
                         flp_tmp.BackColor = Color.Transparent;
                         panelPost.Controls.Add(flp_tmp);
 
@@ -806,7 +854,17 @@ namespace Upic.myMethods.visualizeCustom
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                (pb as PictureBox).Image = System.Drawing.Image.FromFile(pathFileTempImageDownloadLocal[i]);
+                fileStream = File.OpenRead(pathFileTempImageDownloadLocal[i]);
+                image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.StreamSource = fileStream;
+                image.EndInit();
+                (pb as PictureBox).Image = Image.FromStream(fileStream);
+                fileStream.Close();
+                File.Delete(fileStream.Name);
+
+                //(pb as PictureBox).Image = System.Drawing.Image.FromFile(pathFileTempImageDownloadLocal[i]);
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 

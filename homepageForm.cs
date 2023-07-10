@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Text.Json;
+using System.IO;
 
 using Upic.myMethods.firebaseFunctionCustom;
 using Upic.myMethods.visualizeCustom;
@@ -21,6 +22,8 @@ using System.Diagnostics;
 using Google.Apis.Upload;
 using Google.Apis.Util;
 using static System.Net.WebRequestMethods;
+using System.Globalization;
+using System.Runtime.Intrinsics.X86;
 
 namespace Upic
 {
@@ -28,7 +31,7 @@ namespace Upic
     {
         private bool close_by_X_btt;
         public static homepageForm? homePageInstance;
-        private String username;
+        public String username;
         private postShowHomePage postShowHomePageVarible = new postShowHomePage();
         FirestoreDb database;
         String[] pathFiles;
@@ -89,11 +92,68 @@ namespace Upic
             for (int i = snapshot.Count - 1; i >= 0; i--)
             {
                 DocumentSnapshot document = snapshot.Documents[i];
-                FlowLayoutPanel flp = await postShowHomePageVarible.createFlowLayoutPanelIncludePost(document.Id, this);
+                FlowLayoutPanel flp = null;
+                flp = await postShowHomePageVarible.createFlowLayoutPanelIncludePost(document.Id, this, "homepage");
                 flp.BringToFront();
                 flp.Location = new Point(0, 0);
                 flp_newfeeds.Controls.Add(flp);
             }
+        }
+
+        public async void likeBtn_Click(object sender, EventArgs e)
+        {
+            String postID = ((Button)sender).Name.Split("_")[2] + "_" + ((Button)sender).Name.Split("_")[3] + "_" + ((Button)sender).Name.Split("_")[4];
+            String username_local = ((Button)sender).Name.Split("_")[4];
+
+            FirestoreDb database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
+            CollectionReference postColl = database.Collection("Posts");
+            DocumentReference docRef = postColl.Document(postID);
+            DocumentSnapshot docSnap = await docRef.GetSnapshotAsync();
+            Dictionary<String, Object> postInfo = docSnap.ToDictionary();
+
+
+            Control likeBtn_Control = panel_bg.Controls["flp_newfeeds"].Controls["flp_" + postID].Controls["panel_backgroundPost_" + postID].Controls["panel_userInfo_" + postID].Controls["btn_likeBtn_" + postID];
+            List<Object> amountLikeOnDatabase = (List<Object>)postInfo["Like list"];
+
+            if (likeBtn_Control.Text == "")
+            {
+                List<String> list = new List<String>();
+                foreach (Object user in amountLikeOnDatabase)
+                {
+                    list.Add(user.ToString());
+                }
+                list.Add(username_local);
+                Dictionary<String, Object> userInfo = new Dictionary<String, Object>();
+                userInfo.Add("Like list", list.ToArray());
+                docRef.UpdateAsync(userInfo);
+
+                likeBtn_Control.BackgroundImage = global::Upic.Properties.Resources.heartIconFill;
+                likeBtn_Control.Text = " ";
+                panel_bg.Controls["flp_newfeeds"].Controls["flp_" + postID].Controls["panel_backgroundPost_" + postID].Controls["panel_userInfo_" + postID].Controls["lbl_amountLike_" + postID].Text = (amountLikeOnDatabase.Count + 1).ToString();
+            }
+            else if (likeBtn_Control.Text == " ")
+            {
+                List<String> list = new List<String>();
+                foreach (Object user in amountLikeOnDatabase)
+                {
+                    if (user.ToString() != username_local)
+                    {
+                        list.Add(user.ToString());
+                    }
+                }
+                Dictionary<String, Object> userInfo = new Dictionary<String, Object>();
+                userInfo.Add("Like list", list.ToArray());
+                docRef.UpdateAsync(userInfo);
+
+                likeBtn_Control.BackgroundImage = global::Upic.Properties.Resources.heartIconNotFill;
+                likeBtn_Control.Text = "";
+                panel_bg.Controls["flp_newfeeds"].Controls["flp_" + postID].Controls["panel_backgroundPost_" + postID].Controls["panel_userInfo_" + postID].Controls["lbl_amountLike_" + postID].Text = (amountLikeOnDatabase.Count - 1).ToString();
+            }
+        }
+
+        public void resetHomePageNone()
+        {
+            panel_bg.Controls.Remove(panel_bg.Controls["flp_newfeeds"]);
         }
 
         public void pb_logo_UPIC_Click(object sender, EventArgs e)
@@ -137,13 +197,14 @@ namespace Upic
 
         private void pb_user1_Click(object sender, EventArgs e)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homePageInstance.Visible = false;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homePageInstance.ShowInTaskbar = false;
-
-            Form form = new userProfileForm();
-            form.Show();
+            if (popupuc1.Visible == false)
+            {
+                popupuc1.Visible = true;
+            }
+            else
+            {
+                popupuc1.Visible = false;
+            }
         }
 
         private void panel_bg_Click(object sender, EventArgs e)

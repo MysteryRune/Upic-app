@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.IO;
 
 using Upic.myMethods.firebaseFunctionCustom;
 
@@ -344,7 +345,7 @@ namespace Upic
             // DBreader_4: Email existed
             // ------
 
-            database = FirestoreDb.Create("social-app-c-sharp-programming");
+            database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
             CollectionReference usersColl = database.Collection("Users");
             DocumentReference docRef = usersColl.Document(Data[0]);
             DocumentSnapshot snap = await docRef.GetSnapshotAsync();
@@ -494,7 +495,7 @@ namespace Upic
                     passwordBox.Text = password_tmp;
                     loginAnnouncement.Visible = true;
                 }
-                
+
             }
         }
 
