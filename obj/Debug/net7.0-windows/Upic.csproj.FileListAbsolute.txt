@@ -40,7 +40,6 @@ D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.searchUC.resources
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.testForm.resources
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.userProfileForm.resources
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.csproj.GenerateResource.cache
-D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.GeneratedMSBuildEditorConfig.editorconfig
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.AssemblyInfoInputs.cache
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.AssemblyInfo.cs
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.csproj.CoreCompileInputs.cache
@@ -50,3 +49,18 @@ D:\Project\C#\Upic\obj\Debug\net7.0-windows\refint\Upic.dll
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.pdb
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.genruntimeconfig.cache
 D:\Project\C#\Upic\obj\Debug\net7.0-windows\ref\Upic.dll
+D:\Project\C#\Upic\obj\Debug\net7.0-windows\Upic.d-bfalse.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\System.Runtime.InteropServices.WindowsRuntime.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.Diagnostics.Eventing.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.Fonts.Fluent.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.Foundation.Logging.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.Foundation.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.UI.Composition.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.UI.Dispatching.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.UI.FluentTheme.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.UI.FluentTheme.v1.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.UI.FluentTheme.v2.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.UI.Toolkit.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.UI.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.Xaml.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.dll

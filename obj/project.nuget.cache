@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dr1Pow2xmnYE71vtOo/ysS6Bt1ziVJ1OROJmzurRXK/B/djiuDHpomY5S721jRx+RM0TM6Jrs/7JZa7uM4I45Q==",
+  "dgSpecHash": "4R67866ojoad8R6d9xSD5LsUu7+KMwJ9j5mWfkWafMYW7pvHAcHADKchBs7lW/OLgt9RUR8A5/imJoeSQyLt/g==",
   "success": true,
   "projectFilePath": "D:\\Project\\C#\\Upic\\Upic.csproj",
   "expectedPackageFiles": [
@@ -25,11 +25,21 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.0.3\\microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.linq.async\\6.0.1\\system.linq.async.6.0.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.runtime.interopservices.windowsruntime\\4.3.0\\system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\uno.diagnostics.eventing\\2.0.1\\uno.diagnostics.eventing.2.0.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\uno.fonts.fluent\\2.2.2\\uno.fonts.fluent.2.2.2.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\uno.foundation.logging\\4.9.26\\uno.foundation.logging.4.9.26.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\uno.sourcegenerationtasks\\4.2.0\\uno.sourcegenerationtasks.4.2.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\uno.ui\\4.9.26\\uno.ui.4.9.26.nupkg.sha512"
   ],
   "logs": []
 }

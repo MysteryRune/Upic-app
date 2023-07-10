@@ -33,8 +33,8 @@
             label4 = new Label();
             lbl_user_month = new Label();
             label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
+            lbl_hobbyContent = new Label();
+            lbl_storyContent = new Label();
             lbl_user_address = new Label();
             lbl_user_day = new Label();
             lbl_user_sex = new Label();
@@ -78,8 +78,8 @@
             panel_info.Controls.Add(label4);
             panel_info.Controls.Add(lbl_user_month);
             panel_info.Controls.Add(label3);
-            panel_info.Controls.Add(label2);
-            panel_info.Controls.Add(label1);
+            panel_info.Controls.Add(lbl_hobbyContent);
+            panel_info.Controls.Add(lbl_storyContent);
             panel_info.Controls.Add(lbl_user_address);
             panel_info.Controls.Add(lbl_user_day);
             panel_info.Controls.Add(lbl_user_sex);
@@ -135,23 +135,23 @@
             label3.TabIndex = 14;
             label3.Text = "/";
             // 
-            // label2
+            // lbl_hobbyContent
             // 
-            label2.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(339, 353);
-            label2.Name = "label2";
-            label2.Size = new Size(522, 87);
-            label2.TabIndex = 13;
-            label2.Text = "Yêu một lúc 10 người\r\n";
+            lbl_hobbyContent.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_hobbyContent.Location = new Point(339, 353);
+            lbl_hobbyContent.Name = "lbl_hobbyContent";
+            lbl_hobbyContent.Size = new Size(522, 87);
+            lbl_hobbyContent.TabIndex = 13;
+            lbl_hobbyContent.Text = "Yêu một lúc 10 người\r\n";
             // 
-            // label1
+            // lbl_storyContent
             // 
-            label1.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(339, 250);
-            label1.Name = "label1";
-            label1.Size = new Size(522, 103);
-            label1.TabIndex = 12;
-            label1.Text = "Một chút nhớ góp thành bão giông, một chút mưa đầy biển rộng, một chút yêu thôi, mà đau như cháy lòng";
+            lbl_storyContent.Font = new Font("Be Vietnam Pro", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_storyContent.Location = new Point(339, 250);
+            lbl_storyContent.Name = "lbl_storyContent";
+            lbl_storyContent.Size = new Size(522, 103);
+            lbl_storyContent.TabIndex = 12;
+            lbl_storyContent.Text = "Một chút nhớ góp thành bão giông, một chút mưa đầy biển rộng, một chút yêu thôi, mà đau như cháy lòng";
             // 
             // lbl_user_address
             // 
@@ -266,6 +266,7 @@
             btn_save_profile.TabIndex = 28;
             btn_save_profile.Text = "Hoàn tất";
             btn_save_profile.UseVisualStyleBackColor = false;
+            btn_save_profile.Visible = false;
             // 
             // btn_update_info
             // 
@@ -379,7 +380,7 @@
             tb_edit_hobby.Location = new Point(341, 370);
             tb_edit_hobby.Multiline = true;
             tb_edit_hobby.Name = "tb_edit_hobby";
-            tb_edit_hobby.PlaceholderText = "Nhập địa chỉ mới";
+            tb_edit_hobby.PlaceholderText = "Nhập sở thích mới";
             tb_edit_hobby.Size = new Size(495, 87);
             tb_edit_hobby.TabIndex = 21;
             // 
@@ -515,6 +516,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             Controls.Add(panel_info);
+            Controls.Add(panel_edit_info);
             Controls.Add(btn_save_profile);
             Controls.Add(btn_update_info);
             Controls.Add(lbl_profile_info);
@@ -522,7 +524,6 @@
             Controls.Add(pb_profile_user_avatar);
             Controls.Add(lbl_profile_avatar);
             Controls.Add(lbl_edit_profile);
-            Controls.Add(panel_edit_info);
             Name = "editProfileUC";
             Size = new Size(952, 952);
             Load += editProfileUC_Load;
@@ -542,8 +543,8 @@
         private Label label4;
         private Label lbl_user_month;
         private Label label3;
-        private Label label2;
-        private Label label1;
+        private Label lbl_hobbyContent;
+        private Label lbl_storyContent;
         private Label lbl_user_address;
         private Label lbl_user_day;
         private Label lbl_user_sex;

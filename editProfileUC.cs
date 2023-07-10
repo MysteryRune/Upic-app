@@ -1,6 +1,7 @@
 ﻿using Google.Cloud.Firestore;
 using Google.Cloud.Storage.V1;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using Upic.myMethods.firebaseFunctionCustom;
+using System.Windows.Media.Imaging;
 
 namespace Upic
 {
@@ -40,16 +42,14 @@ namespace Upic
             tb_edit_month.Text = lbl_user_month.Text;
             tb_edit_year.Text = lbl_user_year.Text;
             tb_edit_address.Text = lbl_user_address.Text;
-            tb_edit_story.Text = label1.Text;
-            tb_edit_hobby.Text = label2.Text;
-
+            tb_edit_story.Text = lbl_storyContent.Text;
+            tb_edit_hobby.Text = lbl_hobbyContent.Text;
+            btn_update_info.Visible = false;
+            btn_save_profile.Visible = true;
         }
 
         private async void editProfileUC_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Tới đây");
-            pb_profile_user_avatar.Dispose();
-            MessageBox.Show("Đã pass");
             //InitializeControls();
             btn_update_info.Click += btn_update_info_Click;
             btn_save_profile.Click += btn_save_profile_Click;
@@ -77,8 +77,16 @@ namespace Upic
                 fileStream = File.OpenRead(pathFolderTemp + "/" + nameTempFile);
             }
             String path_tmpFile = Path.GetFullPath(fileStream.Name);
+
+
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.StreamSource = fileStream;
+            image.EndInit();
+            pb_profile_user_avatar.Image = Image.FromStream(fileStream);
             fileStream.Close();
-            pb_profile_user_avatar.Image = Image.FromFile(path_tmpFile);
+            File.Delete(fileStream.Name);
 
             lbl_user_name.Text = userInfo["Profile name"].ToString();
             lbl_user_sex.Text = userInfo["Sex"].ToString();
@@ -86,8 +94,8 @@ namespace Upic
             lbl_user_month.Text = userInfo["Date of Birth"].ToString().Split("-")[1];
             lbl_user_year.Text = userInfo["Date of Birth"].ToString().Split("-")[2];
             lbl_user_address.Text = userInfo["Address"].ToString();
-            label1.Text = userInfo["Story"].ToString();
-            label2.Text = userInfo["Hobby"].ToString();
+            lbl_storyContent.Text = userInfo["Story"].ToString();
+            lbl_hobbyContent.Text = userInfo["Hobby"].ToString();
         }
 
         private async void btn_save_profile_Click(object sender, EventArgs e)
@@ -102,21 +110,23 @@ namespace Upic
 
             // Cập nhật thông tin cá nhân từ các chỉnh sửa
             lbl_user_name.Text = tb_edit_name.Text; userInfo.Add("Profile name", tb_edit_name.Text);
-            lbl_sex.Text = cbb_sex.SelectedItem.ToString(); userInfo.Add("Sex", cbb_sex.SelectedItem.ToString());
+            lbl_sex.Text = cbb_sex.SelectedItem.ToString(); userInfo.Add("Sex", cbb_sex.Text);
             lbl_user_day.Text = (tb_edit_day).Text;
             lbl_user_month.Text = (tb_edit_month.Text).ToString();
-            lbl_user_year.Text = (tb_edit_year.Text).ToString(); userInfo.Add("Date of Birth", (tb_edit_day).Text + '-' + (tb_edit_month.Text).ToString() + (tb_edit_year.Text).ToString());
-            lbl_address.Text = tb_edit_address.Text.ToString(); userInfo.Add("Address", tb_edit_address.Text.ToString());
-            lbl_story.Text = tb_edit_story.Text; userInfo.Add("Story", tb_edit_name.Text);
-            lbl_hobby.Text = tb_edit_hobby.Text; userInfo.Add("Hobby", tb_edit_name.Text);
+            lbl_user_year.Text = (tb_edit_year.Text).ToString(); userInfo.Add("Date of Birth", (tb_edit_day).Text + '-' + (tb_edit_month.Text).ToString() + '-' + (tb_edit_year.Text).ToString());
+            lbl_user_address.Text = tb_edit_address.Text.ToString(); userInfo.Add("Address", tb_edit_address.Text.ToString());
+            lbl_storyContent.Text = tb_edit_story.Text; userInfo.Add("Story", tb_edit_story.Text);
+            lbl_hobbyContent.Text = tb_edit_hobby.Text; userInfo.Add("Hobby", tb_edit_hobby.Text);
 
             if (docSnap2.Exists)
             {
-                await docRef2.SetAsync(userInfo);
+                await docRef2.UpdateAsync(userInfo);
             }
             panel_edit_info.Visible = false;
             panel_info.Visible = true;
-
+            btn_update_info.Visible = true;
+            btn_save_profile.Visible = false;
+            this.Visible = false;
         }
 
         private async void btn_edit_avatar_Click(object sender, EventArgs e)
@@ -128,7 +138,16 @@ namespace Upic
             {
                 String pathFile = openFileDialog.FileName;
                 String FileName = pathFile.Split("/")[pathFile.Split("/").Length - 1];
-                pb_profile_user_avatar.Image = Image.FromFile(pathFile);
+
+                var fileStream = File.OpenRead(pathFile);
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.StreamSource = fileStream;
+                image.EndInit();
+                pb_profile_user_avatar.Image = Image.FromStream(fileStream);
+                fileStream.Close();
+                File.Delete(fileStream.Name);
 
                 Form formAnnouncement = new Form();
                 formAnnouncement.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -154,7 +173,7 @@ namespace Upic
                 String bucketName = (new firebaseStorage()).getBucketName("firebaseStorage.json");
                 String destination = "Image storage/" + username + "/" + "Avatar/" + username;
                 String contentType = "image/" + Path.GetExtension(pathFile).Split('.')[1];
-                using var fileStream = System.IO.File.OpenRead(pathFile);
+                fileStream = System.IO.File.OpenRead(pathFile);
                 Task task = storage.UploadObjectAsync(bucketName, destination, contentType, fileStream);
                 await task;
                 FirestoreDb database2 = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
@@ -166,12 +185,13 @@ namespace Upic
                 userInfo.Add("Avatar profile", destination);
                 if (docSnap2.Exists)
                 {
-                    await docRef2.SetAsync(userInfo);
+                    await docRef2.UpdateAsync(userInfo);
                 }
 
                 formAnnouncement.Close();
                 formAnnouncement.Dispose();
                 this.Visible = true;
+                fileStream.Close();
             }
         }
     }

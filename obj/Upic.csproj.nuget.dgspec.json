@@ -55,6 +55,10 @@
             "Google.Cloud.Storage.V1": {
               "target": "Package",
               "version": "[4.6.0, )"
+            },
+            "Uno.UI": {
+              "target": "Package",
+              "version": "[4.9.26, )"
             }
           },
           "imports": [
@@ -72,7 +76,7 @@
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "Microsoft.WindowsDesktop.App": {
               "privateAssets": "none"
             }
           },

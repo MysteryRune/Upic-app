@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace Upic
 {
     
@@ -14,17 +16,6 @@ namespace Upic
             ApplicationConfiguration.Initialize();
             homepageForm mainPage = new homepageForm();
             Application.Run(mainPage);
-            mainPage.Dispose();
-            GC.Collect();
-            GC.Collect();
-            GC.Collect();
-            DirectoryInfo di = new DirectoryInfo(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/homepage"));
-            foreach (FileInfo file in di.GetFiles())
-            {
-                file.Delete();
-            }
-            //mainPage.releaseMemory();
-
         }
 
 

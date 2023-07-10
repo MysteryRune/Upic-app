@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Text.Json;
+using System.IO;
 
 using Upic.myMethods.firebaseFunctionCustom;
 using Upic.myMethods.visualizeCustom;
@@ -28,7 +29,7 @@ namespace Upic
     {
         private bool close_by_X_btt;
         public static homepageForm? homePageInstance;
-        private String username;
+        public String username;
         private postShowHomePage postShowHomePageVarible = new postShowHomePage();
         FirestoreDb database;
         String[] pathFiles;
@@ -97,6 +98,11 @@ namespace Upic
             }
         }
 
+        public void resetHomePageNone()
+        {
+            panel_bg.Controls.Remove(panel_bg.Controls["flp_newfeeds"]);
+        }
+
         public void pb_logo_UPIC_Click(object sender, EventArgs e)
         {
             panel_bg.Controls.Remove(panel_bg.Controls["flp_newfeeds"]);
@@ -138,14 +144,14 @@ namespace Upic
 
         private void pb_user1_Click(object sender, EventArgs e)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homePageInstance.Visible = false;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homePageInstance.ShowInTaskbar = false;
-
-            userProfileForm tmp = new userProfileForm();
-            tmp.setUsername(username);
-            tmp.Show();
+            if (popupuc1.Visible == false)
+            {
+                popupuc1.Visible = true;
+            }
+            else
+            {
+                popupuc1.Visible = false;
+            }
         }
 
         private void panel_bg_Click(object sender, EventArgs e)

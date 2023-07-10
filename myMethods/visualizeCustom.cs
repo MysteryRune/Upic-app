@@ -12,6 +12,7 @@ using Upic.myMethods.firebaseFunctionCustom;
 using System.Globalization;
 using static Google.Cloud.Firestore.V1.StructuredAggregationQuery.Types.Aggregation.Types;
 using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace Upic.myMethods.visualizeCustom
 {
@@ -673,9 +674,15 @@ namespace Upic.myMethods.visualizeCustom
             var fileStream = File.Create(pathFolderTemp + "/" + nameTempFile);
             await storage.DownloadObjectAsync(bucketName, userInfo["Avatar profile"].ToString(), fileStream);
             String path_tmpFile = Path.GetFullPath(fileStream.Name);
+
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.StreamSource = fileStream;
+            image.EndInit();
+            ava.Image = Image.FromStream(fileStream);
             fileStream.Close();
-            tempFileVarible.Add(Image.FromFile(path_tmpFile));
-            ava.Image = tempFileVarible[tempFileVarible.Count - 1];
+            File.Delete(path_tmpFile);
             panel.Controls.Add(ava);
 
             Label lbl = new Label();
@@ -806,7 +813,17 @@ namespace Upic.myMethods.visualizeCustom
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                (pb as PictureBox).Image = System.Drawing.Image.FromFile(pathFileTempImageDownloadLocal[i]);
+                fileStream = File.OpenRead(pathFileTempImageDownloadLocal[i]);
+                image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.StreamSource = fileStream;
+                image.EndInit();
+                (pb as PictureBox).Image = Image.FromStream(fileStream);
+                fileStream.Close();
+                File.Delete(fileStream.Name);
+
+                //(pb as PictureBox).Image = System.Drawing.Image.FromFile(pathFileTempImageDownloadLocal[i]);
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 

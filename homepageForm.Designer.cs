@@ -59,6 +59,7 @@
             btn_exit_post = new PictureBox();
             pb_user3 = new PictureBox();
             panel_bg = new Panel();
+            popupuc1 = new popupUC();
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).BeginInit();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_friends).BeginInit();
@@ -459,6 +460,7 @@
             // panel_bg
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
+            panel_bg.Controls.Add(popupuc1);
             panel_bg.Controls.Add(panel_before_post);
             panel_bg.Controls.Add(panel_create_post);
             panel_bg.Controls.Add(panelHeader);
@@ -468,6 +470,14 @@
             panel_bg.Size = new Size(1600, 900);
             panel_bg.TabIndex = 4;
             panel_bg.Click += panel_bg_Click;
+            // 
+            // popupuc1
+            // 
+            popupuc1.Location = new Point(1317, 72);
+            popupuc1.Name = "popupuc1";
+            popupuc1.Size = new Size(243, 195);
+            popupuc1.TabIndex = 4;
+            popupuc1.Visible = false;
             // 
             // homepageForm
             // 
@@ -536,5 +546,6 @@
         private Button btn_columnLayout;
         private Button btn_frameLayout;
         private FlowLayoutPanel flp_groupLayoutModeBtn;
+        private popupUC popupuc1;
     }
 }

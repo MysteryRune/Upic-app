@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Upic.myMethods.firebaseFunctionCustom;
+using System.Windows.Media.Imaging;
 
 namespace Upic
 {
@@ -70,8 +72,6 @@ namespace Upic
         private void pb_user1_Click(object sender, EventArgs e)
         {
             Close();
-            editProfileuc1.Controls["pb_profile_user_avatar"].Dispose();
-            pb_profile_user_avatar.Dispose();
             userProfileForm tmp = new userProfileForm();
             tmp.setUsername(username);
             tmp.Show();
@@ -87,7 +87,8 @@ namespace Upic
 
         private async void userProfileForm_Load(object sender, EventArgs e)
         {
-            pb_profile_user_avatar.Dispose();
+            panel_profile_and_posts.Visible = true;
+            flp_profile_and_posts.Visible = true;
 
             FirestoreDb database2 = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
             CollectionReference postColl2 = database2.Collection("Users");
@@ -104,9 +105,17 @@ namespace Upic
             var fileStream = File.Create(pathFolderTemp + "/" + nameTempFile);
             await storage.DownloadObjectAsync(bucketName, userInfo["Avatar profile"].ToString(), fileStream);
             String path_tmpFile = Path.GetFullPath(fileStream.Name);
-            fileStream.Close();
 
-            pb_profile_user_avatar.Image = Image.FromFile(path_tmpFile);
+
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.StreamSource = fileStream;
+            image.EndInit();
+            pb_profile_user_avatar.Image = Image.FromStream(fileStream);
+            fileStream.Close();
+            File.Delete(path_tmpFile);
+
             lbl_profile_name.Text = userInfo["Profile name"].ToString();
             lbl_profile_username.Text = '@' + userInfo["Username"].ToString();
         }

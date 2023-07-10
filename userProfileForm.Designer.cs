@@ -186,6 +186,7 @@
             btn_edit_profile.BackColor = Color.Transparent;
             btn_edit_profile.BackgroundImage = Properties.Resources.edit_bg;
             btn_edit_profile.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_edit_profile.Cursor = Cursors.Hand;
             btn_edit_profile.FlatAppearance.BorderColor = Color.White;
             btn_edit_profile.FlatStyle = FlatStyle.Flat;
             btn_edit_profile.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -208,6 +209,7 @@
             lbl_numbers_of_friends.Size = new Size(92, 28);
             lbl_numbers_of_friends.TabIndex = 3;
             lbl_numbers_of_friends.Text = "... bạn bè";
+            lbl_numbers_of_friends.Visible = false;
             // 
             // lbl_profile_username
             // 
@@ -216,9 +218,9 @@
             lbl_profile_username.ForeColor = Color.FromArgb(86, 101, 115);
             lbl_profile_username.Location = new Point(261, 84);
             lbl_profile_username.Name = "lbl_profile_username";
-            lbl_profile_username.Size = new Size(109, 28);
+            lbl_profile_username.Size = new Size(116, 28);
             lbl_profile_username.TabIndex = 2;
-            lbl_profile_username.Text = "@nhwzaan";
+            lbl_profile_username.Text = "@username";
             // 
             // lbl_profile_name
             // 
@@ -227,9 +229,9 @@
             lbl_profile_name.ForeColor = Color.Black;
             lbl_profile_name.Location = new Point(261, 42);
             lbl_profile_name.Name = "lbl_profile_name";
-            lbl_profile_name.Size = new Size(293, 42);
+            lbl_profile_name.Size = new Size(197, 42);
             lbl_profile_name.TabIndex = 1;
-            lbl_profile_name.Text = "Nguyễn Thị Như Vân";
+            lbl_profile_name.Text = "Profile Name";
             // 
             // pb_profile_user_avatar
             // 
