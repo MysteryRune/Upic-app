@@ -163,7 +163,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(flp_popup);
             Name = "popupUC";
-            Size = new Size(249, 203);
+            Size = new Size(243, 195);
             flp_popup.ResumeLayout(false);
             panel_profile_user.ResumeLayout(false);
             panel_profile_user.PerformLayout();

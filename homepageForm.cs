@@ -42,17 +42,9 @@ namespace Upic
         {
             //close_by_X_btt = true;
             homePageInstance = this;
-            this.FormClosed += new FormClosedEventHandler(homepageForm_FormClosed);
 
             InitializeComponent();
             (new firestoreDatabase()).connectToDatabase("firestore.json");
-            loginForm form = new loginForm();
-            form.Show();
-        }
-
-        private void homepageForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //releaseMemory();
         }
 
         public void setUsername(String username)
@@ -60,20 +52,28 @@ namespace Upic
             this.username = username;
         }
 
-        private void homepageForm_Load(object sender, EventArgs e)
+        public void homepageForm_Load(object sender, EventArgs e)
         {
-            ShowInTaskbar = false;
-            Visible = false;
+            ShowInTaskbar = true;
+            Visible = true;
+            AutoScroll = true;
 
             panel_create_post.AutoScroll = false;
             panel_create_post.VerticalScroll.Maximum = 0;
             panel_create_post.HorizontalScroll.Maximum = 0;
             panel_create_post.AutoScroll = true;
 
-            loadAllPostFromDatabaseForUserCanVisibleAsync();
+            popupuc1.setParentForm(this);
+
+            loadAllPostFromDatabaseForUserCanVisibleAsync(sender, e);
         }
 
-        private async void loadAllPostFromDatabaseForUserCanVisibleAsync()
+        private void homepageForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            loginForm.loginPageInstance.Visible = true;
+        }
+
+        private async void loadAllPostFromDatabaseForUserCanVisibleAsync(object sender, EventArgs e)
         {
             FlowLayoutPanel flp_newfeeds = new FlowLayoutPanel();
             flp_newfeeds.VerticalScroll.Maximum = 0;
@@ -103,7 +103,7 @@ namespace Upic
         public async void likeBtn_Click(object sender, EventArgs e)
         {
             String postID = ((Button)sender).Name.Split("_")[2] + "_" + ((Button)sender).Name.Split("_")[3] + "_" + ((Button)sender).Name.Split("_")[4];
-            String username_local = ((Button)sender).Name.Split("_")[4];
+            String username_local = loginForm.loginPageInstance.userLogging;
 
             FirestoreDb database = FirestoreDb.Create((new firestoreDatabase()).getProjectID("firestore.json"));
             CollectionReference postColl = database.Collection("Posts");
@@ -153,52 +153,64 @@ namespace Upic
 
         public void resetHomePageNone()
         {
+            ActiveControl = null;
+            popupuc1.Visible = false;
             panel_bg.Controls.Remove(panel_bg.Controls["flp_newfeeds"]);
         }
 
         public void pb_logo_UPIC_Click(object sender, EventArgs e)
         {
             panel_bg.Controls.Remove(panel_bg.Controls["flp_newfeeds"]);
-            loadAllPostFromDatabaseForUserCanVisibleAsync();
+            loadAllPostFromDatabaseForUserCanVisibleAsync(sender, e);
         }
 
         private void pb_friends_Click(object sender, EventArgs e)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homePageInstance.Visible = false;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homePageInstance.ShowInTaskbar = false;
+            Close();
+            Dispose();
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.Visible = false;
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.ShowInTaskbar = false;
 
-            Form form = new friendsForm();
-            form.Show();
+            friendsForm tmp = new friendsForm();
+            tmp.setUsername(username);
+            tmp.Show();
         }
 
         private void pb_mess_Click(object sender, EventArgs e)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homePageInstance.Visible = false;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homePageInstance.ShowInTaskbar = false;
+            Close();
+            Dispose();
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.Visible = false;
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.ShowInTaskbar = false;
 
-            Form form = new messagesForm();
-            form.Show();
+            messagesForm tmp = new messagesForm();
+            tmp.setUsername(username);
+            tmp.Show();
         }
 
         private void pb_noti_Click(object sender, EventArgs e)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homePageInstance.Visible = false;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homePageInstance.ShowInTaskbar = false;
+            Close();
+            Dispose();
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.Visible = false;
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.ShowInTaskbar = false;
 
-            Form form = new notificationsForm();
-            form.Show();
+            notificationsForm tmp = new notificationsForm();
+            tmp.setUsername(username);
+            tmp.Show();
         }
 
         private void pb_user1_Click(object sender, EventArgs e)
         {
             if (popupuc1.Visible == false)
             {
+                popupuc1.BringToFront();
                 popupuc1.Visible = true;
             }
             else
@@ -232,10 +244,7 @@ namespace Upic
 
         private void pb_image_Click(object sender, EventArgs e)
         {
-            panel_before_post.Visible = false;
-            panel_create_post.Visible = true;
-            //flp_newfeeds.Visible = false;
-            panel_create_post.BringToFront();
+            tb_caption_Click(sender, e);
         }
 
         private void lbl_image_Click(object sender, EventArgs e)
@@ -423,6 +432,11 @@ namespace Upic
                             }
                             break;
                         }
+                    case 3:
+                        {
+                            panelListImage = (new layoutPost()).createLayoutMode3Post(pathFile, this, "tmp");
+                            break;
+                        }
                     default:
                         {
                             panelListImage = (new layoutPost()).createLayoutMode0Post(pathFile, this, "tmp");
@@ -514,6 +528,14 @@ namespace Upic
             panel_create_post.Controls.Remove(panel_create_post.Controls["btn_accept_post"]);
             panel_create_post.Controls.Remove(panel_create_post.Controls["panel_paddingBottomPanelCreatePost"]);
             showListImageBeforeUpload(pathFiles, 2);
+        }
+
+        private void btn_frameLayout_Click(object sender, EventArgs e)
+        {
+            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_listImage_tmp"]);
+            panel_create_post.Controls.Remove(panel_create_post.Controls["btn_accept_post"]);
+            panel_create_post.Controls.Remove(panel_create_post.Controls["panel_paddingBottomPanelCreatePost"]);
+            showListImageBeforeUpload(pathFiles, 3);
         }
 
         public void releaseMemory()

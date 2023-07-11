@@ -347,7 +347,7 @@
             btn_frameLayout.Size = new Size(40, 40);
             btn_frameLayout.TabIndex = 3;
             btn_frameLayout.UseVisualStyleBackColor = true;
-            btn_frameLayout.Visible = false;
+            btn_frameLayout.Click += btn_frameLayout_Click;
             // 
             // line_splitCreatePostPanel1
             // 
@@ -460,6 +460,7 @@
             // panel_bg
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
+            panel_bg.BorderStyle = BorderStyle.FixedSingle;
             panel_bg.Controls.Add(popupuc1);
             panel_bg.Controls.Add(panel_before_post);
             panel_bg.Controls.Add(panel_create_post);
@@ -486,10 +487,12 @@
             BackColor = Color.FromArgb(242, 244, 244);
             ClientSize = new Size(1600, 900);
             Controls.Add(panel_bg);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "homepageForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Upic";
+            FormClosed += homepageForm_FormClosed;
             Load += homepageForm_Load;
             ((System.ComponentModel.ISupportInitialize)pb_logo_UPIC).EndInit();
             panelHeader.ResumeLayout(false);

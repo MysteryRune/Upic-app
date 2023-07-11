@@ -26,23 +26,20 @@ namespace Upic
 {
     public partial class loginForm : Form
     {
-        private bool close_by_X_btt;
+        public String userLogging = "";
+        public static loginForm? loginPageInstance;
         //private String errorCode = "Lỗi bất đồng bộ kìa!!!";
         FirestoreDb database;
 
         public loginForm()
         {
+            loginPageInstance = this;
             InitializeComponent();
 
             provinceBox.DropDownStyle = ComboBoxStyle.DropDownList;
             monthBoxCombo.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            close_by_X_btt = true;
             (new firestoreDatabase()).connectToDatabase("firestore.json");
-
-#pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
-            FormClosed += new FormClosedEventHandler(loginForm_FormClosedByXBtt);
-#pragma warning restore CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
         }
 
         private void loginForm_Load(object sender, EventArgs e)
@@ -98,16 +95,20 @@ namespace Upic
             signUpPanel1.Visible = true;
         }
 
-        private void navigateToHomePage(String username)
+        private void navigateToHomePage(object sender, EventArgs e, String username)
         {
-            close_by_X_btt = false;
-            Close();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.setUsername(username);
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.ShowInTaskbar = true;
-            homepageForm.homePageInstance.Visible = true;
-            homepageForm.homePageInstance.AutoScroll = true;
+            this.Visible = false;
+
+            userLogging = username;
+            homepageForm tmp = new homepageForm();
+            tmp.setUsername(username);
+            tmp.Show();
+//#pragma warning disable CS8602 // Dereference of a possibly null reference.
+//            homepageForm.homePageInstance.setUsername(username);
+//#pragma warning restore CS8602 // Dereference of a possibly null reference.
+//            homepageForm.homePageInstance.ShowInTaskbar = true;
+//            homepageForm.homePageInstance.Visible = true;
+//            homepageForm.homePageInstance.AutoScroll = true;
         }
 
         private bool checkDataFieldValidLoginPanel()
@@ -152,7 +153,7 @@ namespace Upic
                     if (password == userInfo["Password"].ToString())
                     {
                         MessageBox.Show("Đăng nhập thành công", "Thông báo");
-                        navigateToHomePage(docSnap.Id);
+                        navigateToHomePage(sender, e, docSnap.Id);
                     }
                     else
                     {
@@ -174,7 +175,7 @@ namespace Upic
                     if (password == userInfo["Password"].ToString())
                     {
                         MessageBox.Show("Đăng nhập thành công", "Thông báo");
-                        navigateToHomePage(docSnap.Id);
+                        navigateToHomePage(sender, e, docSnap.Id);
                     }
                     else
                     {
@@ -185,16 +186,6 @@ namespace Upic
                 {
                     MessageBox.Show("Người dùng không tồn tại", "Thông báo");
                 }
-            }
-        }
-
-        private void loginForm_FormClosedByXBtt(object sender, FormClosedEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing && close_by_X_btt == true)
-            {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                homepageForm.homePageInstance.Close();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
 

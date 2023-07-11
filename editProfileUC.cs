@@ -67,15 +67,8 @@ namespace Upic
             String pathFolderTemp = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/personal");
             String nameTempFile = "avatar_" + username + "." + obj.ContentType.ToString().Split("/")[1];
             var fileStream = File.OpenRead(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/forInit.txt"));
-            if (!File.Exists(pathFolderTemp + "/" + nameTempFile))
-            {
-                fileStream = File.Create(pathFolderTemp + "/" + nameTempFile);
-                await storage.DownloadObjectAsync(bucketName, userInfo["Avatar profile"].ToString(), fileStream);
-            }
-            else
-            {
-                fileStream = File.OpenRead(pathFolderTemp + "/" + nameTempFile);
-            }
+            fileStream = File.Create(pathFolderTemp + "/" + nameTempFile);
+            await storage.DownloadObjectAsync(bucketName, userInfo["Avatar profile"].ToString(), fileStream);
             String path_tmpFile = Path.GetFullPath(fileStream.Name);
 
 
@@ -147,7 +140,7 @@ namespace Upic
                 image.EndInit();
                 pb_profile_user_avatar.Image = Image.FromStream(fileStream);
                 fileStream.Close();
-                File.Delete(fileStream.Name);
+                //File.Delete(fileStream.Name);
 
                 Form formAnnouncement = new Form();
                 formAnnouncement.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -188,11 +181,22 @@ namespace Upic
                     await docRef2.UpdateAsync(userInfo);
                 }
 
+                btn_exit_editProfile_Click(sender, e);
                 formAnnouncement.Close();
                 formAnnouncement.Dispose();
                 this.Visible = true;
                 fileStream.Close();
+                btn_exit_editProfile_Click(sender, e);
             }
+        }
+
+        private void btn_exit_editProfile_Click(object sender, EventArgs e)
+        {
+            panel_edit_info.Visible = false;
+            panel_info.Visible = true;
+            btn_update_info.Visible = true;
+            btn_save_profile.Visible = false;
+            this.Visible = false;
         }
     }
 }

@@ -38,6 +38,7 @@
             tb_search = new TextBox();
             pb_logo_UPIC = new PictureBox();
             panel_bg = new Panel();
+            popupuc1 = new popupUC();
             panel2 = new Panel();
             btn_allfriends = new Button();
             btn_friendrequests = new Button();
@@ -95,6 +96,7 @@
             pb_friends.SizeMode = PictureBoxSizeMode.Zoom;
             pb_friends.TabIndex = 5;
             pb_friends.TabStop = false;
+            pb_friends.Click += pb_friends_Click;
             // 
             // pb_mess
             // 
@@ -175,12 +177,22 @@
             // panel_bg
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
+            panel_bg.BorderStyle = BorderStyle.FixedSingle;
+            panel_bg.Controls.Add(popupuc1);
             panel_bg.Controls.Add(panel2);
             panel_bg.Dock = DockStyle.Fill;
             panel_bg.Location = new Point(0, 0);
             panel_bg.Name = "panel_bg";
             panel_bg.Size = new Size(1600, 900);
             panel_bg.TabIndex = 4;
+            // 
+            // popupuc1
+            // 
+            popupuc1.Location = new Point(1317, 72);
+            popupuc1.Name = "popupuc1";
+            popupuc1.Size = new Size(243, 195);
+            popupuc1.TabIndex = 1;
+            popupuc1.Visible = false;
             // 
             // panel2
             // 
@@ -197,6 +209,7 @@
             // btn_allfriends
             // 
             btn_allfriends.BackColor = Color.FromArgb(213, 216, 220);
+            btn_allfriends.Cursor = Cursors.Hand;
             btn_allfriends.FlatAppearance.BorderColor = Color.White;
             btn_allfriends.FlatStyle = FlatStyle.Flat;
             btn_allfriends.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -211,6 +224,7 @@
             // btn_friendrequests
             // 
             btn_friendrequests.BackColor = Color.FromArgb(213, 216, 220);
+            btn_friendrequests.Cursor = Cursors.Hand;
             btn_friendrequests.FlatAppearance.BorderColor = Color.White;
             btn_friendrequests.FlatStyle = FlatStyle.Flat;
             btn_friendrequests.Font = new Font("Be Vietnam Pro SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -379,6 +393,7 @@
             ClientSize = new Size(1600, 900);
             Controls.Add(panelHeader);
             Controls.Add(panel_bg);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "friendsForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -431,5 +446,6 @@
         private Label lbl_profile_username;
         private Label lbl_friend_name;
         private PictureBox pb_avatar_of_user_request;
+        private popupUC popupuc1;
     }
 }

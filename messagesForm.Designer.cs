@@ -418,6 +418,7 @@
             // panel_bg
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
+            panel_bg.BorderStyle = BorderStyle.FixedSingle;
             panel_bg.Dock = DockStyle.Fill;
             panel_bg.Location = new Point(0, 0);
             panel_bg.Name = "panel_bg";
@@ -434,8 +435,10 @@
             Controls.Add(panel2);
             Controls.Add(panelHeader);
             Controls.Add(panel_bg);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "messagesForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Upic";
             panelHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pb_friends).EndInit();

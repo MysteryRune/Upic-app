@@ -64,3 +64,4 @@ D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.UI.Toolkit.dll
 D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.UI.dll
 D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.Xaml.dll
 D:\Project\C#\Upic\bin\Debug\net7.0-windows\Uno.dll
+D:\Project\C#\Upic\bin\Debug\net7.0-windows\Upic\res\logoImg\Logo-Brand.ico

@@ -41,12 +41,17 @@ namespace Upic
 
         private void pb_logo_UPIC_Click(object sender, EventArgs e)
         {
-            resetProfileNone();
+            //resetProfileNone();
+
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            homepageForm.homePageInstance.Visible = true;
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            //            homepageForm.homePageInstance.ShowInTaskbar = true;
             Close();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.Visible = true;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.ShowInTaskbar = true;
+            Dispose();
+            homepageForm tmp = new homepageForm();
+            tmp.setUsername(username);
+            tmp.Show();
         }
 
         private void pb_friends_Click(object sender, EventArgs e)
@@ -75,10 +80,17 @@ namespace Upic
 
         private void pb_user1_Click(object sender, EventArgs e)
         {
-            //Close();
-            //userProfileForm tmp = new userProfileForm();
-            //tmp.setUsername(username);
-            //tmp.Show();
+            //resetStateEditProfileUC();
+            //userProfileForm_Load(sender, e);
+            if (popupuc1.Visible == false)
+            {
+                popupuc1.BringToFront();
+                popupuc1.Visible = true;
+            }
+            else
+            {
+                popupuc1.Visible = false;
+            }
         }
 
         private void btn_edit_profile_Click(object sender, EventArgs e)
@@ -91,8 +103,10 @@ namespace Upic
 
         private async void userProfileForm_Load(object sender, EventArgs e)
         {
+            popupuc1.setParentForm(this);
             panel_bg_Click(sender, e);
             loadAllPostFromDatabaseForPersonalAsync();
+            editProfileuc1.Visible = false;
             panel_profile_and_posts.Visible = true;
             panel_bg.Controls["flp_profile_and_posts"].Visible = true;
 
@@ -169,6 +183,15 @@ namespace Upic
             {
                 userProfileForm_Load(sender, e);
             }
+        }
+
+        public void resetStateEditProfileUC()
+        {
+            editProfileuc1.Controls["panel_edit_info"].Visible = false;
+            editProfileuc1.Controls["panel_info"].Visible = true;
+            editProfileuc1.Controls["btn_update_info"].Visible = true;
+            editProfileuc1.Controls["btn_save_profile"].Visible = false;
+            editProfileuc1.Visible = false;
         }
 
         private void resetProfileNone()
