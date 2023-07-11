@@ -19,6 +19,11 @@ namespace Upic
             InitializeComponent();
         }
 
+        public void setUsername(String username)
+        {
+            this.username = username;
+        }
+
         private void panel_bg_Paint(object sender, PaintEventArgs e)
         {
             ActiveControl = null;

@@ -19,6 +19,11 @@ namespace Upic
             InitializeComponent();
         }
 
+        public void setUsername(String username)
+        {
+            this.username = username;
+        }
+
 
         private void panel_bg_Click(object sender, EventArgs e)
         {
@@ -39,11 +44,14 @@ namespace Upic
 
         private void pb_logo_UPIC_Click(object sender, EventArgs e)
         {
+            this.Dispose();
             Close();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.Visible = true;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.ShowInTaskbar = true;
+            homepageForm tmp = new homepageForm();
+            tmp.Show();
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            homepageForm.homePageInstance.Visible = true;
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            //            homepageForm.homePageInstance.ShowInTaskbar = true;
         }
 
         private void pb_mess_Click(object sender, EventArgs e)

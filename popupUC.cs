@@ -13,6 +13,13 @@ namespace Upic
 {
     public partial class popupUC : UserControl
     {
+        private Form parentForm;
+
+        public void setParentForm(Form form)
+        {
+            this.parentForm = form;
+        }
+
         public popupUC()
         {
             InitializeComponent();
@@ -21,13 +28,16 @@ namespace Upic
         private void panel_profile_user_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.Visible = false;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.ShowInTaskbar = false;
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            homepageForm.homePageInstance.Visible = false;
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            //            homepageForm.homePageInstance.ShowInTaskbar = false;
+            this.ParentForm.Close();
+            this.parentForm.Dispose();
 
             userProfileForm tmp = new userProfileForm();
-            tmp.setUsername(homepageForm.homePageInstance.username);
+            tmp.setUsername(loginForm.loginPageInstance.userLogging);
+            loginForm.loginPageInstance.Visible = false;
             tmp.Show();
         }
 
@@ -43,12 +53,18 @@ namespace Upic
 
         private void panel_logout_Click(object sender, EventArgs e)
         {
-            homepageForm.homePageInstance.username = "";
-            homepageForm.homePageInstance.resetHomePageNone();
-            homepageForm.homePageInstance.Visible = false;
+            this.parentForm.Close();
+            this.Dispose();
+            //homepageForm.homePageInstance.Close();
+            loginForm.loginPageInstance.userLogging = "";
+            loginForm.loginPageInstance.Visible = true;
+            //homepageForm.homePageInstance.username = "";
+            //homepageForm.homePageInstance.resetHomePageNone();
+            //homepageForm.homePageInstance.Visible = false;
 
-            loginForm tmp = new loginForm();
-            tmp.Show();
+
+            //loginForm tmp = new loginForm();
+            //tmp.Show();
         }
 
         private void pb_logout_Click(object sender, EventArgs e)

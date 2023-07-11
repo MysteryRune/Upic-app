@@ -7,12 +7,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>res\logoImg\Logo-Brand.ico</ApplicationIcon>
   </PropertyGroup>
 
-
-	<ItemGroup>
-		<Folder Include="res\logoImg\" />
-	</ItemGroup>
+  <ItemGroup>
+    <Content Include="res\logoImg\Logo-Brand.ico" />
+  </ItemGroup>
 
 
 	<ItemGroup>

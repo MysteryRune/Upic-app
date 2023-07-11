@@ -607,6 +607,147 @@ namespace Upic.myMethods.visualizeCustom
             }
             return panel;
         }
+
+        public Panel createLayoutMode3Post(String[] pathFiles, Form form, String idProperty)
+        {
+            // Layout: Column style
+            // Amount picture must > 1
+            int amountPicture = pathFiles.Length;
+            Panel panel = new Panel();
+            panel.Name = "panel_listImage" + "_" + idProperty;
+            panel.BackColor = ColorTranslator.FromHtml("#f6f6f6");
+            //panel.Location = new Point(45, 360);
+            panel.BorderStyle = BorderStyle.None;
+
+            switch (amountPicture)
+            {
+                case 2:
+                    {
+                        panel.Size = new Size(860, 860);
+
+                        PictureBox pb = new PictureBox();
+                        pb.Name = "pb_image1" + "_" + idProperty;
+                        pb.Location = new Point(20, 20);
+                        pb.Size = new Size(820, 400);
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.BorderStyle = BorderStyle.None;
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                        panel.Controls.Add(pb);
+
+                        pb = new PictureBox();
+                        pb.Name = "pb_image2" + "_" + idProperty;
+                        pb.Location = new Point(20, 440);
+                        pb.Size = new Size(820, 400);
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.BorderStyle = BorderStyle.None;
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                        panel.Controls.Add(pb);
+                        break;
+                    }
+                case 3:
+                    {
+                        panel.Size = new Size(860, 860);
+
+                        PictureBox pb = new PictureBox();
+                        pb.Name = "pb_image1" + "_" + idProperty;
+                        pb.Location = new Point(20, 20);
+                        pb.Size = new Size(400, 780);
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.BorderStyle = BorderStyle.None;
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                        panel.Controls.Add(pb);
+
+                        pb = new PictureBox();
+                        pb.Name = "pb_image2" + "_" + idProperty;
+                        pb.Location = new Point(20 + 400 + 20, 60);
+                        pb.Size = new Size(380, 380);
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.BorderStyle = BorderStyle.None;
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                        panel.Controls.Add(pb);
+
+                        pb = new PictureBox();
+                        pb.Name = "pb_image3" + "_" + idProperty;
+                        pb.Location = new Point(20 + 400 + 20, 60 + 380 + 20);
+                        pb.Size = new Size(380, 380);
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.BorderStyle = BorderStyle.None;
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                        panel.Controls.Add(pb);
+                        break;
+                    }
+                default:
+                    {
+                        panel.Size = new Size(860, 860);
+
+                        PictureBox pb = new PictureBox();
+                        pb.Name = "pb_image1" + "_" + idProperty;
+                        pb.Location = new Point(20, 20);
+                        pb.Size = new Size(380, 380);
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.BorderStyle = BorderStyle.None;
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                        panel.Controls.Add(pb);
+
+                        pb = new PictureBox();
+                        pb.Name = "pb_image2" + "_" + idProperty;
+                        pb.Location = new Point(20, 20 + 380 + 20);
+                        pb.Size = new Size(380, 380);
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.BorderStyle = BorderStyle.None;
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                        panel.Controls.Add(pb);
+
+                        pb = new PictureBox();
+                        pb.Name = "pb_image3" + "_" + idProperty;
+                        pb.Location = new Point(20 + 380 + 60, 60);
+                        pb.Size = new Size(380, 380);
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.BorderStyle = BorderStyle.None;
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                        panel.Controls.Add(pb);
+
+                        pb = new PictureBox();
+                        pb.Name = "pb_image4" + "_" + idProperty;
+                        pb.Location = new Point(20 + 380 + 60, 60 + 380 + 20);
+                        pb.Size = new Size(380, 380);
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.BorderStyle = BorderStyle.None;
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                        panel.Controls.Add(pb);
+
+                        if (amountPicture > 4)
+                        {
+                            Label lbl = new Label();
+                            lbl.Name = "lbl_seeMorePicture" + "_" + idProperty;
+                            lbl.Location = new Point(0, 0);
+                            lbl.Size = new Size(190, 560);
+                            lbl.Parent = pb;
+                            lbl.BackColor = Color.FromArgb(102, 0, 0, 0); //Color.Transparent;
+                            lbl.TextAlign = ContentAlignment.MiddleCenter;
+                            lbl.Font = new Font("Be Vietnam Pro Black", 40F, FontStyle.Bold, GraphicsUnit.Point);
+                            lbl.ForeColor = ColorTranslator.FromHtml("#ffffff");
+                            lbl.Text = "+" + (amountPicture - 3).ToString();
+#pragma warning disable CS8604 // Possible null reference argument.
+                            lbl.Click += (sender, EventArgs) => lbl_seeMorePicture_CLick(sender, EventArgs, pathFiles, form, idProperty);
+                            lbl.Cursor = Cursors.Hand;
+#pragma warning restore CS8604 // Possible null reference argument.
+                            pb.Controls.Add(lbl);
+                        }
+                        break;
+                    }
+            }
+            return panel;
+        }
     }
 
     class postShowHomePage
@@ -671,7 +812,7 @@ namespace Upic.myMethods.visualizeCustom
             ava.SizeMode = PictureBoxSizeMode.Zoom;
             var obj = storage.GetObject(bucketName, userInfo["Avatar profile"].ToString());
             String pathFolderTemp = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, @"temp/", tempFolderName);
-            String nameTempFile = "tmp_" + (tempFileVarible.Count + 1).ToString() + "." + obj.ContentType.ToString().Split("/")[1];
+            String nameTempFile = "userAvatarTemp_" + postID.Split("_")[2] + "." + obj.ContentType.ToString().Split("/")[1];
             var fileStream = File.Create(pathFolderTemp + "/" + nameTempFile);
             await storage.DownloadObjectAsync(bucketName, userInfo["Avatar profile"].ToString(), fileStream);
             String path_tmpFile = Path.GetFullPath(fileStream.Name);
@@ -738,7 +879,8 @@ namespace Upic.myMethods.visualizeCustom
 
             foreach (Object user in amountLikeOnDatabase)
             {
-                if (user.ToString() == postID.Split("_")[2])
+                String username = loginForm.loginPageInstance.userLogging;
+                if (user.ToString() == username)
                 {
                     likeBtn.BackgroundImage = global::Upic.Properties.Resources.heartIconFill;
                     likeBtn.Text = " "; // like
@@ -841,31 +983,62 @@ namespace Upic.myMethods.visualizeCustom
                         flp_tmp.Controls.Add(listPicture);
                         break;
                     }
+                case 3:
+                    {
+                        FlowLayoutPanel flp_tmp = new FlowLayoutPanel();
+                        flp_tmp.Name = "flp_contentPost_" + postID;
+                        flp_tmp.AutoSize = true;
+                        flp_tmp.Margin = new Padding(25, 0, 25, 0);
+                        flp_tmp.Location = new Point(50, 90);
+                        flp_tmp.FlowDirection = FlowDirection.TopDown;
+                        flp_tmp.BackColor = Color.Transparent;
+                        panelPost.Controls.Add(flp_tmp);
+
+                        lbl = new Label();
+                        lbl.Name = "lbl_captionPost_" + postID;
+                        lbl.Font = new Font("Be Vietnam Pro", 9F, FontStyle.Regular, GraphicsUnit.Point);
+                        lbl.Text = postInfo["Post status"].ToString();
+                        lbl.ForeColor = Color.Black;
+                        lbl.AutoSize = true;
+                        lbl.Margin = new Padding(0, 0, 0, 10);
+                        lbl.MaximumSize = new Size(900, 0);
+                        lbl.Location = new Point(0, 0);
+                        lbl.BackColor = Color.Transparent;
+                        flp_tmp.Controls.Add(lbl);
+
+                        listPicture = (new layoutPost()).createLayoutMode3Post(pathFileTempImageDownloadLocal.ToArray(), form, postID);
+                        listPicture.Margin = new Padding(20, 0, 20, 0);
+                        flp_tmp.Controls.Add(listPicture);
+                        break;
+                    }
             }
             for (int i = 0; i < pathFileTempImageDownloadLocal.Count; i++)
             {
-                if (i == 4)
+                if (i < 4)
                 {
-                    break;
-                }
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                Control pb = listPicture.Controls["pb_image" + (i + 1).ToString() + "_" + postID] as PictureBox;
+                    Control pb = listPicture.Controls["pb_image" + (i + 1).ToString() + "_" + postID] as PictureBox;
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                fileStream = File.OpenRead(pathFileTempImageDownloadLocal[i]);
-                image = new BitmapImage();
-                image.BeginInit();
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.StreamSource = fileStream;
-                image.EndInit();
-                (pb as PictureBox).Image = Image.FromStream(fileStream);
-                fileStream.Close();
-                File.Delete(fileStream.Name);
+                    fileStream = File.OpenRead(pathFileTempImageDownloadLocal[i]);
+                    image = new BitmapImage();
+                    image.BeginInit();
+                    image.CacheOption = BitmapCacheOption.OnLoad;
+                    image.StreamSource = fileStream;
+                    image.EndInit();
+                    (pb as PictureBox).Image = Image.FromStream(fileStream);
+                    fileStream.Close();
+                    File.Delete(fileStream.Name);
 
-                //(pb as PictureBox).Image = System.Drawing.Image.FromFile(pathFileTempImageDownloadLocal[i]);
+                    //(pb as PictureBox).Image = System.Drawing.Image.FromFile(pathFileTempImageDownloadLocal[i]);
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
+                }
+                else
+                {
+                    File.Delete(pathFileTempImageDownloadLocal[i]);
+                }
             }
 
             return flp;

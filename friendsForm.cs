@@ -28,12 +28,15 @@ namespace Upic
             FormClosed += new FormClosedEventHandler(friendForm_FormClosedByXBtt);
         }
 
+        public void setUsername(String username)
+        {
+            this.username = username;
+        }
+
         private void returnToHomePage()
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.Visible = true;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            homepageForm.homePageInstance.ShowInTaskbar = true;
+            homepageForm tmp = new homepageForm();
+            tmp.Show();
         }
 
         private void friendForm_FormClosedByXBtt(object sender, FormClosedEventArgs e)
@@ -63,27 +66,62 @@ namespace Upic
             Close();
             returnToHomePage();
         }
+
+        private void pb_friends_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.Visible = false;
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.ShowInTaskbar = false;
+
+            friendsForm tmp = new friendsForm();
+            tmp.setUsername(username);
+            tmp.Show();
+        }
+
         private void pb_mess_Click(object sender, EventArgs e)
         {
             Close();
-            Form form = new messagesForm();
-            form.Show();
+            Dispose();
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.Visible = false;
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.ShowInTaskbar = false;
+
+            messagesForm tmp = new messagesForm();
+            tmp.setUsername(username);
+            tmp.Show();
         }
 
         private void pb_noti_Click(object sender, EventArgs e)
         {
             Close();
-            Form form = new notificationsForm();
-            form.Show();
+            Dispose();
+            //#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.Visible = false;
+            //#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            //            homePageInstance.ShowInTaskbar = false;
+
+            notificationsForm tmp = new notificationsForm();
+            tmp.setUsername(username);
+            tmp.Show();
         }
 
         private void pb_user1_Click(object sender, EventArgs e)
         {
-            Close();
-            userProfileForm tmp = new userProfileForm();
-            tmp.setUsername(username);
-            tmp.Show();
+            if (popupuc1.Visible == false)
+            {
+                popupuc1.BringToFront();
+                popupuc1.Visible = true;
+            }
+            else
+            {
+                popupuc1.Visible = false;
+            }
         }
+
         private List<FriendRequest> friendRequests = new List<FriendRequest>();
         private List<string> friends = new List<string>();
 

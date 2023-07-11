@@ -67,9 +67,11 @@
             label12 = new Label();
             label13 = new Label();
             label14 = new Label();
+            btn_exit_editProfile = new PictureBox();
             panel_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_profile_user_avatar).BeginInit();
             panel_edit_info.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btn_exit_editProfile).BeginInit();
             SuspendLayout();
             // 
             // panel_info
@@ -510,11 +512,24 @@
             label14.TabIndex = 2;
             label14.Text = "Tên hồ sơ:";
             // 
+            // btn_exit_editProfile
+            // 
+            btn_exit_editProfile.Cursor = Cursors.Hand;
+            btn_exit_editProfile.Image = Properties.Resources.exit_fill;
+            btn_exit_editProfile.Location = new Point(873, 12);
+            btn_exit_editProfile.Name = "btn_exit_editProfile";
+            btn_exit_editProfile.Size = new Size(50, 50);
+            btn_exit_editProfile.SizeMode = PictureBoxSizeMode.Zoom;
+            btn_exit_editProfile.TabIndex = 29;
+            btn_exit_editProfile.TabStop = false;
+            btn_exit_editProfile.Click += btn_exit_editProfile_Click;
+            // 
             // editProfileUC
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(btn_exit_editProfile);
             Controls.Add(panel_info);
             Controls.Add(panel_edit_info);
             Controls.Add(btn_save_profile);
@@ -532,6 +547,7 @@
             ((System.ComponentModel.ISupportInitialize)pb_profile_user_avatar).EndInit();
             panel_edit_info.ResumeLayout(false);
             panel_edit_info.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btn_exit_editProfile).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -577,5 +593,6 @@
         private Label label12;
         private Label label13;
         private Label label14;
+        private PictureBox btn_exit_editProfile;
     }
 }

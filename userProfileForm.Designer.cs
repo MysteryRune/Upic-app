@@ -38,6 +38,7 @@
             tb_search = new TextBox();
             pb_logo_UPIC = new PictureBox();
             panel_bg = new Panel();
+            popupuc1 = new popupUC();
             panel_profile_and_posts = new Panel();
             btn_edit_profile = new Button();
             lbl_numbers_of_friends = new Label();
@@ -73,6 +74,7 @@
             // 
             // pb_friends
             // 
+            pb_friends.Cursor = Cursors.Hand;
             pb_friends.Image = Properties.Resources.friends_shape_line;
             pb_friends.Location = new Point(1286, 7);
             pb_friends.Name = "pb_friends";
@@ -84,6 +86,7 @@
             // 
             // pb_mess
             // 
+            pb_mess.Cursor = Cursors.Hand;
             pb_mess.Image = Properties.Resources.mess_shape_line;
             pb_mess.Location = new Point(1362, 12);
             pb_mess.Name = "pb_mess";
@@ -96,6 +99,7 @@
             // pb_noti
             // 
             pb_noti.BackColor = Color.Transparent;
+            pb_noti.Cursor = Cursors.Hand;
             pb_noti.Image = Properties.Resources.notificationIcon1;
             pb_noti.Location = new Point(1430, 8);
             pb_noti.Name = "pb_noti";
@@ -108,6 +112,7 @@
             // pb_user1
             // 
             pb_user1.BackColor = Color.Transparent;
+            pb_user1.Cursor = Cursors.Hand;
             pb_user1.Image = Properties.Resources.accountIcon1;
             pb_user1.Location = new Point(1500, 6);
             pb_user1.Name = "pb_user1";
@@ -132,6 +137,7 @@
             // 
             tb_search.BackColor = Color.FromArgb(240, 242, 245);
             tb_search.BorderStyle = BorderStyle.None;
+            tb_search.Cursor = Cursors.IBeam;
             tb_search.Font = new Font("Be Vietnam Pro", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             tb_search.Location = new Point(20, 21);
             tb_search.Multiline = true;
@@ -144,6 +150,7 @@
             // 
             pb_logo_UPIC.BackColor = Color.White;
             pb_logo_UPIC.BackgroundImageLayout = ImageLayout.Zoom;
+            pb_logo_UPIC.Cursor = Cursors.Hand;
             pb_logo_UPIC.Image = Properties.Resources.upic_logo;
             pb_logo_UPIC.Location = new Point(33, 7);
             pb_logo_UPIC.Name = "pb_logo_UPIC";
@@ -156,6 +163,8 @@
             // panel_bg
             // 
             panel_bg.BackColor = Color.FromArgb(234, 236, 238);
+            panel_bg.BorderStyle = BorderStyle.FixedSingle;
+            panel_bg.Controls.Add(popupuc1);
             panel_bg.Controls.Add(panel_profile_and_posts);
             panel_bg.Controls.Add(editProfileuc1);
             panel_bg.Dock = DockStyle.Fill;
@@ -164,6 +173,14 @@
             panel_bg.Size = new Size(1600, 900);
             panel_bg.TabIndex = 4;
             panel_bg.Click += panel_bg_Click;
+            // 
+            // popupuc1
+            // 
+            popupuc1.Location = new Point(1317, 72);
+            popupuc1.Name = "popupuc1";
+            popupuc1.Size = new Size(243, 195);
+            popupuc1.TabIndex = 3;
+            popupuc1.Visible = false;
             // 
             // panel_profile_and_posts
             // 
@@ -259,6 +276,7 @@
             ClientSize = new Size(1600, 900);
             Controls.Add(panelHeader);
             Controls.Add(panel_bg);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "userProfileForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -297,5 +315,6 @@
         private PictureBox pb_profile_user_avatar;
         private Button btn_edit_profile;
         private editProfileUC editProfileuc1;
+        private popupUC popupuc1;
     }
 }

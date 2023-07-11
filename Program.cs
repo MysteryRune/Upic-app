@@ -14,7 +14,7 @@ namespace Upic
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            homepageForm mainPage = new homepageForm();
+            loginForm mainPage = new loginForm();
             Application.Run(mainPage);
 
 
